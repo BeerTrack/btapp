@@ -1,0 +1,1013 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"i",
+				"italic"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"new",
+				"newPassesArray"
+			],
+			[
+				"ema",
+				"emailForResend"
+			],
+			[
+				"pass",
+				"passURLRef"
+			],
+			[
+				"bar",
+				"barcodesNames"
+			],
+			[
+				"n",
+				"maybeName"
+			],
+			[
+				"via",
+				"viaRailAll"
+			],
+			[
+				"nw",
+				"newBarCodeRead"
+			],
+			[
+				"from",
+				"fromEmail"
+			],
+			[
+				"vi",
+				"viaRailAll"
+			],
+			[
+				"l",
+				"lastName"
+			],
+			[
+				"passA",
+				"passAddress"
+			],
+			[
+				"email",
+				"emailLookup"
+			],
+			[
+				"re",
+				"returnedData"
+			],
+			[
+				"passw",
+				"passwordLogin"
+			],
+			[
+				"pa",
+				"passwordSignUp"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"z",
+				"zxingPath"
+			],
+			[
+				"sec",
+				"secondDate"
+			],
+			[
+				"depar",
+				"departure"
+			],
+			[
+				"arr",
+				"arrivalStation"
+			],
+			[
+				"str",
+				"strlen"
+			],
+			[
+				"p",
+				"passedPassID"
+			],
+			[
+				"fiel",
+				"fileName"
+			],
+			[
+				"arri",
+				"arrivalDate"
+			],
+			[
+				"depat",
+				"departureWord"
+			],
+			[
+				"dep",
+				"departDateNoStop"
+			],
+			[
+				"strp",
+				"strpos"
+			],
+			[
+				"depart",
+				"departTime"
+			],
+			[
+				"fir",
+				"firstDepartureWord"
+			],
+			[
+				"getpas",
+				"getPassDataPrePost"
+			],
+			[
+				"in",
+				"inbound"
+			],
+			[
+				"our",
+				"ourPassID"
+			],
+			[
+				"strip",
+				"stripImagePath"
+			],
+			[
+				"tr",
+				"trainNum"
+			],
+			[
+				"with",
+				"withYouth"
+			],
+			[
+				"ob",
+				"objWeWant"
+			],
+			[
+				"pos",
+				"posPreData"
+			],
+			[
+				"json",
+				"jsonLocation"
+			],
+			[
+				"tem",
+				"tempImagePath"
+			],
+			[
+				"for",
+				"for	for …"
+			],
+			[
+				"pho",
+				"photoPositionBeforeMoveWidth"
+			],
+			[
+				"phot",
+				"photoPositionBeforeMove"
+			],
+			[
+				"an",
+				"animateOff"
+			],
+			[
+				"membe",
+				"memberClicked"
+			],
+			[
+				"fun",
+				"fun	Function"
+			],
+			[
+				"eve",
+				"eventReadys"
+			],
+			[
+				"r",
+				"relative"
+			],
+			[
+				"le",
+				"leftToWall"
+			],
+			[
+				"pane",
+				"panelCarousel"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"fi",
+				"firstHeroH2"
+			],
+			[
+				"tim",
+				"timeTake1"
+			],
+			[
+				"MOda",
+				"modalHeight"
+			],
+			[
+				"pag",
+				"pageCenter"
+			],
+			[
+				"cure",
+				"currentTopOfPageOffset"
+			],
+			[
+				"de",
+				"delayTake1"
+			],
+			[
+				"hero",
+				"hero-panel1"
+			],
+			[
+				"pro",
+				"pri_TL_firstHeroBanner"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"modal",
+				"modalHeight"
+			],
+			[
+				"page",
+				"pageHeightFull"
+			],
+			[
+				"moda",
+				"modalWidth"
+			],
+			[
+				"mo",
+				"modalWidthInt"
+			],
+			[
+				"sing",
+				"singleCardCurrentLeft"
+			],
+			[
+				"single",
+				"singleCardCurrentWidth"
+			],
+			[
+				"cur",
+				"currentLeftPositionBox"
+			],
+			[
+				"work",
+				"work-block1"
+			],
+			[
+				"card",
+				"card-r1"
+			],
+			[
+				"kli",
+				"klickPartnerships_SlideCopy"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"why",
+				"whyHealth_SlideCopy"
+			],
+			[
+				"firs",
+				"firstHeroCopy"
+			],
+			[
+				"first",
+				"firstHeroCopyAni"
+			],
+			[
+				"time",
+				"timeline_firstHeroBanner"
+			],
+			[
+				"sltm",
+				"sltMarginDown"
+			],
+			[
+				"slt",
+				"sltShot"
+			],
+			[
+				"play",
+				"playerIDNoHash"
+			],
+			[
+				"pla",
+				"playerID"
+			],
+			[
+				"mi",
+				"minorWidthAdjustment"
+			],
+			[
+				"player",
+				"playerID"
+			],
+			[
+				"au",
+				"autoPlayPause"
+			],
+			[
+				"you",
+				"youTubePlayer"
+			],
+			[
+				"cr",
+				"currentVol"
+			],
+			[
+				"vide",
+				"videoPlayingATM"
+			],
+			[
+				"video",
+				"videoPlayingATM"
+			],
+			[
+				"panel",
+				"panelSlide"
+			],
+			[
+				"vid",
+				"vidPlayerAttr"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"pan",
+				"panelSlide"
+			],
+			[
+				"sli",
+				"slideH"
+			],
+			[
+				"aspec",
+				"aspectRatioO"
+			],
+			[
+				"margin",
+				"marginVal"
+			],
+			[
+				"mag",
+				"marginVal"
+			],
+			[
+				"panelS",
+				"panelSlideCurrentHeight"
+			],
+			[
+				"pah",
+				"pageWidth"
+			],
+			[
+				"va",
+				"valueWidth"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"fon",
+				"font-thin"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"magr",
+				"margin-left"
+			],
+			[
+				"wni",
+				"windowHeight"
+			],
+			[
+				"win",
+				"windowHeight"
+			],
+			[
+				"f",
+				"fun	Function"
+			],
+			[
+				"mod",
+				"modalWidth"
+			],
+			[
+				"c",
+				"console"
+			],
+			[
+				"cardB",
+				"cardBackLaunch"
+			],
+			[
+				"si",
+				"singleCard"
+			],
+			[
+				"singl",
+				"singleCard"
+			],
+			[
+				"a",
+				"absolute"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"u",
+				"uppercase"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"add",
+				"addTo"
+			],
+			[
+				"gr",
+				"greenSockManAnimate_Scene"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 287.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/phileverson/Repos/btapp"
+	],
+	"file_history":
+	[
+		"/Users/phileverson/Repos/btapp/index.php",
+		"/Users/phileverson/Repos/via-porter/assets/css/main.css",
+		"/Users/phileverson/Repos/via-porter/index.html",
+		"/Users/phileverson/Repos/via-porter-ios/www/index.html",
+		"/Users/phileverson/Repos/via-porter-ios/config.xml",
+		"/Users/phileverson/Repos/via-porter/process/resend.php",
+		"/Users/phileverson/Repos/via-porter/process/index.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_createPass.php",
+		"/Users/phileverson/Repos/via-porter/index.php",
+		"/Users/phileverson/Repos/via-porter/process/inbound.json",
+		"/Users/phileverson/Repos/via-porter/process/test_data.html",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_getStrips.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_formatStrip.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_saveJSON.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_sendEmail.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_parseJson.php",
+		"/Users/phileverson/Repos/via-porter-ios/www/styles/app.css",
+		"/Users/phileverson/Repos/via-porter/process/inbound_via_train_update.json",
+		"/Users/phileverson/Downloads/zxing-1992bd069eae74d0426af7bfec3901c3c54ff08d 2/zxingorg/pom.xml",
+		"/Users/phileverson/Repos/via-porter/process/pass-1423968094f806cc97.pkpass",
+		"/Users/phileverson/Repos/via-porter-ios/platforms/ios/www/index.html",
+		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/templates/tabs.html",
+		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/js/app.js",
+		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/index.html",
+		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/templates/tab-chats.html",
+		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/templates/tab-dash.html",
+		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/templates/tab-passes.html",
+		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/js/controllers.js",
+		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/js/services.js",
+		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/templates/tab-account.html",
+		"/Users/phileverson/Repos/via-porter-ios/platforms/ios/HelloCordova/HelloCordova-Info.plist",
+		"/Users/phileverson/Repos/via-porter-ios/platforms/ios/HelloCordova/config.xml",
+		"/Users/phileverson/Repos/via-porter/driving/inbound_parse.php",
+		"/Users/phileverson/Repos/via-porter/access/index.php",
+		"/Users/phileverson/Repos/via-porter/app/PKPass.php",
+		"/Users/phileverson/Repos/via-porter/z-dev-stuff/SimonWaldherr-passkit/data/generic.json",
+		"/Users/phileverson/Repos/via-porter/process/_extras/PKPass/index.php",
+		"/Users/phileverson/Repos/via-porter/process/_extras/PKPass/PKPass.php",
+		"/Users/phileverson/Repos/via-porter/process/pass-1419950255a5c1c47dpass.pkpass",
+		"/Users/phileverson/Repos/via-porter/app/index.php",
+		"/Users/phileverson/Repos/via-porter/process/_extras/SimonWaldherr-passkit/passkit.php",
+		"/Users/phileverson/Repos/via-porter/process/_extras/SimonWaldherr-passkit/index.php",
+		"/Users/phileverson/Repos/via-porter/process/_extras/SimonWaldherr-passkit/data/json.php",
+		"/Users/phileverson/Repos/via-porter/index-temp.php",
+		"/Users/phileverson/Repos/via-porter/driving/postmark-inbound-php-master/test/Postmark/Tests/ExceptionTest.php",
+		"/Users/phileverson/Desktop/eum2.14.10b-updater.app/Contents/Resources/Info.datx",
+		"/Users/phileverson/Desktop/eum2.14.10b-updater.app/Contents/Resources/Data.datx",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_getStrip.php",
+		"/Users/phileverson/Repos/via-porter/driving/app/image-test.php",
+		"/Users/phileverson/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/phileverson/Repos/via-porter/driving/inbound_process.php",
+		"/Users/phileverson/Repos/via-porter/z-dev-stuff/timtest.php",
+		"/Users/phileverson/Repos/via-porter/z-dev-stuff/html2canvas.js",
+		"/Users/phileverson/Repos/via-porter/z-dev-stuff/Sybio-ImageWorkshop-0a9d4cc/text-phil.php",
+		"/Users/phileverson/Repos/via-porter/driving/app/index.php",
+		"/Users/phileverson/Downloads/php_passbook-master/sign.php",
+		"/Users/phileverson/Repos/via-porter/z-dev-stuff/SimonWaldherr-passkit/index.php",
+		"/Users/phileverson/Repos/via-porter/driving/app/cimage-master/webroot/test/test.php",
+		"/Users/phileverson/Repos/via-porter/driving/inbound.json",
+		"/Users/phileverson/Repos/via-porter/driving/app/cimage-master/webroot/test/template.php",
+		"/Users/phileverson/Repos/via-porter/driving/app/cimage-master/webroot/test/config.php",
+		"/Users/phileverson/Repos/via-porter/driving/app/cimage-master/webroot/img.php",
+		"/Users/phileverson/Repos/via-porter/driving/app/cimage-master/webroot/img_config.php",
+		"/Users/phileverson/Repos/via-porter/driving/postmark-inbound-php-master/example/without_composer/index.php",
+		"/Users/phileverson/Repos/via-porter/driving/postmark-inbound-php-master/fixtures/inbound.json",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-slt.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_slt-panel.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/slt.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/069c4339c967e95225b24c49d6c475b6042b0eca/_slt-panel.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/single-OLD.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-OLD-globals/_OLD-player.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-OLD-modules/_OLD-contact-page.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/init.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/base/_owl-carousel.scss",
+		"/Users/phileverson/Repos/mytodo3/Gruntfile.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/homepage-init.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/page-homepage.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/top-ten.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/322e7abdda680fd09d0adcd445304aa1d9b77c70/_owl-carousel-base.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/**old-code-that-may-be-of-use/OLD-libs/owl.carousel.min.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/322e7abdda680fd09d0adcd445304aa1d9b77c70/_owl-carousel.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/vendor/owl.carousel.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-OLD-modules/_OLD-what-grid.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/**old-code-that-may-be-of-use/OLD-source/init.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/search.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt-contrib-concat/node_modules/source-map/build/test-prefix.js",
+		"/Users/phileverson/Repos/helloWeb/www/index.html",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/069c4339c967e95225b24c49d6c475b6042b0eca/_top-ten.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/19a8d548b8847fe702c9070172383b5fa86117cb/_top-ten.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_top-ten.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-top-ten.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-OLD-modules/_OLD-top-ten.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/taxonomy-custom_cat.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt-contrib-uglify/node_modules/maxmin/node_modules/gzip-size/node_modules/browserify-zlib/test/test-zlib-invalid-input.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/functions.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_work.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/browser-sync/node_modules/browser-sync-client/.idea/workspace.xml",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/069c4339c967e95225b24c49d6c475b6042b0eca/_work.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_media-blocks.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/media-blocks.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.gitignore",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/eloqua_style.css",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt/node_modules/js-yaml/examples/dumper.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/069c4339c967e95225b24c49d6c475b6042b0eca/_media-blocks.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/neat/grid/_media.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/header.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/footer.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-hero-banner.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/base/_variables.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/vendor/Greensock/ScrollToPlugin.js",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/base/_layout.scss",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/14933559b9ef8d0228254d64d06af1433247fb31/_media.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/023bca86e5f119966065c576b93ffc95850d964d/_media.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-solutions.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/ede6fb56bd05714b350696ee942f66c6d320f9b3/_variables.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/d84ab307a3ab9544aeb873f46db188929cb77135/_variables.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/94375b8dc1bf664bfdd22b8227d55441f99a721d/_variables.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/322e7abdda680fd09d0adcd445304aa1d9b77c70/_variables.scssc",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/single-videos.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-partnerships.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-why-health.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-blog.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-careers.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-contact.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-growing.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-lifecycle.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-thought-leadership.php",
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-work.php"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<open files>",
+			"<open files>,/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss",
+			"<open files>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"log",
+			"CanTicket",
+			"CanTi",
+			"doSom",
+			"onC",
+			"onclic",
+			"header",
+			"naviga",
+			"profile",
+			"item-la",
+			"can",
+			"train",
+			"len",
+			"echo",
+			"{\n",
+			"pkpass",
+			");\n",
+			"test",
+			"imageStrip",
+			"makePassU",
+			"create",
+			"wire",
+			"close",
+			"trigger",
+			"intro",
+			"conso",
+			"');\n",
+			"site",
+			"side",
+			"onWindowScroll",
+			"ipad",
+			"solutions",
+			"solutions-slide",
+			"media",
+			"<video ",
+			"partnerships",
+			"owl-buttons",
+			"-45",
+			"header",
+			"}\n",
+			"TweenMax",
+			"br",
+			">\n",
+			"localhost"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"CanTravel",
+			"<video preload=\"none\" "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "phil-sublime-project-file.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"inb",
+				"via-porter/process/inbound.json"
+			],
+			[
+				"p",
+				"app/PKPass.php"
+			],
+			[
+				"pk",
+				"app/PKPass.php"
+			],
+			[
+				"slt",
+				"library/scss/-modules/_slt-panel.scss"
+			],
+			[
+				"home",
+				"library/js/source/homepage-init.js"
+			],
+			[
+				"top",
+				"library/js/source/top-ten.js"
+			],
+			[
+				"owl",
+				"library/scss/base/_owl-carousel.scss"
+			],
+			[
+				"hom",
+				"library/js/source/homepage-init.js"
+			],
+			[
+				"init",
+				"library/js/source/init.js"
+			],
+			[
+				"sl",
+				"library/js/source/slt.js"
+			],
+			[
+				"hoem",
+				"library/js/source/homepage-init.js"
+			],
+			[
+				"work",
+				"library/scss/-modules/_work.scss"
+			],
+			[
+				"homepag",
+				"page-homepage.php"
+			],
+			[
+				"med",
+				"library/scss/-modules/_media-blocks.scss"
+			],
+			[
+				"hoe",
+				"library/js/source/homepage-init.js"
+			],
+			[
+				"var",
+				"library/scss/base/_variables.scss"
+			],
+			[
+				"hero",
+				"post-formats/homepage/format-hero-banner.php"
+			],
+			[
+				"head",
+				"header.php"
+			],
+			[
+				"media",
+				"library/scss/-modules/_media-blocks.scss"
+			],
+			[
+				"typ",
+				"library/scss/base/_typography.scss"
+			],
+			[
+				"conta",
+				"post-formats/homepage/format-contact.php"
+			],
+			[
+				"cont",
+				"page-contact.php"
+			],
+			[
+				"hop",
+				"library/js/source/homepage-init.js"
+			],
+			[
+				"car",
+				"library/scss/-modules/_careers.scss"
+			],
+			[
+				"thouhg",
+				"library/scss/-modules/_thought-leadership.scss"
+			],
+			[
+				"medi",
+				"library/js/source/media-blocks.js"
+			],
+			[
+				"parn",
+				"library/scss/-modules/_parnerships.scss"
+			],
+			[
+				"her",
+				"post-formats/homepage/format-hero-banner.php"
+			],
+			[
+				"why",
+				"post-formats/homepage/format-why-health.php"
+			],
+			[
+				"parte",
+				"post-formats/homepage/format-partnerships.php"
+			],
+			[
+				"format-he",
+				"post-formats/homepage/format-hero-banner.php"
+			],
+			[
+				"sol",
+				"post-formats/homepage/format-solutions.php"
+			],
+			[
+				"part",
+				"post-formats/homepage/format-partnerships.php"
+			],
+			[
+				"partner",
+				"post-formats/homepage/format-partnerships.php"
+			],
+			[
+				"form",
+				"post-formats/homepage/format-solutions.php"
+			],
+			[
+				"main",
+				"library/scss/-modules/_main.scss"
+			],
+			[
+				"footer",
+				"footer.php"
+			],
+			[
+				"format",
+				"post-formats/homepage/format-hero-banner.php"
+			],
+			[
+				"helve",
+				"library/scss/bourbon/helpers/_convert-units.scss"
+			],
+			[
+				"grun",
+				"Gruntfile.js"
+			],
+			[
+				"grunt",
+				"Gruntfile.js"
+			],
+			[
+				"thog",
+				"library/scss/-modules/_thought-leadership.scss"
+			],
+			[
+				"thoug",
+				"post-formats/homepage/format-thought-leadership.php"
+			],
+			[
+				"",
+				".gitignore"
+			],
+			[
+				"cehckbox",
+				"library/js/source/imported/css-checkbox.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 458.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 274.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
