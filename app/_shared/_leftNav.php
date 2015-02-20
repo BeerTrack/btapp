@@ -5,7 +5,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="../../assets/img/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="../../../assets/img/avatar3.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>Hello, Jane</p>
@@ -26,10 +26,10 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/app/report/production-inventory.php"><i class="fa fa-angle-double-right"></i> Production Inventory</a></li>
-                                <li><a href="/app/report/sales-inventory.php"><i class="fa fa-angle-double-right"></i> Sales Inventory</a></li>
-                                <li><a href="/app/report/sales-history.php"><i class="fa fa-angle-double-right"></i> Sales History</a></li>
-                                <li><a href="/app/report/pos-entry.php"><i class="fa fa-angle-double-right"></i> POS Entry</a></li>
+                                <li><a href="/app/report/production-inventory/"><i class="fa fa-angle-double-right"></i> Production Inventory</a></li>
+                                <li><a href="/app/report/sales-inventory/"><i class="fa fa-angle-double-right"></i> Sales Inventory</a></li>
+                                <li><a href="/app/report/sales-history/"><i class="fa fa-angle-double-right"></i> Sales History</a></li>
+                                <li><a href="/app/report/pos-entry/"><i class="fa fa-angle-double-right"></i> POS Entry</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -38,8 +38,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/app/decide/sales-forcast.php"><i class="fa fa-angle-double-right"></i> Sales Forcast</a></li>
-                                <li><a href="/app/decide/shipment-planner.php"><i class="fa fa-angle-double-right"></i> Shipment Planner</a></li>
+                                <li><a href="/app/decide/sales-forcast/"><i class="fa fa-angle-double-right"></i> Sales Forcast</a></li>
+                                <li><a href="/app/decide/shipment-planner/"><i class="fa fa-angle-double-right"></i> Shipment Planner</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -48,9 +48,9 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/app/global/manage-stores.php"><i class="fa fa-angle-double-right"></i> Manage Stores</a></li>
-                                <li><a href="/app/global/manage-beers.php"><i class="fa fa-angle-double-right"></i> Manage Beers</a></li>
-                                <li><a href="/app/global/brewery-details.php"><i class="fa fa-angle-double-right"></i> Brewery Details</a></li>
+                                <li><a href="/app/global/manage-stores/"><i class="fa fa-angle-double-right"></i> Manage Stores</a></li>
+                                <li><a href="/app/global/manage-beers/"><i class="fa fa-angle-double-right"></i> Manage Beers</a></li>
+                                <li><a href="/app/global/brewery-details/"><i class="fa fa-angle-double-right"></i> Brewery Details</a></li>
                             </ul>
                         </li>
                     </ul>
