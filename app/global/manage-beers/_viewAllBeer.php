@@ -33,6 +33,7 @@
 					echo "<td>" . $row['beer_price'] . "</td>";
 					echo "<td>" . $row['beer_size'] . "</td>";
 					echo "<td>" . $row['beer_type'] . "</td>";
+					echo "<td> <a href=\"?viewName=edit&beerid=" . $row['beer_id'] . "\">Edit</a></td>";
 					echo "</tr>";
 				}
 				?>
