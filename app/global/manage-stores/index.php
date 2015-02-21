@@ -12,16 +12,16 @@ $viewPageName = '';
 //which view to show
 switch ($viewName) {
     case "add":
-        $viewDisplayName = 'Manage Beers - Add Beer';
-        $viewPageName = '_addBeer.php';
+        $viewDisplayName = 'Manage Stores - Add Store';
+        $viewPageName = '_addStore.php';
         break;
     case "single":
-        $viewDisplayName = 'Manage Beers - Beer Detail';
-        $viewPageName = '_singleBeer.php';
+        $viewDisplayName = 'Manage Stores - Single Store';
+        $viewPageName = '_singleStore.php';
         break;
     default:
-        $viewDisplayName = 'Manage Beers - All Beers';
-        $viewPageName = '_viewAllBeer.php';
+        $viewDisplayName = 'Manage Stores - All Stores';
+        $viewPageName = '_viewAllStores.php';
         break;
 }
 
