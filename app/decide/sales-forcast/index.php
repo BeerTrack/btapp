@@ -1,5 +1,6 @@
 <?php
 include '../../_shared/_databaseConnection.php';
+include '_ianbarber_lin_reg.php';
 
 //**************************************************************
 //START: Homemade Controller (to determine which view to show)
@@ -33,12 +34,24 @@ switch ($viewName) {
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-$arrayOfPastDays = ''; // See here: http://www.w3schools.com/php/func_array.asp
-$arrayOfPastSalesOrInventoryLevels = ''; //see the same link above, arguably you could conbine these into a multi dimensional array. 
+$dataOfPhilAndChristian = array(
+array(5, 21),
+array(6, 25),
+array(7, 30),
+array(8, 31),
+array(10, 41),
+array(12, 50)
+);
 
-function basicForcast($pastDays, $pastSales, $numDaysAhead) //numDaysAhead is the number of days from the latest day you have sales data on. For example, if you have data on Monday and Tuesday, and want to know how much you're going to sell on Friday, this value is "3".
+function basicForcast($pointsPassed)
 {
-    echo ' test called basicForcast';
+    $parameters = array(0, 0);
+    $last_parameters = false;
+    do {
+        $last_parameters = $parameters;
+        $parameters = gradient($pointsPassed, $parameters);
+    } while($parameters != false);
+    return  ($last_parameters);
 }
 
 
