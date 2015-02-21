@@ -30,6 +30,9 @@ switch ($requestedAction) {
     case "submitUpdates": //called when edit page is posted back
         editBeerProcess();
         break;
+    case "add":
+        addStoreProcess();
+        break;
 }
 //END: Homemade controller
 
@@ -39,7 +42,17 @@ switch ($requestedAction) {
 //**************************************************************
 function addStoreProcess()
 {
-    # code...
+
+//Posting variables and escaping for security
+$locationName = mysql_escape_string($_POST['locationName']);
+$locationAddress = mysql_escape_string($_POST['locationAddress']);
+
+//Inserting store information into database
+$insert_store="INSERT INTO stores (location_name, location_address, brewery_id)
+VALUES ('$locationName', '$locationAddress', '1')";
+
+beerTrackDBQuery($insert_store);
+
 }
 
 function deleteStore()
