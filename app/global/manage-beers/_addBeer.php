@@ -16,6 +16,11 @@
                                             <input type="number" class="form-control" id="beerPrice" name="beerPrice" placeholder="Enter Price"/>
                                         </div>
 
+                                         <div class="form-group">
+                                            <labelfor="beerSize">Size</label>
+                                            <input type="number" class="form-control" id="beerSize" name="beerSize" placeholder="Enter Size in ml"/>
+                                        </div>
+
                                         <div class="form-group">
                                             <labelfor="beerType">Select Type</label>
                                             <select class="form-control" id="beerType" name="beerType">
@@ -25,8 +30,8 @@
                                         </div>
 
                                          <div class="form-group">
-                                            <labelfor="beerSize">Select Size</label>
-                                            <select class="form-control" id="beerSize" name="beerSize">
+                                            <labelfor="beerQuantity">Select Quantity</label>
+                                            <select class="form-control" id="beerQuantity" name="beerQuantity">
                                                 <option>1</option>
                                                 <option>6</option>
                                                 <option>12</option>
