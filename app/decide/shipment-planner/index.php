@@ -11,21 +11,17 @@ $viewPageName = '';
 
 //which view to show
 switch ($viewName) {
-    case "add":
-        $viewDisplayName = 'Manage Beers - Add Beer';
-        $viewPageName = '_addBeer.php';
-        break;
-    case "edit":
-        $viewDisplayName = 'Manage Beers - Edit Beer';
-        $viewPageName = '_editBeer.php';
+    case "initiate-edit":
+        $viewDisplayName = 'Shipment Planner - Modify Plan';
+        $viewPageName = '_initiateOrEditPlan.php';
         break;
     case "single":
-        $viewDisplayName = 'Manage Beers - Beer Detail';
-        $viewPageName = '_singleBeer.php';
+        $viewDisplayName = 'Shipment Planner - Plan Detail';
+        $viewPageName = '_singlePlan.php';
         break;
     default:
-        $viewDisplayName = 'Manage Beers - All Beers';
-        $viewPageName = '_viewAllBeer.php';
+        $viewDisplayName = 'Shipment Planner - All Plans';
+        $viewPageName = '_viewAllPlans.php';
         break;
 }
 
@@ -34,47 +30,21 @@ switch ($requestedAction) {
     case "submitUpdates": //called when edit page is posted back
         editBeerProcess();
         break;
-    case "add":
-        addBeerProcess();
-        break;
 }
-//END: Homemade Controller
+//END: Homemade controller
 
 
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-function addBeerProcess()
-{
-    //Posting variables and escaping for security
-    $beerSize = floatval(mysql_escape_string($_POST['beerSize']));
-    $beerName = mysql_escape_string($_POST['beerName']);
-    $beerType = mysql_escape_string($_POST['beerType']);
-    $beerPrice = floatval(mysql_escape_string($_POST['beerPrice']));
-    $beerQuantity = floatval(mysql_escape_string($_POST['beerQuantity']));
-
-    //Inserting beer information into database
-    $insert_beer_statement = "INSERT INTO beer_brands (beer_name, beer_price, beer_size, beer_type, beer_quantity)
-    VALUES ('$beerName', '$beerPrice', '$beerSize', '$beerType', '$beerQuantity')";
-
-    beerTrackDBQuery($insert_beer_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
-}
-
-function editBeerAutoLoadValues() //function that provides the data to be used/referenced/auto loaded in the form on _editBeer.php
+function recordNewOrUpdatedPlanInDB()
 {
     # code...
 }
 
-function editBeerProcess() //function to update the beer table
-{
-    # code...
-}
+//there's going to be alot of other functions in here, this is where the google API stuff will go, and if we need to call forcasting data, etc...
 
-function viewAllBeer()
-{
-    # code...
-}
-//END: Homemade Models
+//END: Homemade models
 
 ?>
 
