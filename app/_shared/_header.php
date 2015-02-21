@@ -1,12 +1,10 @@
-<?PHP
+<?php
 
 session_start();
 
 ob_start();
 
-// mysqli connection via user-defined function
-include('_database_connect.php');
-$mysqli = get_mysqli_conn();
+
 ?>
 
 <!DOCTYPE html>
