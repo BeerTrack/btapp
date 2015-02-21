@@ -1,6 +1,5 @@
 <?php
 //HTML and any necessary PHP for generating the list of all beers in the table
-include '../../_shared/_database_connect.php';
 ?>
 
 <!-- Sample Data Table -->
@@ -26,7 +25,7 @@ include '../../_shared/_database_connect.php';
 				</tr>
 				<?php
               // SQL statement 
-              $displayTransactionQuery = mysqli_query($mysqli,"SELECT * 
+              $displayTransactionQuery = mysqli_query($primaryBeerTrackDB,"SELECT * 
                                                                FROM beer_brands b
                                                                WHERE b.beer_id =  '1' OR b.beer_id ='2'");
     
