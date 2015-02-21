@@ -1,6 +1,5 @@
 <?php
 //HTML and any necessary PHP for generating the list of all beers in the table
-include '../../_shared/_databaseConnection.php';
 ?>
 
 <!-- Sample Data Table -->
