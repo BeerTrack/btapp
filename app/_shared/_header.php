@@ -19,6 +19,7 @@ ob_start();
         <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="../../../assets/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+        <link href="../../../assets/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 
 
         <!-- Start Copy Footer -->
