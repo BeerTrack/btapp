@@ -34,6 +34,9 @@ switch ($requestedAction) {
     case "submitUpdates": //called when edit page is posted back
         editBeerProcess();
         break;
+    case "add":
+        addBeerProcess();
+        break;
 }
 //END: Homemade controller
 
@@ -43,7 +46,19 @@ switch ($requestedAction) {
 //**************************************************************
 function addBeerProcess()
 {
-    # code...
+
+//Posting variables and escaping for security
+$beerSize = floatval(mysqli_real_escape_string($primaryBeerTrackDB, $_POST['beerSize']));
+$beerName = mysqli_real_escape_string($primaryBeerTrackDB, $_POST['beerName']);
+$beerType = mysqli_real_escape_string($primaryBeerTrackDB, $_POST['beerType']);
+$beerPrice = floatval(mysqli_real_escape_string($primaryBeerTrackDB, $_POST['beerPrice']));
+$beerQuantity = floatval(mysqli_real_escape_string($primaryBeerTrackDB, $_POST['beerQuantity']));
+
+//Inserting beer information into database
+$insert_beer="INSERT INTO beer_brands (beer_name, beer_price, beer_size, beer_type, beer_quantity)
+VALUES ('$beerName', '$beerPrice', '$beerSize', '$beerType', '$beer_Quantity')";
+mysqli_query($primaryBeerTrackDB, $insert_beer);
+
 }
 
 function editBeerAutoLoadValues() //function that provides the data to be used/referenced/auto loaded in the form on _editBeer.php
