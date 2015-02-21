@@ -46,7 +46,6 @@ switch ($requestedAction) {
 //**************************************************************
 function addBeerProcess()
 {
-
 //Posting variables and escaping for security
 $beerSize = floatval(mysqli_real_escape_string($primaryBeerTrackDB, $_POST['beerSize']));
 $beerName = mysqli_real_escape_string($primaryBeerTrackDB, $_POST['beerName']);
