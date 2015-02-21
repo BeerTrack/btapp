@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"ed",
+				"editBeerProcess"
+			],
+			[
+				"req",
+				"requestedAction"
+			],
+			[
+				"f",
+				"fun	function …"
+			],
+			[
+				"viewName",
+				"RequestedViewName"
+			],
+			[
+				"vie",
+				"viewToShow"
+			],
+			[
 				"i",
 				"italic"
 			],
@@ -436,10 +456,6 @@
 				"windowHeight"
 			],
 			[
-				"f",
-				"fun	Function"
-			],
-			[
 				"mod",
 				"modalWidth"
 			],
@@ -532,10 +548,29 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/phileverson/Repos/btapp"
+		"/Users/phileverson/Repos/btapp",
+		"/Users/phileverson/Repos/btapp/app",
+		"/Users/phileverson/Repos/btapp/app/_shared",
+		"/Users/phileverson/Repos/btapp/app/decide",
+		"/Users/phileverson/Repos/btapp/app/global",
+		"/Users/phileverson/Repos/btapp/assets",
+		"/Users/phileverson/Repos/btapp/assets/js/AdminLTE",
+		"/Users/phileverson/Repos/btapp/pages"
 	],
 	"file_history":
 	[
+		"/Users/phileverson/Repos/btapp/app/global/manage-beers/index.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_leftNav.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_header.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_footer.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_viewAllBeer.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_editBeer.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_addBeer.php",
+		"/Users/phileverson/Repos/btapp/app/global/template.php",
+		"/Users/phileverson/Repos/btapp/assets/js/AdminLTE/demo.js",
+		"/Users/phileverson/Repos/btapp/app/global/_leftNav.php",
+		"/Users/phileverson/Repos/btapp/app/global/_footer.php",
+		"/Users/phileverson/Repos/btapp/app/global/_header.php",
 		"/Users/phileverson/Repos/btapp/index.php",
 		"/Users/phileverson/Repos/via-porter/assets/css/main.css",
 		"/Users/phileverson/Repos/via-porter/index.html",
@@ -651,23 +686,11 @@
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/023bca86e5f119966065c576b93ffc95850d964d/_media.scssc",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-solutions.php",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/ede6fb56bd05714b350696ee942f66c6d320f9b3/_variables.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/d84ab307a3ab9544aeb873f46db188929cb77135/_variables.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/94375b8dc1bf664bfdd22b8227d55441f99a721d/_variables.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/322e7abdda680fd09d0adcd445304aa1d9b77c70/_variables.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/single-videos.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-partnerships.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-why-health.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-blog.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-careers.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-contact.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-growing.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-lifecycle.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-thought-leadership.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-work.php"
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/d84ab307a3ab9544aeb873f46db188929cb77135/_variables.scssc"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -684,6 +707,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"exam",
+			"fixed",
+			"layout",
+			"fixed",
+			"Fixed",
+			"gear",
 			"log",
 			"CanTicket",
 			"CanTi",
@@ -1005,7 +1034,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 274.0,
+	"side_bar_width": 209.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

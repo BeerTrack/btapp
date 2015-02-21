@@ -15,10 +15,6 @@ switch ($viewName) {
         $viewDisplayName = 'Manage Beers - Add Beer';
         $viewPageName = '_addBeer.php';
         break;
-    case "edit":
-        $viewDisplayName = 'Manage Beers - Edit Beer';
-        $viewPageName = '_editBeer.php';
-        break;
     case "single":
         $viewDisplayName = 'Manage Beers - Beer Detail';
         $viewPageName = '_singleBeer.php';
@@ -41,22 +37,17 @@ switch ($requestedAction) {
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-function addBeerProcess()
+function addStoreProcess()
 {
     # code...
 }
 
-function editBeerAutoLoadValues() //function that provides the data to be used/referenced/auto loaded in the form on _editBeer.php
+function deleteStore()
 {
     # code...
 }
 
-function editBeerProcess() //function to update the beer table
-{
-    # code...
-}
-
-function viewAllBeer()
+function viewStores()
 {
     # code...
 }
