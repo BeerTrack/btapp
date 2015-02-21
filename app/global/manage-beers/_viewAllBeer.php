@@ -1,5 +1,6 @@
 <?php
 //HTML and any necessary PHP for generating the list of all beers in the table
+include '../../_shared/_database_connect.php';
 ?>
 
 <!-- Sample Data Table -->
@@ -8,11 +9,11 @@
 		<table id="example1" class="table table-bordered table-striped">
 			<thead>
 				<tr>
-					<th>Rendering engine</th>
-					<th>Browser</th>
-					<th>Platform(s)</th>
-					<th>Engine version</th>
-					<th>CSS grade</th>
+					<th>Beer ID</th>
+					<th>Beer Name</th>
+					<th>Beer Price</th>
+					<th>Beer Size</th>
+					<th>Beer Type</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,118 +24,22 @@
 					<td> 4</td>
 					<td>X</td>
 				</tr>
-				<tr>
-					<td>Trident</td>
-					<td>Internet Explorer 5.0</td>
-					<td>Win 95+</td>
-					<td>5</td>
-					<td>C</td>
-				</tr>
-				<tr>
-					<td>Trident</td>
-					<td>Internet Explorer 5.5</td>
-					<td>Win 95+</td>
-					<td>5.5</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Trident</td>
-					<td>Internet Explorer 6</td>
-					<td>Win 98+</td>
-					<td>6</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Trident</td>
-					<td>Internet Explorer 7</td>
-					<td>Win XP SP2+</td>
-					<td>7</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Trident</td>
-					<td>AOL browser (AOL desktop)</td>
-					<td>Win XP</td>
-					<td>6</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Firefox 1.0</td>
-					<td>Win 98+ / OSX.2+</td>
-					<td>1.7</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Firefox 1.5</td>
-					<td>Win 98+ / OSX.2+</td>
-					<td>1.8</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Firefox 2.0</td>
-					<td>Win 98+ / OSX.2+</td>
-					<td>1.8</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Firefox 3.0</td>
-					<td>Win 2k+ / OSX.3+</td>
-					<td>1.9</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Camino 1.0</td>
-					<td>OSX.2+</td>
-					<td>1.8</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Camino 1.5</td>
-					<td>OSX.3+</td>
-					<td>1.8</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Netscape 7.2</td>
-					<td>Win 95+ / Mac OS 8.6-9.2</td>
-					<td>1.7</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Netscape Browser 8</td>
-					<td>Win 98SE+</td>
-					<td>1.7</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Netscape Navigator 9</td>
-					<td>Win 98+ / OSX.2+</td>
-					<td>1.8</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Mozilla 1.0</td>
-					<td>Win 95+ / OSX.1+</td>
-					<td>1</td>
-					<td>A</td>
-				</tr>
-				<tr>
-					<td>Gecko</td>
-					<td>Mozilla 1.1</td>
-					<td>Win 95+ / OSX.1+</td>
-					<td>1.1</td>
-					<td>A</td>
-				</tr>
+				<?php
+              // SQL statement 
+              $displayTransactionQuery = mysqli_query($mysqli,"SELECT * 
+                                                               FROM beer_brands b
+                                                               WHERE b.beer_id =  '1' OR b.beer_id ='2'");
+    
+              while($row = mysqli_fetch_array($displayTransactionQuery)) {
+              	echo "<tr>";
+                echo "<td>" . $row['beer_id'] . "</td>";
+                echo "<td>" . $row['beer_name'] . "</td>";
+                echo "<td>" . $row['beer_price'] . "</td>";
+                echo "<td>" . $row['beer_size'] . "</td>";
+                echo "<td>" . $row['beer_type'] . "</td>";
+                echo "</tr>";
+              }
+              ?>
 			</tbody>
 			<tfoot>
 				<tr>
