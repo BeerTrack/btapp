@@ -5,7 +5,7 @@
 <!-- Sample Data Table -->
 <div class="row">
 	<div class="col-xs-12">
-		<table id="example1" class="table table-bordered table-striped">
+		<table id="entireBeerTable" class="table table-bordered table-striped">
 			<thead>
 				<tr>
 					<th>Beer ID</th>
@@ -24,21 +24,18 @@
 					<td>X</td>
 				</tr>
 				<?php
-              // SQL statement 
-              $displayTransactionQuery = mysqli_query($primaryBeerTrackDB,"SELECT * 
-                                                               FROM beer_brands b
-                                                               WHERE b.beer_id =  '1' OR b.beer_id ='2'");
-    
-              while($row = mysqli_fetch_array($displayTransactionQuery)) {
-              	echo "<tr>";
-                echo "<td>" . $row['beer_id'] . "</td>";
-                echo "<td>" . $row['beer_name'] . "</td>";
-                echo "<td>" . $row['beer_price'] . "</td>";
-                echo "<td>" . $row['beer_size'] . "</td>";
-                echo "<td>" . $row['beer_type'] . "</td>";
-                echo "</tr>";
-              }
-              ?>
+				$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM beer_brands b");
+
+				while($row = mysqli_fetch_array($displayTransactionQuery)) {
+					echo "<tr>";
+					echo "<td>" . $row['beer_id'] . "</td>";
+					echo "<td>" . $row['beer_name'] . "</td>";
+					echo "<td>" . $row['beer_price'] . "</td>";
+					echo "<td>" . $row['beer_size'] . "</td>";
+					echo "<td>" . $row['beer_type'] . "</td>";
+					echo "</tr>";
+				}
+				?>
 			</tbody>
 			<tfoot>
 				<tr>
@@ -57,7 +54,7 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#example1").dataTable();
+		$("#entireBeerTable").dataTable();
 	});
 </script>
 

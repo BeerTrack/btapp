@@ -6,11 +6,15 @@ $dbuser = 'bb8fc74ed602e7';
 $dbpassword = 'e3a5c7f6'; 
 $dbname = 'heroku_687b349d31e72c1'; 
 
-$primaryBeerTrackDB = new mysqli($dbhost, $dbuser, $dbpassword, $dbname); 
+$mysqliBeerTrackPrime = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
 
-if ($primaryBeerTrackDB->connect_errno) 
-{ 
-	echo 'Failed to connect to MySQL: (' . $primaryBeerTrackDB->connect_errno . ')' . $primaryBeerTrackDB->connect_error; 
+function beerTrackDBQuery($query) {
+	global $mysqliBeerTrackPrime;
+	$result = mysqli_query($mysqliBeerTrackPrime, $query);
+	if ($mysqliBeerTrackPrime->connect_errno) {
+		echo 'error with connection. see databaseConnection.php';
+	}
+	return $result;
 }
 
 ?>
