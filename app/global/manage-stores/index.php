@@ -44,13 +44,14 @@ function addStoreProcess()
 {
 
 //Posting variables and escaping for security
-$locationName = mysqli_real_escape_string($primaryBeerTrackDB, $_POST['beerSize']);
-$locationAddress = mysqli_real_escape_string($primaryBeerTrackDB, $_POST['beerName']);
+$locationName = mysql_escape_string($_POST['locationName']);
+$locationAddress = mysql_escape_string($_POST['locationAddress']);
 
 //Inserting store information into database
 $insert_store="INSERT INTO stores (location_name, location_address, brewery_id)
-VALUES ('$locationName', '$locationAddress', "1")";
-mysqli_query($primaryBeerTrackDB, $insert_store);
+VALUES ('$locationName', '$locationAddress', '1')";
+
+beerTrackDBQuery($insert_store);
 
 }
 

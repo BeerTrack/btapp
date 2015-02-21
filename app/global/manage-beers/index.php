@@ -57,7 +57,7 @@ function addBeerProcess()
     $insert_beer_statement = "INSERT INTO beer_brands (beer_name, beer_price, beer_size, beer_type, beer_quantity)
     VALUES ('$beerName', '$beerPrice', '$beerSize', '$beerType', '$beerQuantity')";
 
-    beerTrackDBQuery($insert_beer); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
+    beerTrackDBQuery($insert_beer_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 }
 
 function editBeerAutoLoadValues() //function that provides the data to be used/referenced/auto loaded in the form on _editBeer.php
