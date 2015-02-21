@@ -1,6 +1,5 @@
 <?php
 include '../../_shared/_databaseConnection.php';
-include '_ianbarber_lin_reg.php';
 
 //**************************************************************
 //START: Homemade Controller (to determine which view to show)
@@ -12,51 +11,31 @@ $viewPageName = '';
 
 //which view to show
 switch ($viewName) {
-    // case "add":
-    //     $viewDisplayName = 'Manage Beers - Add Beer';
-    //     $viewPageName = '_addBeer.php';
-    //     break;
+    case "decide":
+        $viewDisplayName = 'Dashboard - Decide Cloud';
+        $viewPageName = '_decideDashboard.php';
+        break;
+    case "report":
+        $viewDisplayName = 'Dashboard - Report Cloud';
+        $viewPageName = '_reportDashboard.php';
+        break;
     default:
-        $viewDisplayName = 'Sales Forcasts - Overview';
-        $viewPageName = '_forcastsHome.php';
+        $viewDisplayName = 'Dashboards';
+        $viewPageName = '_home.php';
         break;
 }
-
-//specific actions for some pages
-// switch ($requestedAction) {
-//     case "submitUpdates": //called when edit page is posted back
-//         editBeerProcess();
-//         break;
-// }
 //END: Homemade controller
 
 
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-$dataOfPhilAndChristian = array(
-array(5, 21),
-array(6, 25),
-array(7, 30),
-array(8, 31),
-array(10, 41),
-array(12, 50)
-);
-
-function basicForcast($pointsPassed)
-{
-    $parameters = array(0, 0);
-    $last_parameters = false;
-    do {
-        $last_parameters = $parameters;
-        $parameters = gradient($pointsPassed, $parameters);
-    } while($parameters != false);
-    return  ($last_parameters);
-}
-
 
 //END: Homemade models
 
+?>
+
+<?php
 include '../../_shared/_header.php';
 include '../../_shared/_leftNav.php';
 ?>
@@ -65,16 +44,14 @@ include '../../_shared/_leftNav.php';
 <aside class="right-side">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1><?php echo $viewDisplayName; ?></h1>
+        <h1> <?php echo $viewDisplayName; ?> </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
-
     <?php
         include $viewPageName;
     ?>
-
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
 
