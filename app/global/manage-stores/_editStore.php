@@ -18,15 +18,21 @@ $store_Array = mysqli_fetch_array($displayBeerInfoQuery);
             <div class="form-group">
                 <labelfor="locationName">Name</label>
                 <input type="text" class="form-control" id="locationName" value ="<?php echo $store_Array['location_name'];?>"
-                name="locationName" placeholder="Enter Name"/>
+                name="locationName"/>
             </div>
 
              <div class="form-group">
                 <labelfor="locationAddress">Location</label>
                 <input type="text" class="form-control" id="locationAddress"
                 value ="<?php echo $store_Array['location_address'];?>"
-                 name="locationAddress" placeholder="123 Anywhere St, Toronto, ON A1B 2C3"/>
+                 name="locationAddress"/>
             </div>
+
+            <div class="form-group">
+                <labelfor="beerStoreStoreId"> Beer Store Store Id</label>
+                <input type="number" class="form-control" id="beerStoreStoreId" name="beerStoreStoreId" value ="<?php echo $store_Array['beer_quantity'];?>">
+            </div>
+
 
             <div class="form-group">
             <input type="hidden" class="form-control" id="storeId" name="storeId" value ="<?php echo $storeId; ?>">

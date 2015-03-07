@@ -47,6 +47,11 @@ $beer_Array = mysqli_fetch_array($displayBeerInfoQuery);
                 </select>
             </div>
 
+            <div class="form-group">
+                <labelfor="beerstoreBeerId"> Beer Store Beer ID</label>
+                <input type="number" class="form-control" id="beerstoreBeerId" name="beerstoreBeerId" value ="<?php echo $beer_Array['beerstore_beer_id'];?>">
+            </div>
+
              <div class="form-group">
                 <input type="hidden" class="form-control" id="beerId" name="beerId" value ="<?php echo $beerId; ?>">
             </div>

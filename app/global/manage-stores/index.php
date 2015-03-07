@@ -50,10 +50,11 @@ function addStoreProcess()
 //Posting variables and escaping for security
 $locationName = mysql_escape_string($_POST['locationName']);
 $locationAddress = mysql_escape_string($_POST['locationAddress']);
+$beerstoreStoreId = floatval(mysql_escape_string($_POST['beerstoreStoreId']));
 
 //Inserting store information into database
-$insert_store="INSERT INTO stores (location_name, location_address, brewery_id)
-VALUES ('$locationName', '$locationAddress', '1')";
+$insert_store="INSERT INTO stores (location_name, location_address, brewery_id, beerstore_store_id)
+VALUES ('$locationName', '$locationAddress', '1', '$beerstoreStoreId')";
 
 beerTrackDBQuery($insert_store);
 
@@ -65,11 +66,12 @@ function editStoreProcess()
 //Posting variables and escaping for security
 $locationName = mysql_escape_string($_POST['locationName']);
 $locationAddress = mysql_escape_string($_POST['locationAddress']);
+$beerstoreStoreId = floatval(mysql_escape_string($_POST['beerstoreStoreId']));
 $storeId = floatval(mysql_escape_string($_POST['storeId']));
 
 
 //Upadating store info in the database
-    $update_store_statement = "UPDATE stores SET location_name = '$locationName', location_address = '$locationAddress' WHERE store_Id = '$storeId'";
+    $update_store_statement = "UPDATE stores SET location_name = '$locationName', location_address = '$locationAddress', beerstore_store_id = '$beerstoreStoreId' WHERE store_Id = '$storeId'";
     beerTrackDBQuery($update_store_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 }
 
