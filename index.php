@@ -1,9 +1,3 @@
-<?php
-
-echo $_SERVER["DOCUMENT_ROOT"];
-
-?>
-
 <!DOCTYPE html>
 <html class="bg-black">
     <head>
