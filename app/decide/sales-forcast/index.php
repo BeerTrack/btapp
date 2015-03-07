@@ -22,13 +22,13 @@ switch ($viewName) {
         break;
 }
 
-//specific actions for some pages
-// switch ($requestedAction) {
-//     case "submitUpdates": //called when edit page is posted back
-//         editBeerProcess();
-//         break;
-// }
-//END: Homemade controller
+// specific actions for some pages
+switch ($requestedAction) {
+    case "forecast": //called when edit page is posted back
+        addDateRange();
+        break;
+}
+// END: Homemade controller
 
 
 //**************************************************************
@@ -45,6 +45,12 @@ function basicForcast($pointsPassed)
     return  ($last_parameters);
 }
 
+function addDateRange()
+{
+    //Posting variables and escaping for security
+    $textDateRange = mysql_escape_string($_POST['reservation']);
+    echo $textDateRange;
+}
 
 //END: Homemade models
 

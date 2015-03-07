@@ -11,7 +11,7 @@ ob_start();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>AdminLTE | Dashboard</title>
+        <title>BeerTrack | Dashboard</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -37,6 +37,8 @@ ob_start();
         <script src="../../../assets/js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
         <!-- daterangepicker -->
         <script src="../../../assets/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+        <!-- daterange picker -->
+        <link href="../../../assets/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <!-- datepicker -->
         <script src="../../../assets/js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
         <!-- Bootstrap WYSIHTML5 -->    
@@ -66,7 +68,7 @@ ob_start();
         <header class="header">
             <a href="/" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                AdminLTE
+                <img src="../../../LogoBW.png" alt="BeerTrack Logo">
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -126,14 +128,14 @@ ob_start();
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>Jane Doe <i class="caret"></i></span>
+                                <span>Phil Everson <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
                                     <img src="../../../assets/img/avatar3.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        Jane Doe - Web Developer
+                                        Phil Everson - Web Developer
                                         <small>Member since Nov. 2012</small>
                                     </p>
                                 </li>
