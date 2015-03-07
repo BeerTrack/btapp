@@ -10,6 +10,7 @@
 				<tr>
 					<th>Location Name</th>
 					<th>Location Address</th>
+					<th>Store Edit</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,6 +22,7 @@
 					echo "<tr>";
 					echo "<td>" . $row['location_name'] . "</td>";
 					echo "<td>" . $row['location_address'] . "</td>";
+					echo "<td> <a href=\"?viewName=edit&storeId=" . $row['store_id'] . "\">Edit</a></td>";
 					echo "</tr>";
 				}
 				?>
@@ -35,7 +37,7 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#example1").dataTable();
+		$("#allStoresTable").dataTable();
 	});
 </script>
 
