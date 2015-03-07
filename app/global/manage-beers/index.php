@@ -76,7 +76,7 @@ function editBeerProcess() //function to update the beer table
     $beerQuantity = floatval(mysql_escape_string($_POST['beerQuantity']));
     $beerId = floatval(mysql_escape_string($_POST['beerId']));
 
-    //Upadating beer info in database
+    //Upadating beer info in the database
     $update_beer_statement = "UPDATE beer_brands SET beer_name = '$beerName', beer_price = '$beerPrice', beer_size = '$beerSize', beer_type = '$beerType', beer_quantity = '$beerQuantity' WHERE beer_id = '$beerId'";
     beerTrackDBQuery($update_beer_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 }
