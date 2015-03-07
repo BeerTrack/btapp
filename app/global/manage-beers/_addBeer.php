@@ -38,6 +38,11 @@
                 </select>
             </div>
 
+            <div class="form-group">
+                <labelfor="beerstoreBeerId"> Beer Store Beer ID</label>
+                <input type="number" class="form-control" id="beerstoreBeerId" name="beerstoreBeerId" placeholder="Enter Beer Store Beer Id"/>
+            </div>
+
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

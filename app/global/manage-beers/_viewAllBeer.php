@@ -13,16 +13,11 @@
 					<th>Beer Price</th>
 					<th>Beer Size</th>
 					<th>Beer Type</th>
+					<th>Beer Edit</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>Trident</td>
-					<td>Internet Explorer 4.0</td>
-					<td>Win 95+</td>
-					<td> 4</td>
-					<td>X</td>
-				</tr>
 				<?php
 				$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM beer_brands b");
 
@@ -37,6 +32,7 @@
 					echo "</tr>";
 				}
 				?>
+				</tr>
 			</tbody>
 		</table>
 

@@ -17,4 +17,6 @@ function beerTrackDBQuery($query) {
 	return $result;
 }
 
+
+// echo 'bottom of db connect';
 ?>
