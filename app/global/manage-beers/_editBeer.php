@@ -13,7 +13,7 @@ $beer_Array = mysqli_fetch_array($displayBeerInfoQuery);
         <h3 class="box-title">Edit Beer Information</h3>
     </div><!-- /.box-header -->
     <div class="box-body">
-        <form role="form" method="post" action="?requestedAction=add">
+        <form role="form" method="post" action="?requestedAction=submitUpdates">
             <div class="form-group">
                 <labelfor="beerName">Name</label>
                 <input type="text" class="form-control" id="beerName" value ="<?php echo $beer_Array['beer_name'];?>" name="beerName">
@@ -47,8 +47,12 @@ $beer_Array = mysqli_fetch_array($displayBeerInfoQuery);
                 </select>
             </div>
 
+             <div class="form-group">
+                <input type="hidden" class="form-control" id="beerId" name="beerId" value ="<?php echo $beerId; ?>">
+            </div>
+
             <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
 
         </form>
