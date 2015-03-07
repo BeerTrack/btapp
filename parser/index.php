@@ -3,11 +3,45 @@
 include '../app/_shared/_databaseConnection.php';
 include '../assets/ganon.php';
 
+//parses the size field to match our format...
+function parseToMatchSiteshTable($size)
+{
+	echo '</br></br>';
+
+	$locationOfBottle = strpos($size, 'Bottle');
+	$locationOfCan = strpos($size, 'Can');
+
+	if($locationOfBottle > 1)
+	{
+		$packageType = 'Bottle'; //Returned In Array...
+		$volumeWithUnits = substr($size, ($locationOfBottle + 6), strlen($size));
+		$quantityInPackage = trim(substr($size, 0, ($locationOfBottle - 3)));  //Returned In Array...
+	}
+	else
+	{
+		$packageType = 'Can'; //Returned In Array...
+		$volumeWithUnits = substr($size, ($locationOfCan + 3), strlen($size));
+		$quantityInPackage = trim(substr($size, 0, ($locationOfCan - 3)));  //Returned In Array...
+	}
+
+	$locationOfMl = strpos($volumeWithUnits, 'ml');
+	$volumeML = trim(substr($volumeWithUnits, 0, $locationOfMl)); //Returned In Array...
+
+	$sizeFormattedArray = array($quantityInPackage, $packageType, $volumeML);
+
+	return $sizeFormattedArray;
+}
+
 //function for adding a record to the database
 function recordInventory($location, $beer, $size, $inventory)
 {
-	$recordStatement = "INSERT INTO inventory_parsing (beerstore_beer_id, beerstore_store_id, can_bottle_desc, stock_at_timestamp)
-	VALUES ('$beer', '$location', '$size', '$inventory')";
+	$formattedSize = parseToMatchSiteshTable($size);
+	$quantityInPackage = $formattedSize[0];
+	$packageType = $formattedSize[1];
+	$volumeML = $formattedSize[2];
+
+	$recordStatement = "INSERT INTO inventory_parsing (beerstore_beer_id, beerstore_store_id, can_bottle_desc, single_package_type, single_package_quantity, single_package_volume, stock_at_timestamp)
+	VALUES ('$beer', '$location', '$size', '$packageType', '$quantityInPackage', '$volumeML', '$inventory')";
 	beerTrackDBQuery($recordStatement);
 }
 
@@ -22,33 +56,29 @@ $beerLocationMatrix = array();
 $beerBrandsArray = array();
 $beerLocationsArray = array();
 
-//counter we reuse alot
-$arrayCountMaker = 0;
 
 //putting the beers into reaccesbile array
+$arrayCountMaker = 0;
 while($rowBeerBrand = mysqli_fetch_array($allBeerBrands)) {
 	$beerBrandsArray[$arrayCountMaker] = $rowBeerBrand['beerstore_beer_id'];
 	$arrayCountMaker++;
 }
 
-$arrayCountMaker = 0;
 
 //putting the beers into reaccesbile array
+$arrayCountMaker = 0;
 while($rowBeerLocations = mysqli_fetch_array($allLocations)) {
 	$beerLocationsArray[$arrayCountMaker] = $rowBeerLocations['beerstore_store_id'];
 	$arrayCountMaker++;
 }
 
-$arrayCountMaker = 0;
 
 //building the matrix of combinations
+$arrayCountMaker = 0;
 foreach ($beerLocationsArray as $location) {
 	foreach ($beerBrandsArray as $brand) {
 		$beerLocationMatrix[$arrayCountMaker] = array($location, $brand);
 		$arrayCountMaker++;
-
-		// echo 'location: ' . $location . '</br>';
-		// echo 'beer brand: ' . $brand . '</br>';
 	}
 }
 
