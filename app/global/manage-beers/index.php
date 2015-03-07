@@ -37,6 +37,7 @@ switch ($requestedAction) {
     case "add":
         addBeerProcess();
         break;
+
 }
 //END: Homemade Controller
 
@@ -67,7 +68,17 @@ function editBeerAutoLoadValues() //function that provides the data to be used/r
 
 function editBeerProcess() //function to update the beer table
 {
-    # code...
+    //Posting variables and escaping for security
+    $beerSize = floatval(mysql_escape_string($_POST['beerSize']));
+    $beerName = mysql_escape_string($_POST['beerName']);
+    $beerType = mysql_escape_string($_POST['beerType']);
+    $beerPrice = floatval(mysql_escape_string($_POST['beerPrice']));
+    $beerQuantity = floatval(mysql_escape_string($_POST['beerQuantity']));
+    $beerId = floatval(mysql_escape_string($_POST['beerId']));
+
+    //Upadating beer info in database
+    $update_beer_statement = "UPDATE beer_brands SET beer_name = '$beerName', beer_price = '$beerPrice', beer_size = '$beerSize', beer_type = '$beerType', beer_quantity = '$beerQuantity' WHERE beer_id = '$beerId'";
+    beerTrackDBQuery($update_beer_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 }
 
 function viewAllBeer()

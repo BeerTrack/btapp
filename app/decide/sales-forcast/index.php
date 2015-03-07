@@ -34,15 +34,6 @@ switch ($viewName) {
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-$dataOfPhilAndChristian = array(
-array(5, 21),
-array(6, 25),
-array(7, 30),
-array(8, 31),
-array(10, 41),
-array(12, 50)
-);
-
 function basicForcast($pointsPassed)
 {
     $parameters = array(0, 0);
