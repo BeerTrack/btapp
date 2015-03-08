@@ -1,4 +1,5 @@
 <?php
+include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
 include '../../_shared/_globalFunctions.php';
 include '_ianbarber_lin_reg.php';

@@ -1,6 +1,18 @@
 # btapp
 Main repo for web app of #BeerTrack
 
+## Authentication
+In order to access any part of BeerTrack you're required to enter the email address and password associated with the account. If you don't have an account you can create one by clicking the "To create an account, please click here." link on the login page. **Important:** Once you've created an account, you then need to access the database (via sequal pro) and change the value in the "brewery_active_status" column from "NULL" to "1".
+
+If at anytime you're being constantly redirected to the login page, and therefore having problems testing/accessing pages, open the app/_shared/_auth.php file and comment out all of it. This will disable the page from checking for authentication.
+
+### Common User Variables
+Throughout the site, the following user information accessible via these variables:
+
+  * $loggedInEmail
+  * $loggedInPersonName 
+  * $loggedInBreweryName 
+  * $loggedInBreweryID 
 
 ## Global Functions
 

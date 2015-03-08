@@ -1,4 +1,5 @@
 <?php
+include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
 
 //**************************************************************

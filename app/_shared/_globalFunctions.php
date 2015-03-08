@@ -1,5 +1,7 @@
 <?php
 
+
+//see https://github.com/BeerTrack/btapp#getdateandstocklevels
 function getDateAndStockLevels($startDate, $endDate, $beerstore_beer_ID, $beerstore_store_ID, $single_package_type, $single_package_quantity, $single_package_volume)
 {
     $datesAndInventoryLevels = array();
@@ -25,4 +27,10 @@ function getDateAndStockLevels($startDate, $endDate, $beerstore_beer_ID, $beerst
     }
     return $datesAndInventoryLevels;
 }
+
+
+
+
+
+
 ?>
