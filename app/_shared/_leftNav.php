@@ -21,7 +21,7 @@ function checkCurrentLocation($navTitle)
                 <img src="../../../assets/img/avatar3.png" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>Hello, Jane</p>
+                <p>Hello, Phil</p>
 
                 <a href="#">Brewery Name</a>
             </div>
@@ -50,7 +50,7 @@ function checkCurrentLocation($navTitle)
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/app/decide/sales-forcast/"><i class="fa fa-angle-double-right"></i> Sales Forcast</a></li>
+                    <li><a href="/app/decide/sales-forcast/"><i class="fa fa-angle-double-right"></i> Sales Forecast</a></li>
                     <li><a href="/app/decide/shipment-planner/"><i class="fa fa-angle-double-right"></i> Shipment Planner</a></li>
                 </ul>
             </li>

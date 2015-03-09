@@ -1,5 +1,7 @@
 <?php
+include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
+include '../../_shared/_globalFunctions.php';
 include '_ianbarber_lin_reg.php';
 
 //**************************************************************
@@ -22,13 +24,21 @@ switch ($viewName) {
         break;
 }
 
-//specific actions for some pages
-// switch ($requestedAction) {
-//     case "submitUpdates": //called when edit page is posted back
-//         editBeerProcess();
-//         break;
-// }
-//END: Homemade controller
+// specific actions for some pages
+switch ($requestedAction) {
+    case "forecast": //called when edit page is posted back
+        addDateRange();
+        break;
+
+    case "getData": //called when edit page is posted back
+        // $data = getSalesData('2015-03-02', '2015-03-08', '3211', '2322', 'Bottle', '24', '341');
+        // $data = getDateAndStockLevels('2015-03-02', '2015-03-08', '3211', '2322', 'Bottle', '12', '341');
+        $data = getDateAndStockLevels('2015-03-02', '2015-03-03', '3211', '2322', 'Bottle', '12', '341');
+
+        echo 'Stock On March 2nd: ' . $data[0][1];
+        break;
+}
+// END: Homemade controller
 
 
 //**************************************************************
@@ -43,6 +53,13 @@ function basicForcast($pointsPassed)
         $parameters = gradient($pointsPassed, $parameters);
     } while($parameters != false);
     return  ($last_parameters);
+}
+
+function addDateRange()
+{
+    //Posting variables and escaping for security
+    $textDateRange = mysql_escape_string($_POST['reservation']);
+    echo $textDateRange;
 }
 
 
