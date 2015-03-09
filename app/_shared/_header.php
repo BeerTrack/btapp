@@ -26,6 +26,10 @@ ob_start();
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
+        <!-- FLOT CHARTS -->
+        <script src="../../../assets/js/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+        <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+        <script src="../../../assets/js/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
          <!-- Morris.js charts -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="../../../assets/js/plugins/morris/morris.min.js" type="text/javascript"></script>
