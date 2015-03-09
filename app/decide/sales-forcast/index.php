@@ -1,5 +1,7 @@
 <?php
+include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
+include '../../_shared/_globalFunctions.php';
 include '_ianbarber_lin_reg.php';
 
 //**************************************************************
@@ -26,6 +28,14 @@ switch ($viewName) {
 switch ($requestedAction) {
     case "forecast": //called when edit page is posted back
         addDateRange();
+        break;
+
+    case "getData": //called when edit page is posted back
+        // $data = getSalesData('2015-03-02', '2015-03-08', '3211', '2322', 'Bottle', '24', '341');
+        // $data = getDateAndStockLevels('2015-03-02', '2015-03-08', '3211', '2322', 'Bottle', '12', '341');
+        $data = getDateAndStockLevels('2015-03-02', '2015-03-03', '3211', '2322', 'Bottle', '12', '341');
+
+        echo 'Stock On March 2nd: ' . $data[0][1];
         break;
 }
 // END: Homemade controller
@@ -60,6 +70,7 @@ function addDateRange()
     // $dateArray[2]; // end date
     return ($dateArray);
 }
+
 
 //END: Homemade models
 

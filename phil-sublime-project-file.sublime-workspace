@@ -4,6 +4,122 @@
 		"selected_items":
 		[
 			[
+				"brewery",
+				"brewery_name"
+			],
+			[
+				"pass",
+				"passwordHash"
+			],
+			[
+				"passwrd_",
+				"password_hash"
+			],
+			[
+				"sa",
+				"saltForEmail"
+			],
+			[
+				"sal",
+				"saltMysqlReturned"
+			],
+			[
+				"authe",
+				"authenticateUser"
+			],
+			[
+				"user",
+				"userEmail"
+			],
+			[
+				"gene",
+				"generateHashWithSalt"
+			],
+			[
+				"p",
+				"passwordSalt"
+			],
+			[
+				"pas",
+				"passwordHash"
+			],
+			[
+				"be",
+				"breweryName"
+			],
+			[
+				"pa",
+				"passwordHash"
+			],
+			[
+				"da",
+				"datesAndInventoryLevels"
+			],
+			[
+				"single_pa",
+				"single_package_volume"
+			],
+			[
+				"si",
+				"sizeFormattedArray"
+			],
+			[
+				"loca",
+				"locationOfX"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"vo",
+				"volumeML"
+			],
+			[
+				"lo",
+				"locationOfMl"
+			],
+			[
+				"location",
+				"locationOfBottle"
+			],
+			[
+				"in",
+				"inventory"
+			],
+			[
+				"reco",
+				"recordStatement"
+			],
+			[
+				"beerstore_",
+				"beerstore_beer_id"
+			],
+			[
+				"array",
+				"arrayCountMaker"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"arra",
+				"arrayCountMaker"
+			],
+			[
+				"beers",
+				"beerstore_store_id"
+			],
+			[
+				"get_m",
+				"get_mysqli_conn"
+			],
+			[
+				"arr",
+				"arrayOfPastSalesOrInventoryLevels"
+			],
+			[
 				"ed",
 				"editBeerProcess"
 			],
@@ -38,10 +154,6 @@
 			[
 				"ema",
 				"emailForResend"
-			],
-			[
-				"pass",
-				"passURLRef"
 			],
 			[
 				"bar",
@@ -88,10 +200,6 @@
 				"passwordLogin"
 			],
 			[
-				"pa",
-				"passwordSignUp"
-			],
-			[
 				"te",
 				"text-align"
 			],
@@ -108,16 +216,8 @@
 				"departure"
 			],
 			[
-				"arr",
-				"arrivalStation"
-			],
-			[
 				"str",
 				"strlen"
-			],
-			[
-				"p",
-				"passedPassID"
 			],
 			[
 				"fiel",
@@ -152,10 +252,6 @@
 				"getPassDataPrePost"
 			],
 			[
-				"in",
-				"inbound"
-			],
-			[
 				"our",
 				"ourPassID"
 			],
@@ -186,10 +282,6 @@
 			[
 				"tem",
 				"tempImagePath"
-			],
-			[
-				"for",
-				"for	for …"
 			],
 			[
 				"pho",
@@ -422,99 +514,35 @@
 			[
 				"po",
 				"position"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
-				"fon",
-				"font-thin"
-			],
-			[
-				"he",
-				"height"
-			],
-			[
-				"max",
-				"max-width"
-			],
-			[
-				"padd",
-				"padding-right"
-			],
-			[
-				"magr",
-				"margin-left"
-			],
-			[
-				"wni",
-				"windowHeight"
-			],
-			[
-				"win",
-				"windowHeight"
-			],
-			[
-				"mod",
-				"modalWidth"
-			],
-			[
-				"c",
-				"console"
-			],
-			[
-				"cardB",
-				"cardBackLaunch"
-			],
-			[
-				"si",
-				"singleCard"
-			],
-			[
-				"singl",
-				"singleCard"
-			],
-			[
-				"a",
-				"absolute"
-			],
-			[
-				"col",
-				"color"
-			],
-			[
-				"wi",
-				"width"
-			],
-			[
-				"di",
-				"display"
-			],
-			[
-				"backgr",
-				"background-color"
-			],
-			[
-				"u",
-				"uppercase"
-			],
-			[
-				"text",
-				"text-transform"
-			],
-			[
-				"add",
-				"addTo"
-			],
-			[
-				"gr",
-				"greenSockManAnimate_Scene"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 2530,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/_shared/_auth.php",
+			"settings":
+			{
+				"buffer_size": 588,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 5241,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -552,26 +580,69 @@
 		"/Users/phileverson/Repos/btapp/app",
 		"/Users/phileverson/Repos/btapp/app/_shared",
 		"/Users/phileverson/Repos/btapp/app/decide",
+		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast",
+		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner",
 		"/Users/phileverson/Repos/btapp/app/global",
-		"/Users/phileverson/Repos/btapp/assets",
-		"/Users/phileverson/Repos/btapp/assets/js/AdminLTE",
-		"/Users/phileverson/Repos/btapp/pages"
+		"/Users/phileverson/Repos/btapp/app/global/dashboard",
+		"/Users/phileverson/Repos/btapp/app/report",
+		"/Users/phileverson/Repos/btapp/auth"
 	],
 	"file_history":
 	[
-		"/Users/phileverson/Repos/btapp/app/global/manage-beers/index.php",
-		"/Users/phileverson/Repos/btapp/app/_shared/_leftNav.php",
 		"/Users/phileverson/Repos/btapp/app/_shared/_header.php",
-		"/Users/phileverson/Repos/btapp/app/_shared/_footer.php",
-		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_viewAllBeer.php",
+		"/Users/phileverson/Repos/btapp/auth/_login.php",
+		"/Users/phileverson/Repos/btapp/index.php",
+		"/Users/phileverson/Repos/btapp/auth/_register.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_auth.php",
+		"/Users/phileverson/Repos/btapp/auth/error_messages/_needLogin.php",
+		"/Users/phileverson/Repos/btapp/auth/error_messages/_loggedOutSuccess.php",
+		"/Users/phileverson/Repos/btapp/auth/error_messages/_inactiveBrewery.php",
+		"/Users/phileverson/Repos/btapp/auth/error_messages/__inactiveBrewery.php",
+		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/index.php",
+		"/Users/phileverson/Repos/btapp/app/report/sales-history/index.php",
+		"/Users/phileverson/Repos/btapp/app/report/pos-entry/index.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-stores/index.php",
+		"/Users/phileverson/Repos/btapp/app/global/brewery-details/index.php",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/index.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-beers/index.php",
+		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner/index.php",
+		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast/index.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_globalFunctions.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_editBeer.php",
+		"/Users/phileverson/Repos/btapp/auth/login.php",
+		"/Users/phileverson/Repos/btapp/register/index.php",
+		"/Users/phileverson/Repos/btapp/README.md",
+		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast/_forcastsHome.php",
+		"/Users/phileverson/Repos/btapp/parser/index.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_databaseConnection.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_leftNav.php",
+		"/Users/phileverson/Repos/btapp/app/global/brewery-details/_updateDetails.php",
+		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_viewAllInventory.php",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/_home.php",
+		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/index.html",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/_reportDashboard.php",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/_decideDashboard.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_viewAllBeer.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_addBeer.php",
+		"/Users/phileverson/Repos/btapp/app/report/pos-entry/_addPOSEntry.php",
+		"/Users/phileverson/Repos/btapp/app/report/pos-entry/_viewAllBeer.php",
+		"/Users/phileverson/Repos/btapp/app/report/sales-history/index.html",
+		"/Users/phileverson/Repos/btapp/app/report/sales-history/_viewAllHistory.php",
+		"/Users/phileverson/Repos/btapp/app/report/sales-history/_lookupStart.php",
+		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner/_initiatePlan.php",
+		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner/_viewAllPlans.php",
+		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner/_singlePlan.php",
+		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner/_ViewAllPlans.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-stores/_addStore.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-stores/_singleStore.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-stores/_viewAllStores.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_singleBeer.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_footer.php",
 		"/Users/phileverson/Repos/btapp/app/global/template.php",
 		"/Users/phileverson/Repos/btapp/assets/js/AdminLTE/demo.js",
 		"/Users/phileverson/Repos/btapp/app/global/_leftNav.php",
 		"/Users/phileverson/Repos/btapp/app/global/_footer.php",
 		"/Users/phileverson/Repos/btapp/app/global/_header.php",
-		"/Users/phileverson/Repos/btapp/index.php",
 		"/Users/phileverson/Repos/via-porter/assets/css/main.css",
 		"/Users/phileverson/Repos/via-porter/index.html",
 		"/Users/phileverson/Repos/via-porter-ios/www/index.html",
@@ -645,48 +716,7 @@
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-OLD-modules/_OLD-contact-page.scss",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/init.js",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/base/_owl-carousel.scss",
-		"/Users/phileverson/Repos/mytodo3/Gruntfile.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/homepage-init.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/page-homepage.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/top-ten.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/322e7abdda680fd09d0adcd445304aa1d9b77c70/_owl-carousel-base.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/**old-code-that-may-be-of-use/OLD-libs/owl.carousel.min.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/322e7abdda680fd09d0adcd445304aa1d9b77c70/_owl-carousel.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/vendor/owl.carousel.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-OLD-modules/_OLD-what-grid.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/**old-code-that-may-be-of-use/OLD-source/init.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/search.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt-contrib-concat/node_modules/source-map/build/test-prefix.js",
-		"/Users/phileverson/Repos/helloWeb/www/index.html",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/069c4339c967e95225b24c49d6c475b6042b0eca/_top-ten.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/19a8d548b8847fe702c9070172383b5fa86117cb/_top-ten.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_top-ten.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-top-ten.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-OLD-modules/_OLD-top-ten.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/taxonomy-custom_cat.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt-contrib-uglify/node_modules/maxmin/node_modules/gzip-size/node_modules/browserify-zlib/test/test-zlib-invalid-input.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/functions.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_work.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/browser-sync/node_modules/browser-sync-client/.idea/workspace.xml",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/069c4339c967e95225b24c49d6c475b6042b0eca/_work.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_media-blocks.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/media-blocks.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.gitignore",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/eloqua_style.css",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt/node_modules/js-yaml/examples/dumper.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/069c4339c967e95225b24c49d6c475b6042b0eca/_media-blocks.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/neat/grid/_media.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/header.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/footer.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-hero-banner.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/base/_variables.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/vendor/Greensock/ScrollToPlugin.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/base/_layout.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/14933559b9ef8d0228254d64d06af1433247fb31/_media.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/023bca86e5f119966065c576b93ffc95850d964d/_media.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-solutions.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/ede6fb56bd05714b350696ee942f66c6d320f9b3/_variables.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/d84ab307a3ab9544aeb873f46db188929cb77135/_variables.scssc"
+		"/Users/phileverson/Repos/mytodo3/Gruntfile.js"
 	],
 	"find":
 	{
@@ -707,6 +737,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			";\n",
 			"exam",
 			"fixed",
 			"layout",
@@ -776,8 +807,98 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2530,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								953,
+								953
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/_shared/_auth.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 588,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								475,
+								475
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5241,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3819,
+								3819
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1279.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1024,7 +1145,7 @@
 		"selected_items":
 		[
 		],
-		"width": 458.0
+		"width": 422.0
 	},
 	"selected_group": 0,
 	"settings":
@@ -1034,7 +1155,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 209.0,
+	"side_bar_width": 210.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
