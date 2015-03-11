@@ -57,9 +57,18 @@ function basicForcast($pointsPassed)
 
 function addDateRange()
 {
-    //Posting variables and escaping for security
+    //Grabbing submitted text from form date range selection
     $textDateRange = mysql_escape_string($_POST['reservation']);
-    echo $textDateRange;
+    //Sets the time zone
+    date_default_timezone_set("America/Toronto");
+    //Parsing text date range into array
+    $dateRange = explode(" - ", $textDateRange);
+    //Makes an array with the start, current, and end dates
+    $dateArray = array(Date($dateRange[0]),date("m/d/Y"),Date($dateRange[1]));
+    // $dateArray[0]; // start date
+    // $dateArray[1]; // current date
+    // $dateArray[2]; // end date
+    return ($dateArray);
 }
 
 

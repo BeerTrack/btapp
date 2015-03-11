@@ -16,6 +16,11 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
+        <style>
+        body {
+                background-image: url("Background.jpg");margin: 0px; padding: 175px;
+        } 
+    </style>
     <body class="bg-black">
 
         <div class="form-box" id="login-box">

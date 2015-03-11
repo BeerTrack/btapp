@@ -1,44 +1,55 @@
 <?php
-$dataOfPhilAndChristian = array(
-array(1, 100),
-array(2, 96),
-array(3, 98),
-array(4, 103),
-array(5, 100),
-array(6, 103),
-array(7, 109),
-array(8, 106),
-array(9, 105),
-array(10, 106),
-array(11, 109),
-array(12, 117),
-array(13, 113),
-array(14, 113)
-);
+//Get start, current, and end dates
+$dateRange = addDateRange();
+echo "</br>" . "start date is: " . $dateRange[0];
+echo "</br>" . "current date is: " .  $dateRange[1];
+echo "</br>" . "end date is: " . $dateRange[2];
+//Determines number of days ahead the forecast is to be made for
+$daysAhead = ceil(abs((strtotime($dateRange[2]) - strtotime($dateRange[1])) / 86400));
+echo "</br>" . "num days ahead is: " . $daysAhead . "</br>";
 
+//Note: changed "$dataOfPhilAndChristian" to $stockLevels
+// $dataOfPhilAndChristian = array(
+// array("a", 100),
+// array("hose", 96),
+// array(31, 98),
+// array(41, 103),
+// array(51, 100),
+// array(61, 103),
+// array(71, 109),
+// array(81, 106),
+// array(91, 105),
+// array(101, 106),
+// array(111, 109),
+// array(121, 117),
+// array(131, 113),
+// array(141, 113)
+// );
 
-$daysAhead = 7;
+$stockLevels = getDateAndStockLevels(strtotime($dateRange[0]), '2015-03-08', '3211', '2322', 'Bottle', '12', '341');
+print_r($stockLevels);
+echo "</br>";
 
-$slopeAndY = basicForcast($dataOfPhilAndChristian);
+//Converts array passed in from database
+echo "Converted data array: ";
+$count = 1;
+foreach ($stockLevels as &$row) {
+	$row[0] = $count;
+	echo "(" . $stockLevels[$count - 1][0] . ", " . $stockLevels[$count - 1][1] . ")";
+	$count = $count + 1;
+};
 
-// echo 'slope: ' . $slopeAndY[1];
-// echo '</br>y intercept: ' . $slopeAndY[0];
-// echo '</br>LR Forecast: ' . ((floatval($slopeAndY[1]) * (count($dataOfPhilAndChristian) + $daysAhead)) + floatval($slopeAndY[0]));
-
-$LRforecast = ((floatval($slopeAndY[1]) * (count($dataOfPhilAndChristian) + $daysAhead)) + floatval($slopeAndY[0]));
-
+//Linear regression forecast
+$slopeAndY = basicForcast($stockLevels);
+$LRforecast = ((floatval($slopeAndY[1]) * (count($stockLevels) + $daysAhead)) + floatval($slopeAndY[0]));
+//Moving average forecast
 $sum = 0;
-
-foreach ($dataOfPhilAndChristian as list($date, $sales)) {
+foreach ($stockLevels as list($date, $sales)) {
 	$sum = $sum + $sales;
 	};
-
-	// echo '</br>A Forecast: ' . $sum / count($dataOfPhilAndChristian);
-
-$Aforecast = $sum / count($dataOfPhilAndChristian);
-
-// echo '</br>Final Forecast: ' . (0.8 * floatval($Aforecast) + 0.2 * floatval($LRforecast));
-echo (0.8 * floatval($Aforecast) + 0.2 * floatval($LRforecast));
+$Aforecast = $sum / count($stockLevels);
+//Output total forecast based 80% on the MA forecast and 20% on the LR forecast
+echo "</br> Predicted number of sales for " . $dateRange[2] . " is: " . (0.8 * floatval($Aforecast) + 0.2 * floatval($LRforecast));
     
 ?>
 
@@ -57,10 +68,112 @@ echo (0.8 * floatval($Aforecast) + 0.2 * floatval($LRforecast));
     </div>
 </form>
 
+<div class="col-md-8">
+	<p class="text-center">
+	    <strong>
+	    	Sales: 
+	    	<?php 
+	    		$dateRange = addDateRange();
+	    		echo $dateRange[0] . " till " . $dateRange[2];
+    		?>
+    	</strong>
+	</p>
+    <!-- Line chart -->
+    <div class="box box-primary">
+        <div class="box-header">
+            <i class="fa fa-bar-chart-o"></i>
+            <h3 class="box-title">History and Forecast Chart</h3>
+        </div>
+        <div class="box-body">
+            <div id="line-chart" style="height: 300px;"></div>
+        </div><!-- /.box-body-->
+    </div><!-- /.box -->
+</div>
+
+
 <!-- jQuery 2.1.3 -->
 
     <!-- Page script -->
     <script type="text/javascript">
      //Date range picker
         $('#reservation').daterangepicker();
+        // $(function() {
+        //     /*
+        //      * LINE CHART
+        //      * ----------
+        //      */
+        //     //LINE randomly generated data
+
+        //     var sin = [], cos = [];
+        //     for (var i = 0; i < 14; i += 0.5) {
+        //         sin.push([i, Math.sin(i)]);
+        //         cos.push([i, Math.cos(i)]);
+        //     }
+        //     var line_data1 = {
+        //         data: sin,
+        //         color: "#3c8dbc"
+        //     };
+        //     var line_data2 = {
+        //         data: cos,
+        //         color: "#00c0ef"
+        //     };
+        //     $.plot("#line-chart", [line_data1, line_data2], {
+        //         grid: {
+        //             hoverable: true,
+        //             borderColor: "#f3f3f3",
+        //             borderWidth: 1,
+        //             tickColor: "#f3f3f3"
+        //         },
+        //         series: {
+        //             shadowSize: 0,
+        //             lines: {
+        //                 show: true
+        //             },
+        //             points: {
+        //                 show: true
+        //             }
+        //         },
+        //         lines: {
+        //             fill: false,
+        //             color: ["#3c8dbc", "#f56954"]
+        //         },
+        //         yaxis: {
+        //             show: true,
+        //         },
+        //         xaxis: {
+        //             show: true
+        //         }
+        //     });
+        //     //Initialize tooltip on hover
+        //     $("<div class='tooltip-inner' id='line-chart-tooltip'></div>").css({
+        //         position: "absolute",
+        //         display: "none",
+        //         opacity: 0.8
+        //     }).appendTo("body");
+        //     $("#line-chart").bind("plothover", function(event, pos, item) {
+
+        //         if (item) {
+        //             var x = item.datapoint[0].toFixed(2),
+        //                     y = item.datapoint[1].toFixed(2);
+
+        //             $("#line-chart-tooltip").html(item.series.label + " of " + x + " = " + y)
+        //                     .css({top: item.pageY + 5, left: item.pageX + 5})
+        //                     .fadeIn(200);
+        //         } else {
+        //             $("#line-chart-tooltip").hide();
+        //         }
+
+        //     });
+        //     /* END LINE CHART */
+        // });
+        // /*
+        //  * Custom Label formatter
+        //  * ----------------------
+        //  */
+        // function labelFormatter(label, series) {
+        //     return "<div style='font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;'>"
+        //         + label
+        //         + "<br/>"
+        //         + Math.round(series.percent) + "%</div>";
+	       //  }
     </script>
