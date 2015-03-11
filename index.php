@@ -74,7 +74,7 @@ function newRegistration($fullName, $breweryName, $email, $password)
 
 //authenticates a user
 
-function authenticateUser($userEmailPassed, $userPasswordPassed)
+function authenticateUser($userEmail, $userPassword)
 {
     echo '| top of authenticateUser';
 
@@ -84,8 +84,8 @@ function authenticateUser($userEmailPassed, $userPasswordPassed)
 
     echo '| after session updates authenticateUser';
 
-    $userEmail = mysql_escape_string($userEmailPassed);
-    $userPassword = mysql_escape_string($userPasswordPassed);
+    // $userEmail = mysql_escape_string($userEmail);
+    // $userPassword = mysql_escape_string($userPassword);
 
     echo '| after mysql escape strings';
 
