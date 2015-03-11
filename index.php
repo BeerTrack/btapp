@@ -76,34 +76,36 @@ function newRegistration($fullName, $breweryName, $email, $password)
 
 function authenticateUser($userEmail, $userPassword)
 {
-    echo '| top of authenticateUser';
+    // echo '| top of authenticateUser';
 
     //clearing the "login status" variable...
     session_unset(); 
     session_destroy();
 
-    echo '| after session updates authenticateUser';
+    // echo '| after session updates authenticateUser';
 
-    // $userEmail = mysql_escape_string($userEmail);
-    // $userPassword = mysql_escape_string($userPassword);
+    $userEmail = mysqli_real_escape_string(returnConnection(), $userEmail);
+    $userPassword = mysqli_real_escape_string(returnConnection(), $userPassword);
 
-    echo '| after mysql escape strings';
+    // echo ' fyi: ' . $userEmail . $userPassword ;
+
+    // echo '| after mysql escape strings';
 
     //getting the users details
     $lookupUser = "SELECT * FROM breweries 
     WHERE email = '$userEmail'";
 
-    echo '| after mysql select statement written';
+    // echo '| after mysql select statement written';
 
     $userMysqlReturned = mysqli_fetch_array(beerTrackDBQuery($lookupUser));
 
-    echo '| after mysql call';
+    // echo '| after mysql call';
     //changing the plain text password to salted and hashed version...
     $passwordHash = hash("sha256", $userPassword . $userMysqlReturned['password_salt']);
 
     if($passwordHash === $userMysqlReturned['password_hash'])
     {
-        echo '| in first level of if statement of auth user';
+        // echo '| in first level of if statement of auth user';
 
         if($userMysqlReturned['brewery_active_status'] === '1')
         {
@@ -127,7 +129,7 @@ session_start();
         $_SESSION["loginStatus"]  = 'failed';
     }
 
-    echo '| exiting authenticateUser function...';
+    // echo '| exiting authenticateUser function...';
 
 }
 
