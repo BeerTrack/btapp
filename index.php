@@ -47,7 +47,7 @@ switch ($viewName) {
 
 //generates password hash with salt when a new user is created
 function generateHashWithSalt($password) {
-    $intermediateSalt = md5(uniqid(rand(), true));
+    $intermediateSalt = mt_rand();
     $salt = substr($intermediateSalt, 0, 10);
 
     $passwordHash = hash("sha256", $password . $salt);
