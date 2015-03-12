@@ -26,7 +26,11 @@ echo "</br>" . "num days ahead is: " . $daysAhead . "</br>";
 // array(141, 113)
 // );
 
-$stockLevels = getDateAndStockLevels(strtotime($dateRange[0]), '2015-03-08', '3211', '2322', 'Bottle', '12', '341');
+$startDate = date_create($dateRange[0]);
+print_r($startDate);
+$endDate = date_create($dateRange[2]);
+$stockLevels = getDateAndStockLevels('2015-03-02', date_format($endDate,"Y-m-d"), '3211', '2322', 'Bottle', '12', '341');
+echo "</br>";
 print_r($stockLevels);
 echo "</br>";
 
@@ -56,12 +60,64 @@ echo "</br> Predicted number of sales for " . $dateRange[2] . " is: " . (0.8 * f
 
 
 <form role="form" method="post" action="?requestedAction=forecast">
+	<h3 class="box-title">How early do you want to consider in your forecast, and when do you want to forecast for?</h3>
 	<div class="input-group">
 		<div class="input-group-addon">
 			<i class="fa fa-calendar"></i>
 		</div>
 		<input type="text" class="form-control pull-right" id="reservation" name="reservation">
 	</div>
+	<h3 class="box-title">What store do you want to forecast for?</h3>
+	<div class="form-group">
+		<labelfor="store">Select Store</label>
+		<select class="form-control" id="store" name="store">
+			<option>Main Store Address</option>
+			<option>Beer Store 1 Address</option>
+			<option>Beer Store 2 Address</option>
+			<option>Beer Store 3 Address</option>
+			<option>Beer Store 4 Address</option>
+			<option>Beer Store 5 Address</option>
+		</select>
+	</div>
+	<h3 class="box-title">What beer package do you want to forecast for?</h3>
+	<div class="form-group">
+		<labelfor="beerType">Select Beer Type</label>
+		<select class="form-control" id="beerType" name="beerType">
+			<option>Beer 1 Name</option>
+			<option>Beer 2 Name</option>
+			<option>Beer 3 Name</option>
+			<option>Beer 4 Name</option>
+			<option>...</option>
+			<option>Beer 5 Name</option>
+		</select>
+	</div>
+	<div class="form-group">
+	<labelfor="container">Select Container</label>
+		<select class="form-control" id="container" name="container">
+			<option>Bottle</option>
+			<option>Can</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<labelfor="volume">Select Volume</label>
+		<select class="form-control" id="volume" name="volume">
+			<option>Volume 1</option>
+			<option>Volume 2</option>
+			<option>Volume 3</option>
+			<option>Volume 4</option>
+			<option>...</option>
+			<option>Volume 5</option>
+		</select>
+	</div>
+	<div class="form-group">
+        <labelfor="quantity">Select Package Quantity</label>
+        <select class="form-control" id="quantity" name="quantity">
+            <option>1</option>
+            <option>6</option>
+            <option>12</option>
+            <option>24</option>
+        </select>
+    </div>
     <div class="box-footer">
         </br>
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -78,6 +134,7 @@ echo "</br> Predicted number of sales for " . $dateRange[2] . " is: " . (0.8 * f
     		?>
     	</strong>
 	</p>
+
     <!-- Line chart -->
     <div class="box box-primary">
         <div class="box-header">
@@ -85,95 +142,27 @@ echo "</br> Predicted number of sales for " . $dateRange[2] . " is: " . (0.8 * f
             <h3 class="box-title">History and Forecast Chart</h3>
         </div>
         <div class="box-body">
-            <div id="line-chart" style="height: 300px;"></div>
+              <!-- Main row -->
+            <div class="row">
+                <!-- Left col -->
+                <section class="col-lg-12 connectedSortable">
+                    <!-- Custom tabs (Charts with tabs)-->
+                    <div class="nav-tabs-custom">
+                        <div class="tab-content no-padding">
+                            <!-- Morris chart - Sales -->
+                            <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
+                            <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+                        </div>
+                    </div><!-- /.nav-tabs-custom -->
+                </section>
+                <!-- </div> -->
         </div><!-- /.box-body-->
     </div><!-- /.box -->
 </div>
 
-
 <!-- jQuery 2.1.3 -->
-
     <!-- Page script -->
     <script type="text/javascript">
      //Date range picker
         $('#reservation').daterangepicker();
-        // $(function() {
-        //     /*
-        //      * LINE CHART
-        //      * ----------
-        //      */
-        //     //LINE randomly generated data
-
-        //     var sin = [], cos = [];
-        //     for (var i = 0; i < 14; i += 0.5) {
-        //         sin.push([i, Math.sin(i)]);
-        //         cos.push([i, Math.cos(i)]);
-        //     }
-        //     var line_data1 = {
-        //         data: sin,
-        //         color: "#3c8dbc"
-        //     };
-        //     var line_data2 = {
-        //         data: cos,
-        //         color: "#00c0ef"
-        //     };
-        //     $.plot("#line-chart", [line_data1, line_data2], {
-        //         grid: {
-        //             hoverable: true,
-        //             borderColor: "#f3f3f3",
-        //             borderWidth: 1,
-        //             tickColor: "#f3f3f3"
-        //         },
-        //         series: {
-        //             shadowSize: 0,
-        //             lines: {
-        //                 show: true
-        //             },
-        //             points: {
-        //                 show: true
-        //             }
-        //         },
-        //         lines: {
-        //             fill: false,
-        //             color: ["#3c8dbc", "#f56954"]
-        //         },
-        //         yaxis: {
-        //             show: true,
-        //         },
-        //         xaxis: {
-        //             show: true
-        //         }
-        //     });
-        //     //Initialize tooltip on hover
-        //     $("<div class='tooltip-inner' id='line-chart-tooltip'></div>").css({
-        //         position: "absolute",
-        //         display: "none",
-        //         opacity: 0.8
-        //     }).appendTo("body");
-        //     $("#line-chart").bind("plothover", function(event, pos, item) {
-
-        //         if (item) {
-        //             var x = item.datapoint[0].toFixed(2),
-        //                     y = item.datapoint[1].toFixed(2);
-
-        //             $("#line-chart-tooltip").html(item.series.label + " of " + x + " = " + y)
-        //                     .css({top: item.pageY + 5, left: item.pageX + 5})
-        //                     .fadeIn(200);
-        //         } else {
-        //             $("#line-chart-tooltip").hide();
-        //         }
-
-        //     });
-        //     /* END LINE CHART */
-        // });
-        // /*
-        //  * Custom Label formatter
-        //  * ----------------------
-        //  */
-        // function labelFormatter(label, series) {
-        //     return "<div style='font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;'>"
-        //         + label
-        //         + "<br/>"
-        //         + Math.round(series.percent) + "%</div>";
-	       //  }
     </script>
