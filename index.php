@@ -1,4 +1,5 @@
 <?php
+ob_start(); //need this for header redirect to work...
 
 // include 'app/_shared/_auth.php';
 include 'app/_shared/_databaseConnection.php';
@@ -21,7 +22,7 @@ switch ($requestedAction) {
         newRegistration($_POST['full_name'], $_POST['brewery_name'], $_POST['email'], $_POST['password']);
         break;
     case "authenticateUser": 
-        authenticateUser($_POST['email'], $_POST['password']);
+        authenticateUser($_POST['email'], $_POST['password'], $_POST['course']);
         break;
     case "logout": 
         logoutUser();
@@ -57,10 +58,10 @@ function generateHashWithSalt($password) {
 //creates a user
 function newRegistration($fullName, $breweryName, $email, $password)
 {
-    $fullName = mysql_escape_string($fullName);
-    $breweryName = mysql_escape_string($breweryName);
-    $email = mysql_escape_string($email);
-    $password = mysql_escape_string($password);
+    $fullName = mysqli_real_escape_string(returnConnection(), $fullName);
+    $breweryName = mysqli_real_escape_string(returnConnection(), $breweryName);
+    $email = mysqli_real_escape_string(returnConnection(), $email);
+    $password = mysqli_real_escape_string(returnConnection(), $password);
 
     $passwordHashSaltArray = generateHashWithSalt($password);
     $passwordHash = $passwordHashSaltArray[0];
@@ -74,7 +75,7 @@ function newRegistration($fullName, $breweryName, $email, $password)
 
 //authenticates a user
 
-function authenticateUser($userEmail, $userPassword)
+function authenticateUser($userEmail, $userPassword, $userCourse)
 {
     // echo '| top of authenticateUser';
 
@@ -106,18 +107,16 @@ function authenticateUser($userEmail, $userPassword)
     if($passwordHash === $userMysqlReturned['password_hash'])
     {
         // echo '| in first level of if statement of auth user';
-
         if($userMysqlReturned['brewery_active_status'] === '1')
         {
-
-session_start();
-
+            session_start();
             $_SESSION["loginStatus"]  = 'loggedIn';
             $_SESSION["loggedInEmail"] = $userEmail;
             $_SESSION["loggedInPersonName"] = $userMysqlReturned['person_name'];
             $_SESSION["loggedInBreweryName"] = $userMysqlReturned['brewery_name'];
             $_SESSION["loggedInBreweryID"] = $userMysqlReturned['brewery_id'];
-            header("Location: app/global/dashboard/");
+            $_SESSION["showingCourse"] = $userCourse;
+            header('Location: app/global/dashboard/');
         }
         else
         {

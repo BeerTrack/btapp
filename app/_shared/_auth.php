@@ -8,6 +8,7 @@ if($_SESSION["loginStatus"]  === 'loggedIn')
     $loggedInPersonName = $_SESSION["loggedInPersonName"];
     $loggedInBreweryName = $_SESSION["loggedInBreweryName"];
     $loggedInBreweryID = $_SESSION["loggedInBreweryID"];
+    $showingCourse = $_SESSION["showingCourse"];
 }
 else
 {

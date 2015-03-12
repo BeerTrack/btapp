@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"use",
+				"userPassword"
+			],
+			[
 				"brewery",
 				"brewery_name"
 			],
@@ -510,20 +514,16 @@
 			[
 				"va",
 				"valueWidth"
-			],
-			[
-				"po",
-				"position"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "README.md",
+			"file": "index.php",
 			"settings":
 			{
-				"buffer_size": 2530,
+				"buffer_size": 5821,
 				"line_ending": "Unix"
 			}
 		},
@@ -532,14 +532,6 @@
 			"settings":
 			{
 				"buffer_size": 588,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.php",
-			"settings":
-			{
-				"buffer_size": 5241,
 				"line_ending": "Unix"
 			}
 		}
@@ -579,21 +571,19 @@
 		"/Users/phileverson/Repos/btapp",
 		"/Users/phileverson/Repos/btapp/app",
 		"/Users/phileverson/Repos/btapp/app/_shared",
-		"/Users/phileverson/Repos/btapp/app/decide",
-		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast",
-		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner",
 		"/Users/phileverson/Repos/btapp/app/global",
-		"/Users/phileverson/Repos/btapp/app/global/dashboard",
-		"/Users/phileverson/Repos/btapp/app/report",
-		"/Users/phileverson/Repos/btapp/auth"
+		"/Users/phileverson/Repos/btapp/app/global/manage-beers"
 	],
 	"file_history":
 	[
+		"/Users/phileverson/Repos/btapp/app/_shared/_databaseConnection.php",
+		"/Users/phileverson/Repos/btapp/index.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_auth.php",
+		"/Users/phileverson/Repos/btapp/README.md",
+		"/Users/phileverson/Repos/btapp/php_details.php",
 		"/Users/phileverson/Repos/btapp/app/_shared/_header.php",
 		"/Users/phileverson/Repos/btapp/auth/_login.php",
-		"/Users/phileverson/Repos/btapp/index.php",
 		"/Users/phileverson/Repos/btapp/auth/_register.php",
-		"/Users/phileverson/Repos/btapp/app/_shared/_auth.php",
 		"/Users/phileverson/Repos/btapp/auth/error_messages/_needLogin.php",
 		"/Users/phileverson/Repos/btapp/auth/error_messages/_loggedOutSuccess.php",
 		"/Users/phileverson/Repos/btapp/auth/error_messages/_inactiveBrewery.php",
@@ -611,10 +601,8 @@
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_editBeer.php",
 		"/Users/phileverson/Repos/btapp/auth/login.php",
 		"/Users/phileverson/Repos/btapp/register/index.php",
-		"/Users/phileverson/Repos/btapp/README.md",
 		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast/_forcastsHome.php",
 		"/Users/phileverson/Repos/btapp/parser/index.php",
-		"/Users/phileverson/Repos/btapp/app/_shared/_databaseConnection.php",
 		"/Users/phileverson/Repos/btapp/app/_shared/_leftNav.php",
 		"/Users/phileverson/Repos/btapp/app/global/brewery-details/_updateDetails.php",
 		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_viewAllInventory.php",
@@ -715,8 +703,7 @@
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-OLD-globals/_OLD-player.scss",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-OLD-modules/_OLD-contact-page.scss",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/init.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/base/_owl-carousel.scss",
-		"/Users/phileverson/Repos/mytodo3/Gruntfile.js"
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/base/_owl-carousel.scss"
 	],
 	"find":
 	{
@@ -807,43 +794,43 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "README.md",
+					"file": "index.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2530,
+						"buffer_size": 5821,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								953,
-								953
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 879.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
 					"file": "app/_shared/_auth.php",
-					"semi_transient": false,
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 588,
@@ -853,50 +840,19 @@
 						"selection":
 						[
 							[
-								475,
-								475
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "index.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5241,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3819,
-								3819
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1279.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1155,7 +1111,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 210.0,
+	"side_bar_width": 299.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

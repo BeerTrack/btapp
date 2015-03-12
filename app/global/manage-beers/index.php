@@ -49,12 +49,12 @@ switch ($requestedAction) {
 function addBeerProcess()
 {
     //Posting variables and escaping for security
-    $beerSize = floatval(mysql_escape_string($_POST['beerSize']));
-    $beerName = mysql_escape_string($_POST['beerName']);
-    $beerType = mysql_escape_string($_POST['beerType']);
-    $beerPrice = floatval(mysql_escape_string($_POST['beerPrice']));
-    $beerQuantity = floatval(mysql_escape_string($_POST['beerQuantity']));
-    $beerstoreBeerId = floatval(mysql_escape_string($_POST['beerstoreBeerId']));
+    $beerSize = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerSize']));
+    $beerName = mysqli_real_escape_string(returnConnection(), $_POST['beerName']);
+    $beerType = mysqli_real_escape_string(returnConnection(), $_POST['beerType']);
+    $beerPrice = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerPrice']));
+    $beerQuantity = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerQuantity']));
+    $beerstoreBeerId = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerstoreBeerId']));
 
     //Inserting beer information into database
     $insert_beer_statement = "INSERT INTO beer_brands (beer_name, beer_price, beer_size, beer_type, beer_quantity, beerstore_beer_id)
@@ -71,13 +71,13 @@ function editBeerAutoLoadValues() //function that provides the data to be used/r
 function editBeerProcess() //function to update the beer table
 {
     //Posting variables and escaping for security
-    $beerSize = floatval(mysql_escape_string($_POST['beerSize']));
-    $beerName = mysql_escape_string($_POST['beerName']);
-    $beerType = mysql_escape_string($_POST['beerType']);
-    $beerPrice = floatval(mysql_escape_string($_POST['beerPrice']));
-    $beerQuantity = floatval(mysql_escape_string($_POST['beerQuantity']));
-    $beerstoreBeerId = floatval(mysql_escape_string($_POST['beerstoreBeerId']));
-    $beerId = floatval(mysql_escape_string($_POST['beerId']));
+    $beerSize = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerSize']));
+    $beerName = mysqli_real_escape_string(returnConnection(), $_POST['beerName']);
+    $beerType = mysqli_real_escape_string(returnConnection(), $_POST['beerType']);
+    $beerPrice = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerPrice']));
+    $beerQuantity = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerQuantity']));
+    $beerstoreBeerId = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerstoreBeerId']));
+    $beerId = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerId']));
 
     //Upadating beer info in the database
     $update_beer_statement = "UPDATE beer_brands SET beer_name = '$beerName', beer_price = '$beerPrice', beer_size = '$beerSize', beer_type = '$beerType', beer_quantity = '$beerQuantity', beerstore_beer_id = '$beerstoreBeerId' WHERE beer_id = '$beerId'";

@@ -126,15 +126,14 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>Phil Everson <i class="caret"></i></span>
+                                <span><?php echo $loggedInPersonName; ?> <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
                                     <img src="../../../assets/img/avatar3.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        Phil Everson - Web Developer
-                                        <small>Member since Nov. 2012</small>
+                                        <?php echo $loggedInPersonName; ?> 
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
