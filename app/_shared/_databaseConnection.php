@@ -7,7 +7,10 @@ $dbpassword = 'e3a5c7f6';
 $dbname = 'heroku_687b349d31e72c1'; 
 
 global $mysqliBeerTrackPrime;
-$mysqliBeerTrackPrime = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
+// $mysqliBeerTrackPrime = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
+$mysqliBeerTrackPrime = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
+
+
 
 function beerTrackDBQuery($query) {
 	global $mysqliBeerTrackPrime;
