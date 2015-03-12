@@ -10,20 +10,36 @@ $requestedAction = $_GET['requestedAction'];
 $viewDisplayName = '';
 $viewPageName = '';
 
-//which view to show
-switch ($viewName) {
-    case "decide":
-        $viewDisplayName = 'Dashboard - Decide Cloud';
-        $viewPageName = '_decideDashboard.php';
-        break;
-    case "report":
-        $viewDisplayName = 'Dashboard - Report Cloud';
-        $viewPageName = '_reportDashboard.php';
-        break;
-    default:
-        $viewDisplayName = 'Dashboards';
-        $viewPageName = '_home.php';
-        break;
+// //which view to show
+// switch ($viewName) {
+//     case "decide":
+//         $viewDisplayName = 'Dashboard - Decide Cloud';
+//         $viewPageName = '_decideDashboard.php';
+//         break;
+//     case "report":
+//         $viewDisplayName = 'Dashboard - Report Cloud';
+//         $viewPageName = '_reportDashboard.php';
+//         break;
+//     default:
+//         $viewDisplayName = 'Reports & Dashboards';
+//         $viewPageName = '_home.php';
+//         break;
+// }
+
+if($showingCourse == 'MSCI444')
+{
+    $viewDisplayName = 'Reports & Dashboards';
+    $viewPageName = '_reportDashboard.php';
+}
+else if($showingCourse == 'MSCI436')
+{
+    $viewDisplayName = 'Reports & Dashboards';
+    $viewPageName = '_decideDashboard.php';
+}
+else
+{
+    $viewDisplayName = 'Reports & Dashboards';
+    $viewPageName = '_home.php';
 }
 //END: Homemade controller
 

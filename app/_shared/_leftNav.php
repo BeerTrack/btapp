@@ -21,21 +21,21 @@ function checkCurrentLocation($navTitle)
                 <img src="../../../assets/img/avatar3.png" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>Hello, Phil</p>
+                <p>Hello, <?php echo $loggedInPersonName; ?> </p>
 
-                <a href="#">Brewery Name</a>
+                <a href="#"><?php echo $loggedInBreweryName; ?> </a>
             </div>
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="<?php checkCurrentLocation('global/dashboard'); ?>">
                 <a href="/app/global/dashboard">
-                    <i class="fa fa-dashboard"></i> <span>Dashboards</span>
+                    <i class="fa fa-dashboard"></i> <span>Reports & Dashboards</span>
                 </a>
             </li>
             <li class="treeview <?php checkCurrentLocation('/report'); ?>">
                 <a href="#">
-                    <i class="fa fa-folder"></i> <span>Report Cloud (444)</span>
+                    <i class="fa fa-folder"></i> <span>Sales Reporting</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -44,16 +44,19 @@ function checkCurrentLocation($navTitle)
                     <li><a href="/app/report/pos-entry/"><i class="fa fa-angle-double-right"></i> POS Entry</a></li>
                 </ul>
             </li>
-            <li class="treeview <?php checkCurrentLocation('/decide'); ?>">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Decide Cloud (436)</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/app/decide/sales-forcast/"><i class="fa fa-angle-double-right"></i> Sales Forecast</a></li>
-                    <li><a href="/app/decide/shipment-planner/"><i class="fa fa-angle-double-right"></i> Shipment Planner</a></li>
-                </ul>
-            </li>
+            <?php if($showingCourse === "MSCI436"){ ?>
+                <li class="treeview <?php checkCurrentLocation('/decide'); ?>">
+                    <a href="#">
+                        <i class="fa fa-folder"></i> <span>Production/Logistics</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/app/decide/sales-forcast/"><i class="fa fa-angle-double-right"></i> Sales Forecast</a></li>
+                        <li><a href="/app/decide/shipment-planner/"><i class="fa fa-angle-double-right"></i> Shipment Planner</a></li>
+                    </ul>
+                </li>
+            <?php } ?>
+
             <li class="treeview <?php checkCurrentLocation('manage'); checkCurrentLocation('details'); ?>">
                 <a href="#">
                     <i class="fa fa-th"></i> <span>Settings</span>
