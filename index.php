@@ -1,4 +1,5 @@
 <?php
+ob_start(); //need this for header redirect to work...
 
 // include 'app/_shared/_auth.php';
 include 'app/_shared/_databaseConnection.php';
@@ -57,10 +58,10 @@ function generateHashWithSalt($password) {
 //creates a user
 function newRegistration($fullName, $breweryName, $email, $password)
 {
-    $fullName = mysql_escape_string($fullName);
-    $breweryName = mysql_escape_string($breweryName);
-    $email = mysql_escape_string($email);
-    $password = mysql_escape_string($password);
+    $fullName = mysqli_real_escape_string(returnConnection(), $fullName);
+    $breweryName = mysqli_real_escape_string(returnConnection(), $breweryName);
+    $email = mysqli_real_escape_string(returnConnection(), $email);
+    $password = mysqli_real_escape_string(returnConnection(), $password);
 
     $passwordHashSaltArray = generateHashWithSalt($password);
     $passwordHash = $passwordHashSaltArray[0];
@@ -117,7 +118,8 @@ session_start();
             $_SESSION["loggedInPersonName"] = $userMysqlReturned['person_name'];
             $_SESSION["loggedInBreweryName"] = $userMysqlReturned['brewery_name'];
             $_SESSION["loggedInBreweryID"] = $userMysqlReturned['brewery_id'];
-            header("Location: app/global/dashboard/");
+            header('Location: app/global/dashboard/');
+            // echo 'authed...';
         }
         else
         {

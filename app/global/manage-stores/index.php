@@ -49,9 +49,9 @@ function addStoreProcess()
 {
 
 //Posting variables and escaping for security
-$locationName = mysql_escape_string($_POST['locationName']);
-$locationAddress = mysql_escape_string($_POST['locationAddress']);
-$beerstoreStoreId = floatval(mysql_escape_string($_POST['beerstoreStoreId']));
+$locationName = mysqli_real_escape_string(returnConnection(), $_POST['locationName']);
+$locationAddress = mysqli_real_escape_string(returnConnection(), $_POST['locationAddress']);
+$beerstoreStoreId = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerstoreStoreId']));
 
 //Inserting store information into database
 $insert_store="INSERT INTO stores (location_name, location_address, brewery_id, beerstore_store_id)
@@ -65,10 +65,10 @@ function editStoreProcess()
 {
 
 //Posting variables and escaping for security
-$locationName = mysql_escape_string($_POST['locationName']);
-$locationAddress = mysql_escape_string($_POST['locationAddress']);
-$beerstoreStoreId = floatval(mysql_escape_string($_POST['beerstoreStoreId']));
-$storeId = floatval(mysql_escape_string($_POST['storeId']));
+$locationName = mysqli_real_escape_string(returnConnection(), $_POST['locationName']);
+$locationAddress = mysqli_real_escape_string(returnConnection(), $_POST['locationAddress']);
+$beerstoreStoreId = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerstoreStoreId']));
+$storeId = floatval(mysqli_real_escape_string(returnConnection(), $_POST['storeId']));
 
 
 //Upadating store info in the database

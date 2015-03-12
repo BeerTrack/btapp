@@ -15,13 +15,21 @@ function beerTrackDBQuery($query) {
 	if ($mysqliBeerTrackPrime->connect_errno) {
 		echo 'error with connection. see databaseConnection.php';
 	}
+	else
+	{
+		// echo 'good...';
+	}
 	return $result;
 }
 
 function returnConnection() {
-	$tempConnect = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
-	return $tempConnect;
+	// $tempConnect = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
+	// return $tempConnect;
+	// echo ' here too ';
+	global $mysqliBeerTrackPrime;
+	return $mysqliBeerTrackPrime;
 }
+
 
 
 // echo 'bottom of db connect';
