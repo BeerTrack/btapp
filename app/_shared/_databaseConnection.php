@@ -6,6 +6,7 @@ $dbuser = 'bb8fc74ed602e7';
 $dbpassword = 'e3a5c7f6'; 
 $dbname = 'heroku_687b349d31e72c1'; 
 
+global $mysqliBeerTrackPrime;
 $mysqliBeerTrackPrime = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
 
 function beerTrackDBQuery($query) {
@@ -15,6 +16,11 @@ function beerTrackDBQuery($query) {
 		echo 'error with connection. see databaseConnection.php';
 	}
 	return $result;
+}
+
+function returnConnection() {
+	$tempConnect = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
+	return $tempConnect;
 }
 
 
