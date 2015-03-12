@@ -1,4 +1,5 @@
 <?php
+ob_start(); //need this for header redirect to work...
 
 // include 'app/_shared/_auth.php';
 include 'app/_shared/_databaseConnection.php';
@@ -21,7 +22,7 @@ switch ($requestedAction) {
         newRegistration($_POST['full_name'], $_POST['brewery_name'], $_POST['email'], $_POST['password']);
         break;
     case "authenticateUser": 
-        authenticateUser($_POST['email'], $_POST['password']);
+        authenticateUser($_POST['email'], $_POST['password'], $_POST['course']);
         break;
     case "logout": 
         logoutUser();
@@ -47,7 +48,7 @@ switch ($viewName) {
 
 //generates password hash with salt when a new user is created
 function generateHashWithSalt($password) {
-    $intermediateSalt = md5(uniqid(rand(), true));
+    $intermediateSalt = mt_rand();
     $salt = substr($intermediateSalt, 0, 10);
 
     $passwordHash = hash("sha256", $password . $salt);
@@ -57,10 +58,10 @@ function generateHashWithSalt($password) {
 //creates a user
 function newRegistration($fullName, $breweryName, $email, $password)
 {
-    $fullName = mysql_escape_string($fullName);
-    $breweryName = mysql_escape_string($breweryName);
-    $email = mysql_escape_string($email);
-    $password = mysql_escape_string($password);
+    $fullName = mysqli_real_escape_string(returnConnection(), $fullName);
+    $breweryName = mysqli_real_escape_string(returnConnection(), $breweryName);
+    $email = mysqli_real_escape_string(returnConnection(), $email);
+    $password = mysqli_real_escape_string(returnConnection(), $password);
 
     $passwordHashSaltArray = generateHashWithSalt($password);
     $passwordHash = $passwordHashSaltArray[0];
@@ -74,36 +75,48 @@ function newRegistration($fullName, $breweryName, $email, $password)
 
 //authenticates a user
 
-function authenticateUser($userEmail, $userPassword)
+function authenticateUser($userEmail, $userPassword, $userCourse)
 {
+    // echo '| top of authenticateUser';
+
     //clearing the "login status" variable...
     session_unset(); 
     session_destroy();
 
-    $userEmail = mysql_escape_string($userEmail);
-    $userPassword = mysql_escape_string($userPassword);
+    // echo '| after session updates authenticateUser';
+
+    $userEmail = mysqli_real_escape_string(returnConnection(), $userEmail);
+    $userPassword = mysqli_real_escape_string(returnConnection(), $userPassword);
+
+    // echo ' fyi: ' . $userEmail . $userPassword ;
+
+    // echo '| after mysql escape strings';
 
     //getting the users details
     $lookupUser = "SELECT * FROM breweries 
     WHERE email = '$userEmail'";
+
+    // echo '| after mysql select statement written';
+
     $userMysqlReturned = mysqli_fetch_array(beerTrackDBQuery($lookupUser));
 
+    // echo '| after mysql call';
     //changing the plain text password to salted and hashed version...
     $passwordHash = hash("sha256", $userPassword . $userMysqlReturned['password_salt']);
 
     if($passwordHash === $userMysqlReturned['password_hash'])
     {
+        // echo '| in first level of if statement of auth user';
         if($userMysqlReturned['brewery_active_status'] === '1')
         {
-
-session_start();
-
+            session_start();
             $_SESSION["loginStatus"]  = 'loggedIn';
             $_SESSION["loggedInEmail"] = $userEmail;
             $_SESSION["loggedInPersonName"] = $userMysqlReturned['person_name'];
             $_SESSION["loggedInBreweryName"] = $userMysqlReturned['brewery_name'];
             $_SESSION["loggedInBreweryID"] = $userMysqlReturned['brewery_id'];
-            header("Location: app/global/dashboard/");
+            $_SESSION["showingCourse"] = $userCourse;
+            header('Location: app/global/dashboard/');
         }
         else
         {
@@ -114,6 +127,8 @@ session_start();
     {
         $_SESSION["loginStatus"]  = 'failed';
     }
+
+    // echo '| exiting authenticateUser function...';
 
 }
 
@@ -132,6 +147,7 @@ function logoutUser()
 ?>
 
 <!DOCTYPE html>
+
 <html class="bg-black">
     <head>
         <meta charset="UTF-8">
@@ -139,22 +155,22 @@ function logoutUser()
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <!-- Theme style -->
+        <!--Theme style-->
         <link href="../assets/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+
     </head>
     <style>
-body {
-        background-image: url("Background.jpg");
-} 
- 
-</style>
+        body {
+                background-image: url("Background.jpg");margin: 0px; padding: 110px;
+        } 
+    </style>
+
     <body class="bg-black">
 
         <?php

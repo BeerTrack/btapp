@@ -16,9 +16,19 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
+        <style>
+        body {
+                background-image: url("Background.jpg");margin: 0px; padding: 175px;
+        } 
+        /* Hidden placeholder */
+select option[disabled]:first-child {
+    display: none;
+}
+
+    </style>
     <body class="bg-black">
 
-        <div class="form-box" id="login-box">
+        <div class="form-box" id="login-box" style="margin-top: 20px;">
             <div class="header"><img src="LogoBW.png" alt="BeerTrack Logo"></div>
             <form action="?requestedAction=authenticateUser" method="post">
                 <div class="body bg-gray">
@@ -49,6 +59,11 @@
                     <div class="form-group">
                         <input type="password" name="password" class="form-control" placeholder="Password"/>
                     </div>
+                    <select class="form-control" name="course" placeholder="class">
+                    <option value="" selected disabled>Course</option>
+                        <option value="MSCI444">MSCI 444</option>
+                        <option value="MSCI436">MSCI 436</option>
+                      </select>
                 </div>
                 <div class="footer">
                     <button type="submit" class="btn bg-light-blue btn-block">Sign In</button>
