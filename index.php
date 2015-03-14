@@ -182,6 +182,7 @@ function logoutUser()
     <style>
         body {
                 background-image: url("Background.jpg");margin: 0px; padding: 110px;
+                background-size: cover !important;
         } 
     </style>
 

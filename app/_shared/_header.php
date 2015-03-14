@@ -65,7 +65,7 @@
             <a href="/" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
 
-                <img src="../../../LogoBW.png" alt="BeerTrack Logo">
+                <img src="../../../LogoBW.png" alt="BeerTrack Logo" style="margin-top:6px">
 
             </a>
             <!-- Header Navbar: style can be found in header.less -->
@@ -135,18 +135,6 @@
                                     <p>
                                         <?php echo $loggedInPersonName; ?> 
                                     </p>
-                                </li>
-                                <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
