@@ -26,6 +26,8 @@ select option[disabled]:first-child {
 }
 
     </style>
+
+
     <body class="bg-black">
 
         <div class="form-box" id="login-box" style="margin-top: 20px;">
@@ -54,19 +56,19 @@ select option[disabled]:first-child {
             ?>
 
                     <div class="form-group">
-                        <input type="text" name="email" class="form-control" placeholder="Email Address"/>
+                        <input type="text" name="email" id="emailField" class="form-control" placeholder="Email Address"/>
                     </div>
                     <div class="form-group">
                         <input type="password" name="password" class="form-control" placeholder="Password"/>
                     </div>
                     <select class="form-control" name="course" placeholder="class">
-                    <option value="" selected disabled>Course</option>
+                    <option value="" id="courseSelected" selected disabled>Course</option>
                         <option value="MSCI444">MSCI 444</option>
                         <option value="MSCI436">MSCI 436</option>
                       </select>
                 </div>
                 <div class="footer">
-                    <button type="submit" class="btn bg-light-blue btn-block">Sign In</button>
+                    <button type="submit" class="btn bg-light-blue btn-block" id="signInButton">Sign In</button>
 
                     <p>To create an account, please <a href="/?viewName=register">click here</a>.</p>
                 </div>
