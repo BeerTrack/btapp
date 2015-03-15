@@ -5,10 +5,15 @@
 <!-- Sample Data Table -->
 <div class="row">
 	<div class="col-xs-12">
+			<div class="box box-primary">
+			<div class="box-header">
+				<h3 class="box-title">All Beers</h3>
+				<!-- <a href="?viewName=add"><button class="box-header-btn btn btn-primary">Add Store</button></a> -->
+			</div>
+			<div class="box-body"> 
 		<table id="entireBeerTable" class="table table-bordered table-striped">
 			<thead>
 				<tr>
-					<th>Beer ID</th>
 					<th>Beer Name</th>
 					<th>Beer Price</th>
 					<th>Beer Size</th>
@@ -17,13 +22,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
 				<?php
 				$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM beer_brands b");
 
 				while($row = mysqli_fetch_array($displayTransactionQuery)) {
 					echo "<tr>";
-					echo "<td>" . $row['beer_id'] . "</td>";
 					echo "<td>" . $row['beer_name'] . "</td>";
 					echo "<td>" . $row['beer_price'] . "</td>";
 					echo "<td>" . $row['beer_size'] . "</td>";
@@ -32,17 +35,20 @@
 					echo "</tr>";
 				}
 				?>
-				</tr>
 			</tbody>
-		</table>
-
-
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
 	$(function() {
-		$("#entireBeerTable").dataTable();
+		$("#entireBeerTable").dataTable( {
+      "aoColumnDefs": [
+          { 'bSortable': false, 'aTargets': [ -1 ] }
+       ]
+});
 	});
 </script>
 

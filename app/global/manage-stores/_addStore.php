@@ -95,13 +95,3 @@
     }
 </script>
 </div>
-
-
-<div id="images"></div>
- 
-<script>
-
-
-
-
-</script>

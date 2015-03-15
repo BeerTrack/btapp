@@ -11,21 +11,21 @@ $viewDisplayName = '';
 $viewPageName = '';
 
 //which view to show
+$viewDisplayName = 'Manage Beers'; //hard coding now that the boxes change with it...
 switch ($viewName) {
     case "add":
-        $viewDisplayName = 'Manage Beers - Add Beer';
+        // $viewDisplayName = 'Manage Beers - Add Beer';
         $viewPageName = '_addBeer.php';
         break;
     case "edit":
-        $viewDisplayName = 'Manage Beers - Edit Beer';
+        // $viewDisplayName = 'Manage Beers - Edit Beer';
         $viewPageName = '_editBeer.php';
         break;
     case "single":
-        $viewDisplayName = 'Manage Beers - Beer Detail';
+        // $viewDisplayName = 'Manage Beers - Beer Detail';
         $viewPageName = '_singleBeer.php';
         break;
     default:
-        $viewDisplayName = 'Manage Beers - All Beers';
         $viewPageName = '_viewAllBeer.php';
         break;
 }
@@ -100,10 +100,14 @@ include '../../_shared/_leftNav.php';
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header shared-nav">
         <h1>
             <?php echo $viewDisplayName; ?>
         </h1>
+        <div class="btn-group shared-nav-btn-group">
+            <a href="?viewName=add" type="button" class="btn btn-primary">Add Beer</a>
+            <a href="?viewName=all" type="button" class="btn btn-primary">View All Beers</a>
+        </div>
     </section>
 
     <!-- Main content -->
