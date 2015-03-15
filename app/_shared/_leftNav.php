@@ -59,7 +59,7 @@ function checkCurrentLocation($navTitle)
 
             <li class="treeview <?php checkCurrentLocation('manage'); checkCurrentLocation('details'); ?>">
                 <a href="#">
-                    <i class="fa fa-th"></i> <span>Settings</span>
+                    <i class="fa fa-th"></i> <span>Brewery Settings</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">

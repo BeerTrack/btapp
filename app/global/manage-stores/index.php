@@ -11,21 +11,21 @@ $viewDisplayName = '';
 $viewPageName = '';
 
 //which view to show
+$viewDisplayName = 'Manage Stores'; //hard coding this because of layout change
 switch ($viewName) {
     case "add":
-        $viewDisplayName = 'Manage Stores - Add Store';
+        // $viewDisplayName = 'Manage Stores - Add Store';
         $viewPageName = '_addStore.php';
         break;
     case "edit":
-        $viewDisplayName = 'Manage Stores - Edit Store';
+        // $viewDisplayName = 'Manage Stores - Edit Store';
         $viewPageName = '_editStore.php';
         break;
     case "single":
-        $viewDisplayName = 'Manage Stores - Single Store';
+        // $viewDisplayName = 'Manage Stores - Single Store';
         $viewPageName = '_singleStore.php';
         break;
     default:
-        $viewDisplayName = 'Manage Stores - All Stores';
         $viewPageName = '_viewAllStores.php';
         break;
 }
@@ -97,19 +97,19 @@ include '../../_shared/_leftNav.php';
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header shared-nav">
         <h1>
             <?php echo $viewDisplayName; ?>
         </h1>
+        <div class="btn-group shared-nav-btn-group">
+            <a href="?viewName=add" type="button" class="btn btn-primary">Add Store</a>
+            <a href="?viewName=all" type="button" class="btn btn-primary">View All Stores</a>
+        </div>
     </section>
 
     <!-- Main content -->
     <section class="content">
-<!--         <div class="btn-group">
-            <a href="?viewName=add" type="button" class="btn btn-default">Add Beer</a>
-            <a href="?requestedAction=edit" type="button" class="btn btn-default">Middle</a>
-            <a href="?requestedAction=" type="button" class="btn btn-default">Right</a>
-        </div> -->
+        
         
     <?php
         include $viewPageName;

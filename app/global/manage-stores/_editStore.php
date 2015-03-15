@@ -29,7 +29,7 @@ $store_Array = mysqli_fetch_array($displayBeerInfoQuery);
             </div>
 
             <div class="form-group">
-                <labelfor="beerstoreStoreId"> Beer Store Store Id</label>
+                <labelfor="beerstoreStoreId"> Beer Store Issued Store ID</label>
                 <input type="number" class="form-control" id="beerstoreStoreId" name="beerstoreStoreId" value ="<?php echo $store_Array['beerstoreStoreId'];?>">
             </div>
 
@@ -38,16 +38,9 @@ $store_Array = mysqli_fetch_array($displayBeerInfoQuery);
             </div>
        
             <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Save Store</button>
             </div>
 
         </form>
     </div><!-- /.box-body -->
 </div><!-- /.box -->
-
-
-
-- Make form (See elements here: http://almsaeedstudio.com/AdminLTE/pages/forms/general.html)</br>
-- Form with fields auto loaded with current data (for onload) -> finish editBeerAutoLoadValues function in index file</br>
-- POST this data back to the index page with the submitUpdates case </br>
-- finish "editBeerProcess" function (in index.php), it should update the data in the database with the data that this page posts to it... 

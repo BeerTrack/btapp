@@ -10,6 +10,7 @@
         <!-- Ionicons -->
         <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
+        <link href="../../../assets/css/btapp-custom-styles.css" rel="stylesheet" type="text/css" />
         <link href="../../../assets/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         <link href="../../../assets/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 
@@ -21,9 +22,7 @@
         <script src="../../../assets/js/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
         <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
         <script src="../../../assets/js/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
-         <!-- Morris.js charts -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-        <script src="../../../assets/js/plugins/morris/morris.min.js" type="text/javascript"></script>
+        <!-- morris JS was here, moved to footer by Phil...-->
         <!-- Sparkline -->
         <script src="../../../assets/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
         <!-- jvectormap -->
@@ -41,15 +40,10 @@
         <script src="../../../assets/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
         <!-- iCheck -->
         <script src="../../../assets/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+        <!-- DataTables JS was here, moved to footer by Phil -->
+        <!-- Admin LTE theme JS was here, moved to footer by Phil-->
 
-        <!-- DATA TABES SCRIPT -->
-        <script src="../../../assets/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="../../../assets/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-        <!-- AdminLTE App -->
-        <script src="../../../assets/js/AdminLTE/app.js" type="text/javascript"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="../../../assets/js/AdminLTE/demo.js" type="text/javascript"></script>
-        <script src="../../../assets/js/AdminLTE/dashboard.js" type="text/javascript"></script>
+
         <!-- End Copy Footer -->
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -81,7 +75,7 @@
                     <ul class="nav navbar-nav">
                         <!-- Notifications: style can be found in dropdown.less -->
                         <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" style="line-height: 20px" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle dropdown-notification-toggle" style="line-height: 20px" data-toggle="dropdown">
                                 <i class="fa fa-warning"></i>
                                 <span class="label label-warning">10</span>
                             </a>
