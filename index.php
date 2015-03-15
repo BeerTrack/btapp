@@ -176,15 +176,30 @@ function logoutUser()
             ga('send', 'pageview');
         </script>
 
+        <style>
+            .full-screen-background-image {
+                background-image: url("Background.jpg");
+                background-size:cover;
+                position: absolute;
+                width: 100%;
+                bottom: 0px;
+                top: 0px;
+            } 
+            .body {
+                padding: 0px;
+            }
 
+            #login-box {
+                margin-top: 100px;
+            }
+
+            /* Hidden placeholder */
+            select option[disabled]:first-child {
+                display: none;
+            }
+        </style>
 
     </head>
-    <style>
-        body {
-                background-image: url("Background.jpg");margin: 0px; padding: 110px;
-                background-size: cover !important;
-        } 
-    </style>
 
     <body class="bg-black">
 
