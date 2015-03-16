@@ -1,5 +1,7 @@
 <?php
 
+//setting the timezone
+date_default_timezone_set("America/Toronto");
 
 //see https://github.com/BeerTrack/btapp#getdateandstocklevels
 function getDateAndStockLevels($startDate, $endDate, $beerstore_beer_ID, $beerstore_store_ID, $single_package_type, $single_package_quantity, $single_package_volume)

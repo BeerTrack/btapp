@@ -1,6 +1,7 @@
 <?php
 include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
+include '../../_shared/_globalFunctions.php';
 
 //**************************************************************
 //START: Homemade Controller (to determine which view to show)
@@ -11,10 +12,11 @@ $viewDisplayName = '';
 $viewPageName = '';
 
 //which view to show
+$viewDisplayName = 'Sales Inventory'; //hard coding
+
 switch ($viewName) {
     default:
-        $viewDisplayName = 'Sales Inventory';
-        $viewPageName = '_viewAllInventory.php';
+        $viewPageName = '_searchInventory.php';
         break;
 }
 //END: Homemade controller
@@ -22,9 +24,14 @@ switch ($viewName) {
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-function queryDatabaseForLatestInventory()
+function queryDatabaseForLatestInventory($textDateRangePassed)
 {
-    # code...
+    $dateRange = explode(" - ", $textDateRangePassed);
+    //Makes an array with the start, current, and end dates
+    $dateRange = array(Date($dateRange[0]),date("m/d/Y"),Date($dateRange[1]));
+
+    $startDate = date_format((date_create($dateRange[0])),"Y-m-d");
+    $endDate = date_format((date_create($dateRange[2])),"Y-m-d");
 }
 //END: Homemade models
 ?>

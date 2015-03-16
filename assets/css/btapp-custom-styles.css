@@ -35,3 +35,11 @@ a.dropdown-notification-toggle {
 	text-align: center;
 	width: 65px;
 }
+
+.col-no-padding-left {
+	padding-left: 0px;
+}
+
+.col-no-padding-right {
+	padding-right: 0px;
+}
