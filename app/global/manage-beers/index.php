@@ -36,7 +36,7 @@ switch ($requestedAction) {
         editBeerProcess();
         break;
     case "add":
-        addBeerProcess();
+        addBeerProcess($loggedInBreweryID);
         break;
 
 }
@@ -46,7 +46,7 @@ switch ($requestedAction) {
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-function addBeerProcess()
+function addBeerProcess($loggedInBreweryID)
 {
     //Posting variables and escaping for security
     $beerSize = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerSize']));
@@ -57,8 +57,8 @@ function addBeerProcess()
     $beerstoreBeerId = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerstoreBeerId']));
 
     //Inserting beer information into database
-    $insert_beer_statement = "INSERT INTO beer_brands (beer_name, beer_price, beer_size, beer_type, beer_quantity, beerstore_beer_id)
-    VALUES ('$beerName', '$beerPrice', '$beerSize', '$beerType', '$beerQuantity', 'beerstoreBeerId')";
+    $insert_beer_statement = "INSERT INTO beer_brands (beer_name, beer_price, beer_size, beer_type, beer_quantity, beerstore_beer_id, brewery_id)
+    VALUES ('$beerName', '$beerPrice', '$beerSize', '$beerType', '$beerQuantity', '$beerstoreBeerId', '$loggedInBreweryID')";
 
     beerTrackDBQuery($insert_beer_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 }

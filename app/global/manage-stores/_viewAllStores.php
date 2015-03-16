@@ -21,7 +21,7 @@
 					</thead>
 					<tbody>
 					<?php
-					$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM stores ORDER BY location_name");
+					$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM stores WHERE brewery_id = '$loggedInBreweryID' ORDER BY location_name");
 
 					while($row = mysqli_fetch_array($displayTransactionQuery)) {
 						echo "<tr>";

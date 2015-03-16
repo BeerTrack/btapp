@@ -30,7 +30,7 @@ $store_Array = mysqli_fetch_array($displayBeerInfoQuery);
 
             <div class="form-group">
                 <labelfor="beerstoreStoreId"> Beer Store Issued Store ID</label>
-                <input type="number" class="form-control" id="beerstoreStoreId" name="beerstoreStoreId" value ="<?php echo $store_Array['beerstoreStoreId'];?>">
+                <input type="text" class="form-control" id="beerstoreStoreId" name="beerstoreStoreId" value ="<?php echo $store_Array['beerstore_store_id'];?>">
             </div>
 
             <div class="form-group">

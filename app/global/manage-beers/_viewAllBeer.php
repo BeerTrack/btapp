@@ -18,12 +18,12 @@
 					<th>Beer Price</th>
 					<th>Beer Size</th>
 					<th>Beer Type</th>
-					<th>Beer Edit</th>
+					<th>Options</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
-				$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM beer_brands b");
+				$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM beer_brands WHERE brewery_id = '$loggedInBreweryID'");
 
 				while($row = mysqli_fetch_array($displayTransactionQuery)) {
 					echo "<tr>";
@@ -31,7 +31,7 @@
 					echo "<td>" . $row['beer_price'] . "</td>";
 					echo "<td>" . $row['beer_size'] . "</td>";
 					echo "<td>" . $row['beer_type'] . "</td>";
-					echo "<td> <a href=\"?viewName=edit&beerId=" . $row['beer_id'] . "\">Edit</a></td>";
+					echo "<td class=\"options-align-right\"> <a href=\"?viewName=edit&beerId=" . $row['beer_id'] . "\"><button class=\"btn btn-xs btn-primary\">Edit Beer</button></a></td>";
 					echo "</tr>";
 				}
 				?>

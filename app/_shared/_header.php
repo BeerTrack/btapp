@@ -122,26 +122,17 @@
                                 <i class="glyphicon glyphicon-user"></i>
                                 <span><?php echo $loggedInPersonName; ?> <i class="caret"></i></span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header bg-light-blue">
-                                    <img src="../../../assets/img/avatar3.png" class="img-circle" alt="User Image" />
-                                    <p>
-                                        <?php echo $loggedInPersonName; ?> 
-                                    </p>
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="/?requestedAction=logout" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
-                                </li>
-                            </ul>
+<ul class="dropdown-menu" role="menu">
+                  <li><a href="/?requestedAction=logout">Sign Out</a></li>
+                  
+                  <li class="divider"></li>
+                  <li><a href="#">Provide Feedback</a></li>
+                  <li><a href="#">About Beertrack</a></li>
+
+                </ul>
                         </li>
                     </ul>
+
                 </div>
             </nav>
         </header>

@@ -64,9 +64,3 @@ $beer_Array = mysqli_fetch_array($displayBeerInfoQuery);
     </div><!-- /.box-body -->
 </div><!-- /.box -->
 
-
-
-- Make form (See elements here: http://almsaeedstudio.com/AdminLTE/pages/forms/general.html)</br>
-- Form with fields auto loaded with current data (for onload) -> finish editBeerAutoLoadValues function in index file</br>
-- POST this data back to the index page with the submitUpdates case </br>
-- finish "editBeerProcess" function (in index.php), it should update the data in the database with the data that this page posts to it... 

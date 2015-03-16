@@ -17,10 +17,7 @@ function checkCurrentLocation($navTitle)
     <section class="sidebar">
         <!-- Sidebar user panel -->
         <div class="user-panel">
-            <div class="pull-left image">
-                <img src="../../../assets/img/avatar3.png" class="img-circle" alt="User Image" />
-            </div>
-            <div class="pull-left info">
+            <div class="pull-left info" style="padding-left:5px">
                 <p>Hello, <?php echo $loggedInPersonName; ?> </p>
 
                 <a href="#"><?php echo $loggedInBreweryName; ?> </a>
