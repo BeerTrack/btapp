@@ -17,10 +17,7 @@ function checkCurrentLocation($navTitle)
     <section class="sidebar">
         <!-- Sidebar user panel -->
         <div class="user-panel">
-            <div class="pull-left image">
-                <img src="../../../assets/img/avatar3.png" class="img-circle" alt="User Image" />
-            </div>
-            <div class="pull-left info">
+            <div class="pull-left info" style="padding-left:5px">
                 <p>Hello, <?php echo $loggedInPersonName; ?> </p>
 
                 <a href="#"><?php echo $loggedInBreweryName; ?> </a>
@@ -40,7 +37,7 @@ function checkCurrentLocation($navTitle)
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="/app/report/sales-inventory/"><i class="fa fa-angle-double-right"></i> Sales Inventory</a></li>
-                    <li><a href="/app/report/sales-history/"><i class="fa fa-angle-double-right"></i> Sales History</a></li>
+                    <li><a href="/app/report/sales-history/"><i class="fa fa-angle-double-right"></i> Historical Sales</a></li>
                     <li><a href="/app/report/pos-entry/"><i class="fa fa-angle-double-right"></i> POS Entry</a></li>
                 </ul>
             </li>
@@ -59,7 +56,7 @@ function checkCurrentLocation($navTitle)
 
             <li class="treeview <?php checkCurrentLocation('manage'); checkCurrentLocation('details'); ?>">
                 <a href="#">
-                    <i class="fa fa-th"></i> <span>Settings</span>
+                    <i class="fa fa-th"></i> <span>Brewery Settings</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">

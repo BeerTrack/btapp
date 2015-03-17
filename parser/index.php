@@ -33,21 +33,26 @@ function parseToMatchSiteshTable($size)
 }
 
 //function for adding a record to the database
-function recordInventory($location, $beer, $size, $inventory)
+function recordInventory($location, $beer, $size, $inventory, $brewery_id)
 {
 	$formattedSize = parseToMatchSiteshTable($size);
 	$quantityInPackage = $formattedSize[0];
 	$packageType = $formattedSize[1];
 	$volumeML = $formattedSize[2];
 
-	$recordStatement = "INSERT INTO inventory_parsing (beerstore_beer_id, beerstore_store_id, can_bottle_desc, single_package_type, single_package_quantity, single_package_volume, stock_at_timestamp)
-	VALUES ('$beer', '$location', '$size', '$packageType', '$quantityInPackage', '$volumeML', '$inventory')";
+	$recordStatement = "INSERT INTO inventory_parsing (beerstore_beer_id, beerstore_store_id, can_bottle_desc, single_package_type, single_package_quantity, single_package_volume, stock_at_timestamp, brewery_id)
+	VALUES ('$beer', '$location', '$size', '$packageType', '$quantityInPackage', '$volumeML', '$inventory', '$brewery_id')";
 	beerTrackDBQuery($recordStatement);
 }
 
+function queTheInventoryForABrewery($onDeckBreweryID)
+{
+
+	echo '</br><h3>FOR BREWERY: ' . $onDeckBreweryID . '</h3></br>';
+
 //getting entries from DB
-$allBeerBrands = beerTrackDBQuery("SELECT beerstore_beer_id FROM beer_brands WHERE instance_id = 1");
-$allLocations = beerTrackDBQuery("SELECT beerstore_store_id FROM stores WHERE instance_id = 1");
+$allBeerBrands = beerTrackDBQuery("SELECT beerstore_beer_id  FROM beer_brands WHERE brewery_id = '$onDeckBreweryID'");
+$allLocations = beerTrackDBQuery("SELECT beerstore_store_id FROM stores WHERE brewery_id = '$onDeckBreweryID'");
 
 //the array we'll use to store the combinations of locations and beers
 $beerLocationMatrix = array();
@@ -112,10 +117,22 @@ foreach ($beerLocationMatrix as $matrixCombo) {
 	 	  	}
 	 	  	if($size != null && $inventory != null)
 	 	  	{
-	 	  		recordInventory($location, $beer, $size, $inventory);
+	 	  		recordInventory($location, $beer, $size, $inventory, $onDeckBreweryID);
 	 	  	}
 		  }
 	 }
  }
+}
+
+
+// ************************CODE THAT ACTUALLY CYCLES THROUGH THE PARSING FOR EACH BREWERY... ************************
+
+//getting all the breweries we've got...
+$allBreweriesThatAreActive = beerTrackDBQuery("SELECT brewery_id FROM breweries WHERE brewery_active_status = 1");
+while($rowBrewery = mysqli_fetch_array($allBreweriesThatAreActive)) {
+	queTheInventoryForABrewery($rowBrewery['brewery_id']);
+}
+
+
 
 ?>

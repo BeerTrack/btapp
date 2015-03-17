@@ -1,0 +1,45 @@
+a.dropdown-notification-toggle {
+	padding-top: 18px !important;
+	padding-bottom: 18px !important;
+}
+
+.shared-nav > h1 {
+	display: inline-block;
+	width: 50%;
+}
+
+.shared-nav > a > .btn {
+	float: right;
+	padding-top: 1px;
+	padding-bottom: 2px;
+}
+
+.shared-nav-btn-group {
+	float: right;
+}
+
+.shared-nav-btn-group > a {
+	padding-top: 1px;
+	padding-bottom: 2px;
+}
+
+.box-header-btn {
+	float: right;
+	margin-top: 5px;
+	margin-right: 10px;
+	/*padding-top: 5px;*/
+	/*padding-bottom: 2px;*/
+}
+
+.options-align-right {
+	text-align: center;
+	width: 65px;
+}
+
+.col-no-padding-left {
+	padding-left: 0px;
+}
+
+.col-no-padding-right {
+	padding-right: 0px;
+}
