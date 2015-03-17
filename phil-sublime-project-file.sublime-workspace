@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"packa",
+				"inventory_package_size"
+			],
+			[
 				"lo",
 				"loggedInBreweryID"
 			],
@@ -510,10 +514,6 @@
 			[
 				"pad",
 				"padding-top"
-			],
-			[
-				"pan",
-				"panelSlide"
 			]
 		]
 	},
@@ -554,19 +554,31 @@
 	[
 		"/Users/phileverson/Repos/btapp",
 		"/Users/phileverson/Repos/btapp/app",
+		"/Users/phileverson/Repos/btapp/app/_shared",
+		"/Users/phileverson/Repos/btapp/app/decide",
+		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast",
 		"/Users/phileverson/Repos/btapp/app/global",
-		"/Users/phileverson/Repos/btapp/app/global/dashboard",
-		"/Users/phileverson/Repos/btapp/assets/css",
-		"/Users/phileverson/Repos/btapp/assets/css/datatables/images"
+		"/Users/phileverson/Repos/btapp/app/global/manage-stores",
+		"/Users/phileverson/Repos/btapp/app/report",
+		"/Users/phileverson/Repos/btapp/app/report/sales-inventory"
 	],
 	"file_history":
 	[
+		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/index.php",
+		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_viewAllInventory.php",
+		"/Users/phileverson/Repos/btapp/assets/css/btapp-custom-styles.css",
+		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_searchInventory.php",
+		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast/_forcastsHome.php",
+		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast/index.php",
+		"/Users/phileverson/Repos/btapp/assets/composer.json",
+		"/Users/phileverson/Repos/btapp/php_details.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_globalFunctions.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_header.php",
+		"/Users/phileverson/Repos/btapp/app/global/manage-stores/_addStore.php",
 		"/Users/phileverson/Repos/btapp/assets/js/AdminLTE/dashboard.js",
 		"/Users/phileverson/Repos/btapp/app/global/dashboard/_decideDashboard.php",
 		"/Users/phileverson/Repos/btapp/pages/tables/data.html",
-		"/Users/phileverson/Repos/btapp/php_details.php",
 		"/Users/phileverson/Repos/btapp/app/_shared/_leftNav.php",
-		"/Users/phileverson/Repos/btapp/app/_shared/_header.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-stores/_viewAllStores.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_viewAllBeer.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_addBeer.php",
@@ -574,11 +586,9 @@
 		"/Users/phileverson/Repos/btapp/app/_shared/_auth.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-stores/index.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-stores/_editStore.php",
-		"/Users/phileverson/Repos/btapp/app/global/manage-stores/_addStore.php",
 		"/Users/phileverson/Repos/btapp/index.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_editBeer.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/allBeersAPI.json",
-		"/Users/phileverson/Repos/btapp/assets/css/btapp-custom-styles.css",
 		"/Users/phileverson/Repos/btapp/app/global/manage-stores/allStoresAPI.json",
 		"/Users/phileverson/Repos/btapp/app/global/manage-stores/_singleStore.php",
 		"/Users/phileverson/Repos/btapp/app/_shared/_footer.php",
@@ -595,18 +605,13 @@
 		"/Users/phileverson/Repos/btapp/auth/error_messages/_loggedOutSuccess.php",
 		"/Users/phileverson/Repos/btapp/auth/error_messages/_inactiveBrewery.php",
 		"/Users/phileverson/Repos/btapp/auth/error_messages/__inactiveBrewery.php",
-		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/index.php",
 		"/Users/phileverson/Repos/btapp/app/report/sales-history/index.php",
 		"/Users/phileverson/Repos/btapp/app/report/pos-entry/index.php",
 		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner/index.php",
-		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast/index.php",
-		"/Users/phileverson/Repos/btapp/app/_shared/_globalFunctions.php",
 		"/Users/phileverson/Repos/btapp/auth/login.php",
 		"/Users/phileverson/Repos/btapp/register/index.php",
-		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast/_forcastsHome.php",
 		"/Users/phileverson/Repos/btapp/parser/index.php",
 		"/Users/phileverson/Repos/btapp/app/global/brewery-details/_updateDetails.php",
-		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_viewAllInventory.php",
 		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/index.html",
 		"/Users/phileverson/Repos/btapp/app/report/pos-entry/_addPOSEntry.php",
 		"/Users/phileverson/Repos/btapp/app/report/pos-entry/_viewAllBeer.php",
@@ -686,9 +691,7 @@
 		"/Users/phileverson/Repos/via-porter/driving/app/cimage-master/webroot/img.php",
 		"/Users/phileverson/Repos/via-porter/driving/app/cimage-master/webroot/img_config.php",
 		"/Users/phileverson/Repos/via-porter/driving/postmark-inbound-php-master/example/without_composer/index.php",
-		"/Users/phileverson/Repos/via-porter/driving/postmark-inbound-php-master/fixtures/inbound.json",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-slt.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_slt-panel.scss"
+		"/Users/phileverson/Repos/via-porter/driving/postmark-inbound-php-master/fixtures/inbound.json"
 	],
 	"find":
 	{
@@ -831,6 +834,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"custom",
+				"assets/css/btapp-custom-styles.css"
+			],
 			[
 				"dashboard",
 				"assets/js/AdminLTE/dashboard.js"
@@ -1042,7 +1049,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 299.0,
+	"side_bar_width": 277.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

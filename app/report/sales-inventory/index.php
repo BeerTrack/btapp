@@ -19,20 +19,30 @@ switch ($viewName) {
         $viewPageName = '_searchInventory.php';
         break;
 }
+
+
+// specific actions for some pages
+switch ($requestedAction) {
+    case "getInventory": //called when edit page is posted back
+        // christiansThing();
+        //Grabbing submitted text from form date range selection
+        $inventory_beerstore_id = mysqli_real_escape_string(returnConnection(), $_POST['inventory_beerstore_id']);
+        $inventory_location = mysqli_real_escape_string(returnConnection(), $_POST['inventory_location']);
+        $timespanForInventoryLookup = mysqli_real_escape_string(returnConnection(), $_POST['timespanForInventoryLookup']);
+        $inventory_package_type = mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_type']);
+        $inventory_package_single_volume = mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_single_volume']);
+        $inventory_package_quanity = mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_quanity']);
+        
+        break;
+}
+
 //END: Homemade controller
 
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-function queryDatabaseForLatestInventory($textDateRangePassed)
-{
-    $dateRange = explode(" - ", $textDateRangePassed);
-    //Makes an array with the start, current, and end dates
-    $dateRange = array(Date($dateRange[0]),date("m/d/Y"),Date($dateRange[1]));
 
-    $startDate = date_format((date_create($dateRange[0])),"Y-m-d");
-    $endDate = date_format((date_create($dateRange[2])),"Y-m-d");
-}
+
 //END: Homemade models
 ?>
 
@@ -49,7 +59,13 @@ include '../../_shared/_leftNav.php';
     </section>
     <!-- Main content -->
     <section class="content">
-        <?php include $viewPageName; ?>
+        <?php 
+        include $viewPageName; 
+        if($requestedAction === "getInventory")
+        {
+            include '_viewAllInventory.php';
+        }
+        ?>
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
 

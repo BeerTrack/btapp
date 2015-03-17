@@ -3,19 +3,19 @@
         <h3 class="box-title">Search Inventory</h3>
     </div><!-- /.box-header -->
     <div class="box-body">
-        <form role="form" method="post" action="?requestedAction=add">
+        <form role="form" method="post" action="?requestedAction=getInventory">
 
             <div class="form-group col-xs-4 col-no-padding-left">
                 <label>Beer Name</label>
-                <select id="" name="inventory_beer_name" class="form-control">
+                <select id="" name="inventory_beerstore_id" class="form-control">
                     <option>Select a Beer</option>
                     <?php
                     //getting names of the beers associated with this brewery
-                    $displayTransactionQuery = beerTrackDBQuery("SELECT * FROM beer_brands WHERE brewery_id = '$loggedInBreweryID' ORDER BY beer_name");
+                    $displayTransactionQuery = beerTrackDBQuery("SELECT * FROM beer_brands WHERE brewery_id = '$loggedInBreweryID' AND beerstore_beer_id IN (SELECT DISTINCT beerstore_beer_id FROM inventory_parsing WHERE brewery_id = '$loggedInBreweryID')");
 
                     while($row = mysqli_fetch_array($displayTransactionQuery)) 
                     {
-                        echo "<option value=\"" . $row['beer_id']  . "\">" . $row['beer_name'] . "</option>";
+                        echo "<option value=\"" . $row['beerstore_beer_id']  . "\">" . $row['beer_name'] . "</option>";
                     }
                     ?>
                 </select>
@@ -75,8 +75,9 @@
 
             <div class="form-group col-xs-4 col-no-padding-left">
                 <label>Package Type</label>
-                <select id="" name="inventory_package_size" class="form-control">
-                    <option>Choose a Package Type</option>
+                <select id="" name="inventory_package_type" class="form-control">
+                    <option value="all">Choose a Package Type</option>
+                    <option value="all">All Types</option>
                     <option value="Bottle">Bottle</option>
                     <option value="Can">Can</option>
                 </select>
@@ -84,31 +85,94 @@
 
             <div class="form-group col-xs-4">
                 <label>Unit Volume</label>
-                <select id="" name="inventory_package_size" class="form-control">
-                    <option>Choose a Unit Volume</option>
+                <select id="" name="inventory_package_single_volume" class="form-control">
+                    <option value="all">Choose a Unit Volume</option>
+                    <option value="all">All Volumes</option>
                     <?php echo $selectUnitVolume; ?>
                 </select>
             </div>
 
             <div class="form-group col-xs-4 col-no-padding-right">
                 <label>Quanity per Package</label>
-                <select id="" name="inventory_package_size" class="form-control">
-                    <option>Choose a Quanity</option>
+                <select id="" name="inventory_package_quanity" class="form-control">
+                    <option value="all">Choose a Quanity</option>
+                    <option value="all">All Quantities</option>
                     <?php echo $selectQuanityPerPackage; ?>
                 </select>
             </div>
 
             <div class="box-footer" style="padding-left:0px; padding-right: 0px">
                 <button type="submit" class="btn btn-primary btn-block">Retrieve Inventory</button>
+                <a href="?requestedAction=newSearch" style="margin-top: 10px" class="btn btn-primary btn-block">Clear Search</a>
             </div>
-
         </form>
     </div><!-- /.box-body -->
 </div><!-- /.box -->
 
 <script type="text/javascript">
-     //Date range picker
-        $('#timespanForInventoryLookup').daterangepicker();
-    </script>
+    //Date range picker
+    $('#timespanForInventoryLookup').daterangepicker();
+
+    //auto selecting values, if the page has been posted previously...
+    var requestedAction = getQueryVariable("requestedAction");
+    // http://stackoverflow.com/a/827378
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        } 
+        return '';
+    }
+
+    if(requestedAction ==="getInventory")
+    {
+        var inventory_beerstore_id = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_beerstore_id']); ?>';
+        var inventory_location = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_location']); ?>';
+        var timespanForInventoryLookup = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['timespanForInventoryLookup']); ?>';
+        var inventory_package_type = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_type']); ?>';
+        var inventory_package_single_volume = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_single_volume']); ?>';
+        var inventory_package_quanity = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_quanity']); ?>';
+
+        $('select[name^="inventory_beerstore_id"] option[value="' + inventory_beerstore_id + '"]').attr("selected","selected");
+        $('select[name^="inventory_location"] option[value="' + inventory_location + '"]').attr("selected","selected");
+        $('#timespanForInventoryLookup').val(timespanForInventoryLookup);
+        $('select[name^="inventory_package_type"] option[value="' + inventory_package_type + '"]').attr("selected","selected");
+        $('select[name^="inventory_package_single_volume"] option[value="' + inventory_package_single_volume + '"]').attr("selected","selected");
+        $('select[name^="inventory_package_quanity"] option[value="' + inventory_package_quanity + '"]').attr("selected","selected");
+
+    }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
