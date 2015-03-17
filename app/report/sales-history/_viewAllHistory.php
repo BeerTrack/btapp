@@ -14,7 +14,7 @@
 							<th>Package Type</th>
 							<th>Unit Volume</th>
 							<th>Quanity per Package</th>
-							<th>Packages Sold</th>
+							<!-- <th>Packages Sold</th> -->
 							<th>Packages Sold</th>
 						</tr>
 					</thead>
@@ -32,7 +32,7 @@
 						echo "<td>" . $row['single_package_type'] . "</td>";
 						echo "<td>" . $row['single_package_volume'] . " ml</td>";
 						echo "<td>" . $row['single_package_quantity'] . "</td>";
-						echo "<td>" . $row['stock_at_timestamp'] . "</td>";
+						// echo "<td>" . $row['stock_at_timestamp'] . "</td>";
 						echo "<td>" . calcSalesThatDay($row[2], $row[3], $row['run_timestamp'], $row['can_bottle_desc'], $row['stock_at_timestamp']) . "</td>";
 						
 						// echo "<td>" . calcSalesThatDay($row['beerstore_beer_ID'], $row['beerstore_store_ID'], $row['run_timestamp'], $row['can_bottle_desc'], $row['stock_at_timestamp']) . "</td>";
