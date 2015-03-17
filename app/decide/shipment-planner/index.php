@@ -13,16 +13,13 @@ $viewPageName = '';
 //which view to show
 switch ($viewName) {
     case "initiate-edit":
-        $viewDisplayName = 'Shipment Planner - Modify Plan';
         $viewPageName = '_initiateOrEditPlan.php';
         break;
     case "single":
-        $viewDisplayName = 'Shipment Planner - Plan Detail';
         $viewPageName = '_singlePlan.php';
         break;
     default:
-        $viewDisplayName = 'Shipment Planner - All Plans';
-        $viewPageName = '_viewAllPlans.php';
+        $viewPageName = '_makePlan.php';
         break;
 }
 
@@ -59,21 +56,14 @@ include '../../_shared/_leftNav.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <?php echo $viewDisplayName; ?>
+            Shipment Planner
         </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
-<!--         <div class="btn-group">
-            <a href="?viewName=add" type="button" class="btn btn-default">Add Beer</a>
-            <a href="?requestedAction=edit" type="button" class="btn btn-default">Middle</a>
-            <a href="?requestedAction=" type="button" class="btn btn-default">Right</a>
-        </div> -->
         
-    <?php
-        include $viewPageName;
-    ?>
+    <?php include $viewPageName; ?>
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
 
