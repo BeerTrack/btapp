@@ -31,6 +31,9 @@ switch ($requestedAction) {
     case "submitUpdates": //called when edit page is posted back
         editBeerProcess();
         break;
+    case "makePlan":
+    recordNewOrUpdatedPlanInDB();
+        break:
 }
 //END: Homemade controller
 
@@ -40,7 +43,13 @@ switch ($requestedAction) {
 //**************************************************************
 function recordNewOrUpdatedPlanInDB()
 {
-    # code...
+
+$listLocations = array();
+
+foreach ($_POST['locations'] as $locations)
+{
+    $listLocations[] = $locations;
+}
 }
 
 //there's going to be alot of other functions in here, this is where the google API stuff will go, and if we need to call forcasting data, etc...

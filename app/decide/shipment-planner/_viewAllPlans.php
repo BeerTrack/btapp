@@ -1,29 +1,54 @@
-<?php
-//HTML and any necessary PHP for generating the list of all recent shipment plans. These will be stored in a database table.
-?>
+<!-- Select multiple-->
+<form role="form" method="post" action="?requestedAction=makePlan">
+  <div class="form-group">
+    <label>Select Multiple</label>
+    <select name="location[ ]" multiple="yes">
+      <?php
+      $locationQuery = beerTrackDBQuery("SELECT location_address * stores WHERE store_id >7 AND store_id <13");
+      while($row = mysqli_fetch_array($locationQuery)
+      {
+        echo "<option>".$row['location_address']."</option>";
+      }
+      ?>
+    </select>
+  </div>
+  <div class="box-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
 
-<!DOCTYPE html>
+
+
+<!-- <!DOCTYPE html>
 <html>
   <head>
-    <style type="text/css">
-      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
-    </style>
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwe7jEECjEdzaWFnvwjny309gK20rL-Nc">
-    </script>
-    <script type="text/javascript">
-      function initialize() {
-        var mapOptions = {
-          center: { lat: -34.397, lng: 150.644},
-          zoom: 8
-        };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
       }
-      google.maps.event.addDomListener(window, 'load', initialize);
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 8,
+    center: new google.maps.LatLng(-34.397, 150.644)
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
     </script>
   </head>
   <body>
-<div id="map-canvas"></div>
+    <div id="map-canvas"></div>
   </body>
-</html>
+</html> -->
