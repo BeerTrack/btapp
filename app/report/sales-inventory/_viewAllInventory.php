@@ -2,7 +2,7 @@
 	<div class="col-xs-12">
 		<div class="box box-primary">
 			<div class="box-header">
-				<h3 class="box-title">All Stores</h3>
+				<h3 class="box-title">Inventory Data</h3>
 			</div>
 			<div class="box-body">
 				<table id="allStoresTable" class="table table-bordered table-striped">

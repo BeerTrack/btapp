@@ -37,7 +37,7 @@ function checkCurrentLocation($navTitle)
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="/app/report/sales-inventory/"><i class="fa fa-angle-double-right"></i> Sales Inventory</a></li>
-                    <li><a href="/app/report/sales-history/"><i class="fa fa-angle-double-right"></i> Sales History</a></li>
+                    <li><a href="/app/report/sales-history/"><i class="fa fa-angle-double-right"></i> Historical Sales</a></li>
                     <li><a href="/app/report/pos-entry/"><i class="fa fa-angle-double-right"></i> POS Entry</a></li>
                 </ul>
             </li>
