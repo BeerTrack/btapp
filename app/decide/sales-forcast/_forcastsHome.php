@@ -5,7 +5,7 @@
 
 
 
-<form role="form" method="post" action="?requestedAction=forecast&viewName=results">
+<form role="form" method="post" action="?requestedAction=forecast">
 	<h3 class="box-title">How early do you want to consider in your forecast, and when do you want to forecast for?</h3>
 	<div class="input-group">
 		<div class="input-group-addon">
@@ -19,7 +19,7 @@
 		<select class="form-control" id="store" name="store">
 			<option>Main Store Address</option>
 			<option>Beer Store 1 Address</option>
-			<option>Beer Store 2 Address</option>
+			<option>2322</option>
 			<option>Beer Store 3 Address</option>
 			<option>Beer Store 4 Address</option>
 			<option>Beer Store 5 Address</option>
@@ -30,7 +30,7 @@
 		<labelfor="beerType">Select Beer Type</label>
 		<select class="form-control" id="beerType" name="beerType">
 			<option>Beer 1 Name</option>
-			<option>Beer 2 Name</option>
+			<option>3211</option>
 			<option>Beer 3 Name</option>
 			<option>Beer 4 Name</option>
 			<option>...</option>
@@ -50,7 +50,7 @@
 			<option>Volume 1</option>
 			<option>Volume 2</option>
 			<option>Volume 3</option>
-			<option>Volume 4</option>
+			<option>341</option>
 			<option>...</option>
 			<option>Volume 5</option>
 		</select>

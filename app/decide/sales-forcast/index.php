@@ -29,7 +29,17 @@ switch ($requestedAction) {
     case "forecast": //called when edit page is posted back
         // christiansThing();
         //Grabbing submitted text from form date range selection
-        $textDateRange = mysql_escape_string($_POST['reservation']);
+        $textDateRange = mysql_escape_string(returnConnection(), $_POST['reservation']);
+        //*******dont work yet*********
+        //Posting variables and escaping for security
+        $beerID = floatval(mysql_escape_string(returnConnection(), $_POST['beerType']));
+        $storeID = floatval(mysql_escape_string(returnConnection(), $_POST['store']));
+        $container = mysql_escape_string(returnConnection(), $_POST['container']);
+        $quantity = floatval(mysql_escape_string(returnConnection(), $_POST['quantity']));
+        $volume = floatval(mysql_escape_string(returnConnection(), $_POST['volume']));
+        echo $beerID;
+        // //Takes in a SQL query and returns the result
+        // beerTrackDBQuery($insert_store);
         break;
 
     case "getData": //called when edit page is posted back
@@ -57,59 +67,42 @@ function basicForcast($pointsPassed)
     return  ($last_parameters);
 }
 
-
 function christiansThing($textDateRangePassed)
 {
-        //Sets the time zone
+    //Sets the time zone
     date_default_timezone_set("America/Toronto");
     //Parsing text date range into array
     $dateRange = explode(" - ", $textDateRangePassed);
-    //Makes an array with the start, current, and end dates
+    //Makes an array with the start-0, current-1, and end-2 dates
     $dateRange = array(Date($dateRange[0]),date("m/d/Y"),Date($dateRange[1]));
+    //Determines number of days ahead the forecast is to be made for
+    $daysAhead = ceil(abs((strtotime($dateRange[2]) - strtotime($dateRange[1])) / 86400));
+    //Creates and stores start and end dates as date objects
+    $startDate = date_create($dateRange[0]);
+    $endDate = date_create($dateRange[2]);
+    //Fetches stock levels array from start to end date for a specific beer and store and stores it
+    $stockLevels = getDateAndStockLevels(date_format($startDate,"Y-m-d"), date_format($endDate,"Y-m-d"), $beerID, $storeID, $container, $quantity, $volume);
+    print_r($stockLevels);
+    echo "<br/>start date" . date_format($startDate,"Y-m-d");
+    echo "<br/>end date" . date_format($endDate,"Y-m-d");
+    echo "<br/>beerID" . $beerID;
+    echo "<br/>store date" . $storeID;
+    echo "<br/>container" . $container;
+    echo "<br/>quantity" . $quantity;
+    echo "<br/>volume" . $volume;
 
-
-    // $dateRange = addDateRange($userEnteredStartToEndDate);
-// echo "</br>" . "start date is: " . $dateRange[0];
-// echo "</br>" . "current date is: " .  $dateRange[1];
-// echo "</br>" . "end date is: " . $dateRange[2];
-//Determines number of days ahead the forecast is to be made for
-$daysAhead = ceil(abs((strtotime($dateRange[2]) - strtotime($dateRange[1])) / 86400));
-// echo "</br>" . "num days ahead is: " . $daysAhead . "</br>";
-
-//Note: changed "$dataOfPhilAndChristian" to $stockLevels
-// $dataOfPhilAndChristian = array(
-// array("a", 100),
-// array("hose", 96),
-// array(31, 98),
-// array(41, 103),
-// array(51, 100),
-// array(61, 103),
-// array(71, 109),
-// array(81, 106),
-// array(91, 105),
-// array(101, 106),
-// array(111, 109),
-// array(121, 117),
-// array(131, 113),
-// array(141, 113)
-// );
-
-$startDate = date_create($dateRange[0]);
-// print_r($startDate);
-$endDate = date_create($dateRange[2]);
-$stockLevels = getDateAndStockLevels(date_format($startDate,"Y-m-d"), date_format($endDate,"Y-m-d"), '3211', '2322', 'Bottle', '12', '341');
-// echo "</br>";
-// print_r($stockLevels);
-// echo "</br>";
-
-//Converts array passed in from database
-// echo "Converted data array: ";
-$count = 1;
-foreach ($stockLevels as &$row) {
-    $row[0] = $count;
-    // echo "(" . $stockLevels[$count - 1][0] . ", " . $stockLevels[$count - 1][1] . ")";
-    $count = $count + 1;
+    //Changes date values in $stockLevels to 1, 2, 3, ... so that the large date numbers can be squared and stored in vars for forecast processing
+    $count = 1;
+    foreach ($stockLevels as &$row) {
+        $row[0] = $count;
+        // echo "(" . $stockLevels[$count - 1][0] . ", " . $stockLevels[$count - 1][1] . ")";
+        $count = $count + 1;
 };
+
+
+//*****------------------*****
+//*****Forecast Generator*****
+//*****------------------*****
 
 //Linear regression forecast
 $slopeAndY = basicForcast($stockLevels);
