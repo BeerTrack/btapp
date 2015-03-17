@@ -1,14 +1,14 @@
 <div class="box box-primary">
     <div class="box-header">
-        <h3 class="box-title">Search Historical Sales Information</h3>
+        <h3 class="box-title">Search Inventory</h3>
     </div><!-- /.box-header -->
     <div class="box-body">
-        <form role="form" method="post" action="?requestedAction=getHistoricalSales">
+        <form role="form" method="post" action="?requestedAction=getInventory">
 
             <div class="form-group col-xs-4 col-no-padding-left">
                 <label>Beer Name</label>
                 <select id="" name="inventory_beerstore_id" class="form-control">
-                    <option value="all">All Beers</option>
+                    <option>Select a Beer</option>
                     <?php
                     //getting names of the beers associated with this brewery
                     $displayTransactionQuery = beerTrackDBQuery("SELECT * FROM beer_brands WHERE brewery_id = '$loggedInBreweryID' AND beerstore_beer_id IN (SELECT DISTINCT beerstore_beer_id FROM inventory_parsing WHERE brewery_id = '$loggedInBreweryID')");
@@ -24,7 +24,7 @@
             <div class="form-group col-xs-4">
                 <label>Location</label>
                 <select id="" name="inventory_location" class="form-control">
-                    <option value="all">All Stores</option>
+                    <option>Select a Store</option>
                     <?php
                     //getting names of the stores associated with this brewery
                     $displayTransactionQuery = beerTrackDBQuery("SELECT * FROM stores WHERE brewery_id = '$loggedInBreweryID' ORDER BY location_name");
@@ -38,7 +38,7 @@
             </div>
 
             <div class="form-group col-xs-4 col-no-padding-right">
-                <label>Timespan</label>
+                <label>Inventory Timespan</label>
                 <div class="input-group">
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
@@ -76,7 +76,7 @@
             <div class="form-group col-xs-4 col-no-padding-left">
                 <label>Package Type</label>
                 <select id="" name="inventory_package_type" class="form-control">
-                    <!-- <option value="all">Choose a Package Type</option> -->
+                    <option value="all">Choose a Package Type</option>
                     <option value="all">All Types</option>
                     <option value="Bottle">Bottle</option>
                     <option value="Can">Can</option>
@@ -86,7 +86,7 @@
             <div class="form-group col-xs-4">
                 <label>Unit Volume</label>
                 <select id="" name="inventory_package_single_volume" class="form-control">
-                    <!-- <option value="all">Choose a Unit Volume</option> -->
+                    <option value="all">Choose a Unit Volume</option>
                     <option value="all">All Volumes</option>
                     <?php echo $selectUnitVolume; ?>
                 </select>
@@ -95,14 +95,14 @@
             <div class="form-group col-xs-4 col-no-padding-right">
                 <label>Quanity per Package</label>
                 <select id="" name="inventory_package_quanity" class="form-control">
-                    <!-- <option value="all">Choose a Quanity</option> -->
+                    <option value="all">Choose a Quanity</option>
                     <option value="all">All Quantities</option>
                     <?php echo $selectQuanityPerPackage; ?>
                 </select>
             </div>
 
             <div class="box-footer" style="padding-left:0px; padding-right: 0px">
-                <button type="submit" class="btn btn-primary btn-block">Retrieve Historical Sales</button>
+                <button type="submit" class="btn btn-primary btn-block">Retrieve Inventory</button>
                 <a href="?requestedAction=newSearch" style="margin-top: 10px" class="btn btn-primary btn-block">Clear Search</a>
             </div>
         </form>
@@ -128,7 +128,7 @@
         return '';
     }
 
-    if(requestedAction ==="getHistoricalSales")
+    if(requestedAction ==="getInventory")
     {
         var inventory_beerstore_id = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_beerstore_id']); ?>';
         var inventory_location = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_location']); ?>';
@@ -143,6 +143,7 @@
         $('select[name^="inventory_package_type"] option[value="' + inventory_package_type + '"]').attr("selected","selected");
         $('select[name^="inventory_package_single_volume"] option[value="' + inventory_package_single_volume + '"]').attr("selected","selected");
         $('select[name^="inventory_package_quanity"] option[value="' + inventory_package_quanity + '"]').attr("selected","selected");
+
     }
 
 

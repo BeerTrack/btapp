@@ -39,7 +39,7 @@ else if($showingCourse == 'MSCI436')
 else
 {
     $viewDisplayName = 'Reports & Dashboards';
-    $viewPageName = '_home.php';
+    $viewPageName = '_decideDashboard.php';
 }
 //END: Homemade controller
 

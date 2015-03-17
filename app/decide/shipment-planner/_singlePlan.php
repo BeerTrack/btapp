@@ -1,3 +1,3 @@
 <?php
-//Basically a non editable version of the _initiateOrEditPlan.php page. It should just display all of the data, and basically allow for easy printing...
+
 ?>

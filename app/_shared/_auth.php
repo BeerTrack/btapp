@@ -7,8 +7,9 @@ if($_SESSION["loginStatus"]  === 'loggedIn')
     $loggedInEmail = $_SESSION["loggedInEmail"];
     $loggedInPersonName = $_SESSION["loggedInPersonName"];
     $loggedInBreweryName = $_SESSION["loggedInBreweryName"];
-    $loggedInBreweryID = $_SESSION["loggedInBreweryID"];
+    $loggedInBreweryID = intval($_SESSION["loggedInBreweryID"]);
     $showingCourse = $_SESSION["showingCourse"];
+    echo '<div id="loggedInEmailUser" style="display: none;">' . $loggedInEmail . '</div>';
 }
 else
 {
@@ -24,9 +25,5 @@ else
 		header("Location: ../../../");
 	}
 }
-
-
-
-
-
 ?>
+

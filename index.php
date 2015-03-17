@@ -163,13 +163,43 @@ function logoutUser()
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-60692087-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+        <style>
+            .full-screen-background-image {
+                background-image: url("Background.jpg");
+                background-size:cover;
+                position: absolute;
+                width: 100%;
+                bottom: 0px;
+                top: 0px;
+            } 
+            .body {
+                padding: 0px;
+            }
+
+            #login-box {
+                margin-top: 100px;
+            }
+
+            /* Hidden placeholder */
+            select option[disabled]:first-child {
+                display: none;
+            }
+        </style>
 
     </head>
-    <style>
-        body {
-                background-image: url("Background.jpg");margin: 0px; padding: 110px;
-        } 
-    </style>
 
     <body class="bg-black">
 
@@ -177,8 +207,7 @@ function logoutUser()
             include $viewPageName;
         ?>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
 
     </body>
 </html>

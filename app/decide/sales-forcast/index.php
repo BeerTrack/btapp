@@ -69,8 +69,12 @@ function basicForcast($pointsPassed)
 
 function christiansThing($textDateRangePassed)
 {
+<<<<<<< HEAD
     //Sets the time zone
     date_default_timezone_set("America/Toronto");
+=======
+    // YO CHRISTIAN: I MOVED THIS TO THE HEADER, BC I NEEDED IT TOO... - PHIL //date_default_timezone_set("America/Toronto");
+>>>>>>> c3ad042b7506967c4ad2e21f468989893f35b7f4
     //Parsing text date range into array
     $dateRange = explode(" - ", $textDateRangePassed);
     //Makes an array with the start-0, current-1, and end-2 dates

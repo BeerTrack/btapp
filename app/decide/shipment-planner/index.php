@@ -13,16 +13,13 @@ $viewPageName = '';
 //which view to show
 switch ($viewName) {
     case "initiate-edit":
-        $viewDisplayName = 'Shipment Planner - Modify Plan';
         $viewPageName = '_initiateOrEditPlan.php';
         break;
     case "single":
-        $viewDisplayName = 'Shipment Planner - Plan Detail';
         $viewPageName = '_singlePlan.php';
         break;
     default:
-        $viewDisplayName = 'Shipment Planner - All Plans';
-        $viewPageName = '_viewAllPlans.php';
+        $viewPageName = '_makePlan.php';
         break;
 }
 
@@ -31,6 +28,9 @@ switch ($requestedAction) {
     case "submitUpdates": //called when edit page is posted back
         editBeerProcess();
         break;
+    case "makePlan":
+    recordNewOrUpdatedPlanInDB();
+        break:
 }
 //END: Homemade controller
 
@@ -40,7 +40,13 @@ switch ($requestedAction) {
 //**************************************************************
 function recordNewOrUpdatedPlanInDB()
 {
-    # code...
+
+$listLocations = array();
+
+foreach ($_POST['locations'] as $locations)
+{
+    $listLocations[] = $locations;
+}
 }
 
 //there's going to be alot of other functions in here, this is where the google API stuff will go, and if we need to call forcasting data, etc...
@@ -59,21 +65,14 @@ include '../../_shared/_leftNav.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <?php echo $viewDisplayName; ?>
+            Shipment Planner
         </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
-<!--         <div class="btn-group">
-            <a href="?viewName=add" type="button" class="btn btn-default">Add Beer</a>
-            <a href="?requestedAction=edit" type="button" class="btn btn-default">Middle</a>
-            <a href="?requestedAction=" type="button" class="btn btn-default">Right</a>
-        </div> -->
         
-    <?php
-        include $viewPageName;
-    ?>
+    <?php include $viewPageName; ?>
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
 
