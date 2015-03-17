@@ -23,31 +23,29 @@ switch ($viewName) {
         break;
 }
 
-//specific actions for some pages
-switch ($requestedAction) {
-    case "submitUpdates": //called when edit page is posted back
-        editBeerProcess();
-        break;
-    case "makePlan":
-    recordNewOrUpdatedPlanInDB();
-        break:
-}
+// //specific actions for some pages
+// switch ($requestedAction) {
+//     case "submitUpdates": //called when edit page is posted back
+//         editBeerProcess();
+//         break;
+//     case "makePlan":
+//         recordNewOrUpdatedPlanInDB();
+//         break:
+// }
 //END: Homemade controller
 
 
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-function recordNewOrUpdatedPlanInDB()
-{
-
-$listLocations = array();
-
-foreach ($_POST['locations'] as $locations)
-{
-    $listLocations[] = $locations;
-}
-}
+// function recordNewOrUpdatedPlanInDB()
+// {
+//     $listLocations = array();
+//     foreach ($_POST['locations'] as $locations)
+//     {
+//         $listLocations[] = $locations;
+//     }
+// }
 
 //there's going to be alot of other functions in here, this is where the google API stuff will go, and if we need to call forcasting data, etc...
 
@@ -64,15 +62,14 @@ include '../../_shared/_leftNav.php';
 <aside class="right-side">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            Shipment Planner
-        </h1>
+        <h1>Shipment Planner</h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
         
     <?php include $viewPageName; ?>
+    
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
 

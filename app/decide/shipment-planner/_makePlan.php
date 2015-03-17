@@ -31,19 +31,28 @@
               ipd.beerstore_store_id = s.beerstore_store_id
               ORDER BY s.location_name");
 
-            echo '<tr style="background-color: #ECECEC"><td colspan="5"><strong>' . $storeNamePrint . '</strong></td>';
-            echo '<td colspan="1"><div class="form-group" style="margin-bottom:0px; float: right"><label style="margin-bottom:0px;"class="">Include in Shipment Plan<div style="display:inline; margin-left: 10px;   top: -2px;  position: relative;" class="icheckbox_minimal-blue checked" aria-checked="true" aria-disabled="false" style="position: relative;"><input type="checkbox" class="minimal" checked="" style="position: absolute; opacity: 0;"></div></label></div></td></tr>';
+            echo '<tr style="background-color: #ECECEC"><td colspan="6"><strong>' . $storeNamePrint . '</strong>';
+            // echo '<td colspan="1"><div class="form-group" style="margin-bottom:0px; float: right"><label style="margin-bottom:0px;"class="">Include in Shipment Plan<div style="display:inline; margin-left: 10px;   top: -2px;  position: relative;" class="includeStoreCheck icheckbox_minimal-blue checked" aria-checked="true" aria-disabled="false" style="position: relative;"><input type="checkbox" onClick="alert(\'Hello from JavaScript!\')" name="" id="test" class="minimal" checked="" style="position: absolute; opacity: 0;"></div></label></div></td></tr>';
+            // echo '<td colspan="1"><label style="margin-bottom:0px;"class="">Include in Shipment Plan<input type="checkbox" onClick="alert(\'Hello from JavaScript!\')" name="" class="checkbox" checked="" style="position: absolute; opacity: 0;"></label></div></td></tr>';
+            echo '
+            <div class="form-group" style="margin-bottom: 0px; float: right">
+                <select id="decider_' . $passedBeerStoreID  . '" onChange="includeStoreCheck(\'' . $passedBeerStoreID . '\')" name="inventory_location" class="includeStoreCheck form-control">
+                    <option value="include">Include in Shipment Plan</option>
+                    <option value="exclude">Exclude from Shipment Plan</option>
+                </select>
+            </div>
+            </tr>';
 
 
             while($row = mysqli_fetch_array($possibleBeersQuery)) {
               // print_r($row);
-              echo "<tr class=\"" . $passedBeerStoreID . "\">";
+              echo "<tr class=\"items_" . $passedBeerStoreID . "\">";
               echo "<td>" . $row['beer_name'] . "</td>";
               echo "<td>" . $row['single_package_type'] . "</td>";
               echo "<td>" . $row['single_package_volume'] . " ml</td>";
               echo "<td>" . $row['single_package_quantity'] . "</td>";
               echo "<td>" . $row['stock_at_timestamp'] . "</td>";
-              echo "<td><input style=\"float:right\" type=\"text\"></td>";
+              echo "<td><input style=\"float:right; width:100%\" type=\"text\"></td>";
               echo "</tr>";
             }
           }
@@ -62,15 +71,49 @@
 </div>
 
 <script type="text/javascript">
+//Hide all rows for a given store
 
-// $(document).ready(function() {
-//     $('#allStoresTable').DataTable({
-//         "bSort" : false
+// $('.icheckbox_minimal').click(function() {
+//   console.log('clicked'); 
+//     if(this.attr("aria-checked") == "true")
+//     {
+//         //Do stuff
+//         alert('test - true');
+//     }
+//     else 
+//     {
+//       alert(this.attr("id"))
+//     }
+// });
 
-//       } );
-// } );
+// $(".includeStoreCheck").change(function() {
+//   console.log(this.val());
 
+//     // if(this.attr("value") == "include")
+//     // {
+//     //     alert('test - include');
+//     // }
+//     // else 
+//     // {
+//     //   alert('test - exclude');
+//     // }
+// });
 
+function includeStoreCheck (className) {
+  var decision = $("#decider_" + className ).val();
+  if(decision === "include")
+  {
+    $(".items_" + className).each(function( index ) {
+      $( this ).css("display", "table-row");
+    });
+  }
+  if(decision === "exclude")
+  {
+    $(".items_" + className).each(function( index ) {
+      $( this ).css("display", "none");
+    });
+  }
+}
 
 
 </script>
