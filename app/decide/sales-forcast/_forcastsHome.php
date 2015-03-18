@@ -5,7 +5,7 @@
 
 
 
-<form role="form" method="post" action="?requestedAction=forecast">
+<form role="form" method="post" action="?requestedAction=forecast&viewName=results">
 	<h3 class="box-title">How early do you want to consider in your forecast, and when do you want to forecast for?</h3>
 	<div class="input-group">
 		<div class="input-group-addon">
@@ -49,8 +49,8 @@
 		<select class="form-control" id="volume" name="volume">
 			<option>Volume 1</option>
 			<option>Volume 2</option>
-			<option>Volume 3</option>
 			<option>341</option>
+			<option>355</option>
 			<option>...</option>
 			<option>Volume 5</option>
 		</select>

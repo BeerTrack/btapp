@@ -29,15 +29,17 @@ switch ($requestedAction) {
     case "forecast": //called when edit page is posted back
         // christiansThing();
         //Grabbing submitted text from form date range selection
-        $textDateRange = mysql_escape_string(returnConnection(), $_POST['reservation']);
+        $textDateRange = mysqli_real_escape_string(returnConnection(), $_POST['reservation']);
         //*******dont work yet*********
         //Posting variables and escaping for security
-        $beerID = floatval(mysql_escape_string(returnConnection(), $_POST['beerType']));
-        $storeID = floatval(mysql_escape_string(returnConnection(), $_POST['store']));
-        $container = mysql_escape_string(returnConnection(), $_POST['container']);
-        $quantity = floatval(mysql_escape_string(returnConnection(), $_POST['quantity']));
-        $volume = floatval(mysql_escape_string(returnConnection(), $_POST['volume']));
-        echo $beerID;
+        $beerID = (mysqli_real_escape_string(returnConnection(), $_POST['beerType']));
+        $storeID = floatval(mysqli_real_escape_string(returnConnection(), $_POST['store']));
+        $container = mysqli_real_escape_string(returnConnection(), $_POST['container']);
+        $quantity = floatval(mysqli_real_escape_string(returnConnection(), $_POST['quantity']));
+        $volume = floatval(mysqli_real_escape_string(returnConnection(), $_POST['volume']));
+        echo 'top beer ID:' . $beerID;
+        echo 'top store:' . $storeID;
+        echo 'top container:' . $container;
         // //Takes in a SQL query and returns the result
         // beerTrackDBQuery($insert_store);
         break;
@@ -56,76 +58,6 @@ switch ($requestedAction) {
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-function basicForcast($pointsPassed)
-{
-    $parameters = array(0, 0);
-    $last_parameters = false;
-    do {
-        $last_parameters = $parameters;
-        $parameters = gradient($pointsPassed, $parameters);
-    } while($parameters != false);
-    return  ($last_parameters);
-}
-
-function christiansThing($textDateRangePassed)
-{
-<<<<<<< HEAD
-    //Sets the time zone
-    date_default_timezone_set("America/Toronto");
-=======
-    // YO CHRISTIAN: I MOVED THIS TO THE HEADER, BC I NEEDED IT TOO... - PHIL //date_default_timezone_set("America/Toronto");
->>>>>>> c3ad042b7506967c4ad2e21f468989893f35b7f4
-    //Parsing text date range into array
-    $dateRange = explode(" - ", $textDateRangePassed);
-    //Makes an array with the start-0, current-1, and end-2 dates
-    $dateRange = array(Date($dateRange[0]),date("m/d/Y"),Date($dateRange[1]));
-    //Determines number of days ahead the forecast is to be made for
-    $daysAhead = ceil(abs((strtotime($dateRange[2]) - strtotime($dateRange[1])) / 86400));
-    //Creates and stores start and end dates as date objects
-    $startDate = date_create($dateRange[0]);
-    $endDate = date_create($dateRange[2]);
-    //Fetches stock levels array from start to end date for a specific beer and store and stores it
-    $stockLevels = getDateAndStockLevels(date_format($startDate,"Y-m-d"), date_format($endDate,"Y-m-d"), $beerID, $storeID, $container, $quantity, $volume);
-    print_r($stockLevels);
-    echo "<br/>start date" . date_format($startDate,"Y-m-d");
-    echo "<br/>end date" . date_format($endDate,"Y-m-d");
-    echo "<br/>beerID" . $beerID;
-    echo "<br/>store date" . $storeID;
-    echo "<br/>container" . $container;
-    echo "<br/>quantity" . $quantity;
-    echo "<br/>volume" . $volume;
-
-    //Changes date values in $stockLevels to 1, 2, 3, ... so that the large date numbers can be squared and stored in vars for forecast processing
-    $count = 1;
-    foreach ($stockLevels as &$row) {
-        $row[0] = $count;
-        // echo "(" . $stockLevels[$count - 1][0] . ", " . $stockLevels[$count - 1][1] . ")";
-        $count = $count + 1;
-};
-
-
-//*****------------------*****
-//*****Forecast Generator*****
-//*****------------------*****
-
-//Linear regression forecast
-$slopeAndY = basicForcast($stockLevels);
-$LRforecast = ((floatval($slopeAndY[1]) * (count($stockLevels) + $daysAhead)) + floatval($slopeAndY[0]));
-//Moving average forecast
-$sum = 0;
-foreach ($stockLevels as list($date, $sales)) {
-    $sum = $sum + $sales;
-    };
-$Aforecast = $sum / count($stockLevels);
-//Output total forecast based 80% on the MA forecast and 20% on the LR forecast
-// echo "</br> Predicted number of sales for " . $dateRange[2] . " is: " . (0.8 * floatval($Aforecast) + 0.2 * floatval($LRforecast));
-$golden = (0.8 * floatval($Aforecast) + 0.2 * floatval($LRforecast));
- 
-
-    return $golden;
-}
-
-
 
 //END: Homemade models
 
