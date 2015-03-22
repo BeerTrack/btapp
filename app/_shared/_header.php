@@ -8,8 +8,9 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Ionicons -->
-        <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
+
         <link href="../../../assets/css/btapp-custom-styles.css" rel="stylesheet" type="text/css" />
         <link href="../../../assets/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         <link href="../../../assets/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
@@ -61,7 +62,7 @@
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="/" class="logo">
+            <a href="/app/global/dashboard" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
 
                 <img src="../../../LogoBW.png" alt="BeerTrack Logo" style="margin-top:6px">

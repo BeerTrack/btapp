@@ -1,77 +1,60 @@
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-xs-4">
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>
-                    150
+                    {{SUM SOLD YESTURDAY}}
                 </h3>
                 <p>
-                    New Orders
+                    Beer Sold Yesturday
                 </p>
             </div>
             <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-android-bar"></i>
             </div>
-            <a href="#" class="small-box-footer">
+            <a href="/app/report/sales-inventory/" class="small-box-footer">
                 More info <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
     </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+
+    <div class="col-xs-4">
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
                 <h3>
-                    53<sup style="font-size: 20px">%</sup>
+                    {{STORE_NAME}}
                 </h3>
                 <p>
-                    Bounce Rate
+                    Yesturday's Top Performing Store
                 </p>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="ion ion-android-list"></i>
             </div>
-            <a href="#" class="small-box-footer">
+            <a href="/app/report/sales-inventory/" class="small-box-footer">
                 More info <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
     </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+
+    <div class="col-xs-4">
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
                 <h3>
-                    44
+                    {{BEERS SOLD PER DAY}}
                 </h3>
                 <p>
-                    User Registrations
+                    Beers Sold Per Day
                 </p>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-ios-pulse-strong"></i>
             </div>
-            <a href="#" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-            </a>
-        </div>
-    </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-red">
-            <div class="inner">
-                <h3>
-                    65
-                </h3>
-                <p>
-                    Unique Visitors
-                </p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">
+            <a href="/app/report/sales-history/" class="small-box-footer">
                 More info <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
