@@ -32,7 +32,12 @@ switch ($requestedAction) {
 //**************************************************************
 function addPOSEntry()
 {
-
+    $beer_name = mysqli_real_escape_string(returnConnection(), $_POST['beer_name']);
+    $package_type = mysqli_real_escape_string(returnConnection(), $_POST['package_type']);
+    $package_quantity = mysqli_real_escape_string(returnConnection(), $_POST['package_quantity']);
+echo $beer_name;
+echo $package_type;
+echo $package_quantity;
 }
 //END: Homemade models
 
@@ -55,7 +60,12 @@ include '../../_shared/_leftNav.php';
     <!-- Main content -->
     <section class="content">
         
-    <?php include $viewPageName; ?>
+    <?php include $viewPageName; 
+        if($requestedAction === "newOrder")
+        {
+            include '_calculations.php';
+        }
+    ?>
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
 
