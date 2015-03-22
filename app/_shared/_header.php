@@ -23,6 +23,11 @@
         <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
         <script src="../../../assets/js/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
         <!-- morris JS was here, moved to footer by Phil...-->
+        <!-- Morris.js charts -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="../../../assets/js/plugins/morris/morris.min.js" type="text/javascript"></script> 
+
+
         <!-- Sparkline -->
         <script src="../../../assets/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
         <!-- jvectormap -->

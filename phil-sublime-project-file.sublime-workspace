@@ -519,6 +519,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/report/sales-inventory/_viewAllInventory.php",
+			"settings":
+			{
+				"buffer_size": 2206,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -555,13 +563,19 @@
 		"/Users/phileverson/Repos/btapp",
 		"/Users/phileverson/Repos/btapp/app",
 		"/Users/phileverson/Repos/btapp/app/decide",
-		"/Users/phileverson/Repos/btapp/app/decide/sales-forcast",
-		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner",
 		"/Users/phileverson/Repos/btapp/app/global",
-		"/Users/phileverson/Repos/btapp/app/global/manage-stores"
+		"/Users/phileverson/Repos/btapp/app/report",
+		"/Users/phileverson/Repos/btapp/app/report/sales-history",
+		"/Users/phileverson/Repos/btapp/app/report/sales-inventory",
+		"/Users/phileverson/Repos/btapp/assets",
+		"/Users/phileverson/Repos/btapp/assets/css",
+		"/Users/phileverson/Repos/btapp/assets/css/datatables",
+		"/Users/phileverson/Repos/btapp/assets/js/plugins"
 	],
 	"file_history":
 	[
+		"/Users/phileverson/Downloads/TableTools example - Setting the SWF path_files/shCore.css",
+		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_viewAllInventory.php",
 		"/Users/phileverson/Repos/btapp/app/global/dashboard/_wid-storeMap.php",
 		"/Users/phileverson/Repos/btapp/app/global/dashboard/_reportDashboard.php",
 		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner/custom_phil.js",
@@ -586,7 +600,6 @@
 		"/Users/phileverson/Repos/btapp/app/_shared/_globalFunctions.php",
 		"/Users/phileverson/Repos/btapp/app/report/sales-history/_lookupStart.php",
 		"/Users/phileverson/Repos/btapp/assets/less/lockscreen.less",
-		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_viewAllInventory.php",
 		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_searchInventory.php",
 		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/index.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-stores/index.php",
@@ -688,8 +701,7 @@
 		"/Users/phileverson/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/phileverson/Repos/via-porter/driving/inbound_process.php",
 		"/Users/phileverson/Repos/via-porter/z-dev-stuff/timtest.php",
-		"/Users/phileverson/Repos/via-porter/z-dev-stuff/html2canvas.js",
-		"/Users/phileverson/Repos/via-porter/z-dev-stuff/Sybio-ImageWorkshop-0a9d4cc/text-phil.php"
+		"/Users/phileverson/Repos/via-porter/z-dev-stuff/html2canvas.js"
 	],
 	"find":
 	{
@@ -782,8 +794,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/report/sales-inventory/_viewAllInventory.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2206,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1916,
+								1916
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 394.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		},
 		{

@@ -1,3 +1,7 @@
+
+	<script type="text/javascript" language="javascript" src="dataTables.tableTools.js"></script>
+	<script type="text/javascript" language="javascript" src="dataTables.tableTools.css"></script>
+
 <div class="row">
 	<div class="col-xs-12">
 		<div class="box box-primary">
@@ -40,12 +44,32 @@
 </div>
 
 <script type="text/javascript">
-	$(function() {
-		$("#allStoresTable").dataTable( {
-      "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ -1 ] }
-       ]
-});
-	});
+	
+	$(document).ready( function () {
+    var table = $('#allStoresTable').dataTable();
+    var tableTools = new $.fn.dataTable.TableTools( table, {
+        "buttons": [
+            "copy",
+            "csv",
+            "xls",
+            "pdf",
+            { "type": "print", "buttonText": "Print me!" }
+        ]
+    } );
+      
+    $( tableTools.fnContainer() ).insertAfter('div.box-title');
+} );
+
+	
+</script>
+
+<script type="text/javascript">
+	// $(function() {
+	// 	$("#allStoresTable").dataTable( {
+	// 		"aoColumnDefs": [
+	// 		{ 'bSortable': false, 'aTargets': [ -1 ] }
+	// 		]
+	// 	});
+	// });
 </script>
 

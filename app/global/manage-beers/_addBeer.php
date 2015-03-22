@@ -6,11 +6,11 @@
     <div class="box-body">
         <form role="form" method="post" action="?requestedAction=add">
             <div class="form-group">
-                <labelfor="beerName">Name</label>
+                <labelfor="beerName">Beer Name</label>
                 <input type="text" class="form-control" id="beerName" name="beerName" placeholder="Enter Name"/>
             </div>
 
-            <div class="form-group">
+<!--             <div class="form-group">
                 <labelfor="beerPrice">Price</label>
                 <input type="number" class="form-control" id="beerPrice" name="beerPrice" placeholder="Enter Price"/>
             </div>
@@ -36,7 +36,7 @@
                     <option>12</option>
                     <option>24</option>
                 </select>
-            </div>
+            </div> -->
 
             <div class="form-group">
                 <labelfor="beerstoreBeerId">Beer Store Issued Beer ID</label>
