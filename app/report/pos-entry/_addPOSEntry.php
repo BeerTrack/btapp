@@ -16,7 +16,7 @@
 
                     while($row = mysqli_fetch_array($displayTransactionQuery)) 
                     {
-                        echo "<option value=\"" . $row['beerstore_beer_id']  . "\">" . $row['beer_name'] . "</option>";
+                        echo "<option value=\"" . $row['beer_name']  . "\">" . $row['beer_name'] . "</option>";
                     }
                     ?>
                 </select>
@@ -31,14 +31,14 @@
                 </select>
             </div>
             
-            <div class="form-group col-xs-4 col-no-padding-right">
+            <div class="form-group col-xs-4 col-no-padding-left">
                 <label>Quantity per Package</label>
                 <select id="package_quantity" name="package_quantity" class="form-control">
-                    <option value="all">Choose a Quantity</option>
-                    <option value="all">1</option>
-                    <option value="all">6</option>
-                    <option value="all">12</option>
-                    <option value="all">24</option>
+                    <option>Choose a Quantity</option>
+                    <option value="1">1</option>
+                    <option value="6">6</option>
+                    <option value="12">12</option>
+                    <option value="24">24</option>
                 </select>
             </div>
        
