@@ -114,6 +114,7 @@ function authenticateUser($userEmail, $userPassword, $userCourse)
             $_SESSION["loggedInEmail"] = $userEmail;
             $_SESSION["loggedInPersonName"] = $userMysqlReturned['person_name'];
             $_SESSION["loggedInBreweryName"] = $userMysqlReturned['brewery_name'];
+            $_SESSION["loggedInBreweryAddress"] = $userMysqlReturned['brewery_address'];
             $_SESSION["loggedInBreweryID"] = $userMysqlReturned['brewery_id'];
             $_SESSION["showingCourse"] = $userCourse;
             header('Location: app/global/dashboard/');

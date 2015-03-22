@@ -124,7 +124,10 @@ foreach ($beerLocationMatrix as $matrixCombo) {
 	 	  	}
 	 	  	if($size != null && $inventory != null)
 	 	  	{
-	 	  		recordInventory($run_timestamp, $location, $beer, $size, $inventory, $onDeckBreweryID);
+	 	  		$sizeClean = htmlentities($size);
+	 	  		$sizeCleanish = str_replace("&times;","x",$sizeClean);
+	 	  		$sizeCleaned = str_replace("&nbsp;"," ",$sizeCleanish);
+	 	  		recordInventory($run_timestamp, $location, $beer, $sizeCleaned, $inventory, $onDeckBreweryID);
 	 	  	}
 		  }
 	 }

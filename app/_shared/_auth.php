@@ -7,6 +7,7 @@ if($_SESSION["loginStatus"]  === 'loggedIn')
     $loggedInEmail = $_SESSION["loggedInEmail"];
     $loggedInPersonName = $_SESSION["loggedInPersonName"];
     $loggedInBreweryName = $_SESSION["loggedInBreweryName"];
+    $loggedInBreweryAddress = $_SESSION["loggedInBreweryAddress"];
     $loggedInBreweryID = intval($_SESSION["loggedInBreweryID"]);
     $showingCourse = $_SESSION["showingCourse"];
     echo '<div id="loggedInEmailUser" style="display: none;">' . $loggedInEmail . '</div>';
