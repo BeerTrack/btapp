@@ -33,11 +33,12 @@ switch ($requestedAction) {
 function addPOSEntry()
 {
     $beer_name = mysqli_real_escape_string(returnConnection(), $_POST['beer_name']);
-    $package_type = mysqli_real_escape_string(returnConnection(), $_POST['package_type']);
-    $package_quantity = mysqli_real_escape_string(returnConnection(), $_POST['package_quantity']);
-echo $beer_name;
-echo $package_type;
-echo $package_quantity;
+    $inventory_package_option = mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_option']);
+    $quantity_purchased = mysqli_real_escape_string(returnConnection(), $_POST['quantity_purchased']);
+    $unit_price = mysqli_real_escape_string(returnConnection(), $_POST['unit_price']);
+    echo $beer_name;
+    echo $package_type;
+    echo $package_quantity;
 }
 //END: Homemade models
 

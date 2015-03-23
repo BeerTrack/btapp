@@ -1,7 +1,15 @@
 <?php
+include "_databaseConnection.php";
+include "ganon.php";
 
-include '../app/_shared/_databaseConnection.php';
-include '../assets/ganon.php';
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+//                  PHIL'S ACTUAL CODE FOR PARSING IS BELOW....
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
 
 //parses the size field to match our format...
 function parseToMatchSiteshTable($size)
@@ -33,20 +41,23 @@ function parseToMatchSiteshTable($size)
 }
 
 //function for adding a record to the database
-function recordInventory($location, $beer, $size, $inventory, $brewery_id)
+function recordInventory($run_timestamp, $location, $beer, $size, $inventory, $brewery_id)
 {
 	$formattedSize = parseToMatchSiteshTable($size);
 	$quantityInPackage = $formattedSize[0];
 	$packageType = $formattedSize[1];
 	$volumeML = $formattedSize[2];
 
-	$recordStatement = "INSERT INTO inventory_parsing (beerstore_beer_id, beerstore_store_id, can_bottle_desc, single_package_type, single_package_quantity, single_package_volume, stock_at_timestamp, brewery_id)
-	VALUES ('$beer', '$location', '$size', '$packageType', '$quantityInPackage', '$volumeML', '$inventory', '$brewery_id')";
+	$recordStatement = "INSERT INTO inventory_parsing (run_timestamp, beerstore_beer_id, beerstore_store_id, can_bottle_desc, single_package_type, single_package_quantity, single_package_volume, stock_at_timestamp, brewery_id)
+	VALUES ('$run_timestamp', '$beer', '$location', '$size', '$packageType', '$quantityInPackage', '$volumeML', '$inventory', '$brewery_id')";
 	beerTrackDBQuery($recordStatement);
 }
 
 function queTheInventoryForABrewery($onDeckBreweryID)
 {
+
+$run_timestamp = date('Y-m-d H:i:s', (time()));
+
 
 	echo '</br><h3>FOR BREWERY: ' . $onDeckBreweryID . '</h3></br>';
 
@@ -117,7 +128,10 @@ foreach ($beerLocationMatrix as $matrixCombo) {
 	 	  	}
 	 	  	if($size != null && $inventory != null)
 	 	  	{
-	 	  		recordInventory($location, $beer, $size, $inventory, $onDeckBreweryID);
+	 	  		$sizeClean = htmlentities($size);
+	 	  		$sizeCleanish = str_replace("&times;","x",$sizeClean);
+	 	  		$sizeCleaned = str_replace("&nbsp;"," ",$sizeCleanish);
+	 	  		recordInventory($run_timestamp, $location, $beer, $sizeCleaned, $inventory, $onDeckBreweryID);
 	 	  	}
 		  }
 	 }

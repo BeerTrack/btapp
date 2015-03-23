@@ -12,12 +12,8 @@
 
   //firing event to track user
   ga('send', 'event', 'user', 'authenticated user accessed page', $('#loggedInEmailUser').text());
-
 </script>
 
-<!-- Morris.js charts -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="../../../assets/js/plugins/morris/morris.min.js" type="text/javascript"></script> 
 
 <!-- AdminLTE App -->
 <script src="../../../assets/js/AdminLTE/app.js" type="text/javascript"></script>

@@ -19,7 +19,7 @@ $beer_Array = mysqli_fetch_array($displayBeerInfoQuery);
                 <input type="text" class="form-control" id="beerName" value ="<?php echo $beer_Array['beer_name'];?>" name="beerName">
             </div>
 
-            <div class="form-group">
+<!--             <div class="form-group">
                 <labelfor="beerPrice">Price</label>
                 <input type="number" class="form-control" id="beerPrice" name="beerPrice" value ="<?php echo $beer_Array['beer_price'];?>">
             </div>
@@ -45,7 +45,7 @@ $beer_Array = mysqli_fetch_array($displayBeerInfoQuery);
                     <option>12</option>
                     <option>24</option>
                 </select>
-            </div>
+            </div> -->
 
             <div class="form-group">
                 <labelfor="beerstoreBeerId"> Beer Store Beer ID</label>
