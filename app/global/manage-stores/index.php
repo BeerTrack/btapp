@@ -1,7 +1,7 @@
 <?php
 include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
-
+include '../../_shared/_globalFunctions.php';
 //**************************************************************
 //START: Homemade Controller (to determine which view to show)
 //**************************************************************
@@ -55,8 +55,9 @@ $beerstoreStoreId = floatval(mysqli_real_escape_string(returnConnection(), $_POS
 //Inserting store information into database
 $insert_store="INSERT INTO stores (location_name, location_address, brewery_id, beerstore_store_id)
 VALUES ('$locationName', '$locationAddress', '$loggedInBreweryID', '$beerstoreStoreId')";
-
 beerTrackDBQuery($insert_store);
+
+createNotification($loggedInBreweryID, "New Store Added", "$locationName has been added to your inventory of stores", "1");
 
 }
 

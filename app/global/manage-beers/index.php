@@ -1,7 +1,7 @@
 <?php
 include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
-
+include '../../_shared/_globalFunctions.php';
 //**************************************************************
 //START: Homemade Controller (to determine which view to show)
 //**************************************************************
@@ -59,8 +59,9 @@ function addBeerProcess($loggedInBreweryID)
     //Inserting beer information into database
     $insert_beer_statement = "INSERT INTO beer_brands (beer_name, beer_price, beer_size, beer_type, beer_quantity, beerstore_beer_id, brewery_id)
     VALUES ('$beerName', '$beerPrice', '$beerSize', '$beerType', '$beerQuantity', '$beerstoreBeerId', '$loggedInBreweryID')";
-
     beerTrackDBQuery($insert_beer_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
+
+    createNotification($loggedInBreweryID, "New Beer Added", "$beerName has been added to your inventory of beers", "1");
 }
 
 function editBeerAutoLoadValues() //function that provides the data to be used/referenced/auto loaded in the form on _editBeer.php
