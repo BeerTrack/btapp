@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -77,13 +78,47 @@
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle dropdown-notification-toggle" style="line-height: 20px" data-toggle="dropdown">
                                 <i class="fa fa-warning"></i>
-                                <span class="label label-warning">10</span>
+
+<?php
+$queryNotifications = "SELECT COUNT(*) FROM notifications WHERE status = 1"; 
+$count = beerTrackDBQuery($queryNotifications);
+$count1 = mysqli_fetch_array($count);
+?>
+                                <span class="label label-warning"><?php echo $count1[0]; ?></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header">You have 10 notifications</li>
+                                <li class="header">You have <?php echo $count1[0]; ?> notifications</li>
                                 <li>
+
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
+<?php
+$queryNotifications = "SELECT * FROM notifications WHERE status = 1"; 
+$listOfNotifications = beerTrackDBQuery($queryNotifications);
+
+$counter = 0;
+while($listOfNotifications1 = mysqli_fetch_array($listOfNotifications)){
+    echo ($listOfNotifications1['subject']);
+    if ($listOfNotifications1['subject'] === "New Store Added")
+?>
+                                        <li>
+                                            <a href="http://localhost:8888/app/global/dashboard/?viewName=notifications">
+                                                <i class="ion ion-ios7-people info"></i>New Store Added
+                                            </a>
+                                        </li>
+                                        <li>
+<?php   
+if ($listOfNotifications1['subject'] === "New Beer Added") 
+?>   
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion ion-ios7-cart success"></i>New Beer Added
+                                            </a>
+                                        </li>
+                                        <li>                      
+<?php
+}
+?>
                                         <li>
                                             <a href="#">
                                                 <i class="ion ion-ios7-people info"></i> 5 new members joined today
@@ -112,7 +147,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="footer"><a href="#">View all</a></li>
+                                <li class="footer"><a href="http://localhost:8888/app/global/dashboard/?viewName=notifications">View all</a></li>
                             </ul>
                         </li>
                         
