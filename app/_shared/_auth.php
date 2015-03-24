@@ -26,5 +26,13 @@ else
 		header("Location: ../../../");
 	}
 }
+
+function returnLoggedInBreweryID() {
+	// echo intval($_SESSION["loggedInBreweryID"]);
+	return intval($_SESSION["loggedInBreweryID"]);
+}
+
+
+
 ?>
 

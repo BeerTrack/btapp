@@ -56,18 +56,23 @@ function calcSalesThatDay($beerstore_beer_ID, $beerstore_store_ID, $presentDay, 
 
 function queryDatabaseForLatestInventory($inventory_beerstore_id, $inventory_location, $timespanForInventoryLookup, $inventory_package_type, $inventory_package_single_volume, $inventory_package_quanity)
 {
-    $dateRange = explode(" - ", $timespanForInventoryLookup);
-    //Makes an array with the start, current, and end dates
-    $dateRange = array(Date($dateRange[0]),date("m/d/Y"),Date($dateRange[1]));
-    $startDate = date_format((date_create($dateRange[0])),"Y-m-d");
-    $endDate = date_format((date_create($dateRange[2])),"Y-m-d");
+    // COMMENTING THE BELOW OUT, SINCE WE SHOULDN'T NEED IT FOR THIS QUERY (which no longer takes a timespan, but rather a specifc date)
+    // $dateRange = explode(" - ", $timespanForInventoryLookup);
+    // //Makes an array with the start, current, and end dates
+    // $dateRange = array(Date($dateRange[0]),date("m/d/Y"),Date($dateRange[1]));
+    // $startDate = date_format((date_create($dateRange[0])),"Y-m-d");
+    // $endDate = date_format((date_create($dateRange[2])),"Y-m-d");
+
+    $targetSalesDay = new DateTime($timespanForInventoryLookup);
+    $targetSalesDay = date_format($targetSalesDay, 'Y-m-d');
+    $dayAfterTarget = date('Y-m-d', strtotime($targetSalesDay . ' + 1 days'));
 
     $inventorySQLQuery = "SELECT * FROM inventory_parsing ip, beer_brands bb, stores ss
     WHERE 
     ip.beerstore_store_id = ss.beerstore_store_id AND
     ip.beerstore_beer_id = bb.beerstore_beer_id AND 
-    ip.run_timestamp >= '$startDate' AND 
-    ip.run_timestamp <= '$endDate' ";
+    ip.run_timestamp >= '$targetSalesDay' AND 
+    ip.run_timestamp <= '$dayAfterTarget' ";
     if($inventory_beerstore_id != 'all')
     {
         $inventorySQLQuery .= " AND ip.beerstore_beer_ID = '$inventory_beerstore_id'";
@@ -156,6 +161,51 @@ function singleDayForecastGen($textDateRangePassed, $beerID, $storeID, $containe
 
         return $mainForecast;
 }
+
+
+// Function for getting inventory summed across mutliple stores (not filtered by store ID...)
+function queryDatabaseForInventoryNoStoreFilter($singleDateChecking)
+{
+    $functionLoggedInBreweryID = returnLoggedInBreweryID();
+    $targetSalesDay = new DateTime($singleDateChecking);
+    $targetSalesDay = date_format($targetSalesDay, 'Y-m-d');
+    $dayAfterTarget = date('Y-m-d', strtotime($targetSalesDay . ' + 1 days'));
+
+    $inventorySQLQuery = "SELECT ip.run_timestamp, bb.beer_name, bb.beerstore_beer_id, ip.single_package_type, ip.single_package_volume, ip.single_package_quantity, ip.can_bottle_desc, sum(ip.stock_at_timestamp) 
+    FROM inventory_parsing ip, beer_brands bb
+    WHERE 
+    bb.beerstore_beer_id = ip.beerstore_beer_id AND 
+    ip.run_timestamp >= '$targetSalesDay' AND 
+    ip.run_timestamp <= '$dayAfterTarget' AND
+    ip.brewery_id = '$functionLoggedInBreweryID'
+    GROUP BY
+    ip.beerstore_beer_id, ip.can_bottle_desc";
+
+    $responseDataFromDB = beerTrackDBQuery($inventorySQLQuery);
+
+    return $responseDataFromDB;
+}
+
+function calcSalesThatDayNoStoreFilter($beerstore_beer_ID, $presentDay, $beerstore_product_desc, $presentDayStock)
+{
+    $functionLoggedInBreweryID = returnLoggedInBreweryID();
+    
+    $calcDaySalesQuery = "SELECT sum(stock_at_timestamp) 
+    FROM inventory_parsing
+    WHERE 
+    run_timestamp > '$presentDay' AND
+    can_bottle_desc = '$beerstore_product_desc' AND
+    beerstore_beer_ID = '$beerstore_beer_ID' AND
+    brewery_id = '$functionLoggedInBreweryID' 
+    ORDER BY run_timestamp
+    LIMIT 1";
+
+    $reponseWithArray = beerTrackDBQuery($calcDaySalesQuery);
+    $salesPresentDayPlus1 = mysqli_fetch_array($reponseWithArray)[0];
+
+    return $presentDayStock - $salesPresentDayPlus1;
+}
+
 
 
 ?>
