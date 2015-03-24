@@ -104,53 +104,28 @@ $listOfNotifications = beerTrackDBQuery($queryNotifications);
 
 $counter = 0;
 while($listOfNotifications1 = mysqli_fetch_array($listOfNotifications)){
-    echo ($listOfNotifications1['subject']);
+    echo $listOfNotifications1['subject'];
     if ($listOfNotifications1['subject'] === "New Store Added")
 ?>
                                         <li>
-                                            <a href="http://localhost:8888/app/global/dashboard/?viewName=notifications">
-                                                <i class="ion ion-ios7-people info"></i>New Store Added
+                                            <a href="/app/global/dashboard/?viewName=notifications">
+                                                <i class="fa fa-users warning"></i>New Store Added
                                             </a>
                                         </li>
                                         <li>
 <?php   
-if ($listOfNotifications1['subject'] === "New Beer Added") 
+// if ($listOfNotifications1['subject'] === "New Beer Added") 
 ?>   
-                                        <li>
+<!--                                         <li>
                                             <a href="#">
                                                 <i class="ion ion-ios7-cart success"></i>New Beer Added
                                             </a>
                                         </li>
-                                        <li>                      
+                                        <li>    -->                   
 <?php
 }
 ?>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ion ion-ios7-people info"></i> 5 new members joined today
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users warning"></i> 5 new members joined
-                                            </a>
-                                        </li>
 
-                                        <li>
-                                            <a href="#">
-                                                <i class="ion ion-ios7-cart success"></i> 25 sales made
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ion ion-ios7-person danger"></i> You changed your username
-                                            </a>
-                                        </li>
                                     </ul>
                                 </li>
                                 <li class="footer"><a href="http://localhost:8888/app/global/dashboard/?viewName=notifications">View all</a></li>
