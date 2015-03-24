@@ -39,11 +39,12 @@
 
             <div class="form-group col-xs-4 col-no-padding-right">
                 <label>Timespan</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
+                <div class="form-group">
+                    <input type="date" class="form-control" id= "timespanForInventoryLookup" name="timespanForInventoryLookup">
+                    <!-- <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="timespanForInventoryLookup" name="timespanForInventoryLookup">
+                    <input type="text" class="form-control pull-right" id="timespanForInventoryLookup" name="timespanForInventoryLookup"> -->
                 </div>
             </div>
 
@@ -111,7 +112,7 @@
 
 <script type="text/javascript">
     //Date range picker
-    $('#timespanForInventoryLookup').daterangepicker();
+    // $('#timespanForInventoryLookup').daterangepicker(); TURNING THIS OFF BECUASE WE DON'T NEED A TIMESPAN HERE, JUST A SINGLE DATE.
 
     //auto selecting values, if the page has been posted previously...
     var requestedAction = getQueryVariable("requestedAction");

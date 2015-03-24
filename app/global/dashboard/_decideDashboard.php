@@ -66,6 +66,10 @@
 <div class="row">
 
 <?php 
+include '_wid-salesByBeerTable.php';
+?>
+
+<?php 
 include '_wid-salesPerBeerByStore.php';
 ?>
 

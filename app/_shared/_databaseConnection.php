@@ -34,6 +34,5 @@ function returnConnection() {
 }
 
 
-
 // echo 'bottom of db connect';
 ?>
