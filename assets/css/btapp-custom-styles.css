@@ -43,3 +43,22 @@ a.dropdown-notification-toggle {
 .col-no-padding-right {
 	padding-right: 0px;
 }
+
+
+.morris-hover {
+	margin-left: 10px;
+	  position: absolute;
+  width: 150px;
+  border: 1px solid black;
+  padding: 5px;
+  background-color: white;
+}
+
+.morris-hover-row-label {
+	font-weight: bold;
+}
+
+.morris-hover-row-label:before {
+  content: "Details:";
+  display: block;
+}

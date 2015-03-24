@@ -66,11 +66,11 @@
 <div class="row">
 
 <?php 
-include '_wid-salesByBeerTable.php';
+include '_wid-salesPerBeerNoStoreTable.php';
 ?>
 
 <?php 
-include '_wid-salesPerBeerByStore.php';
+include '_wid-salesPerBeerNoStoreGraph.php';
 ?>
 
 

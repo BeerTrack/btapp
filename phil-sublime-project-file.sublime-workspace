@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-weight"
+			],
+			[
+				"dat",
+				"dataPointsMaking"
+			],
+			[
+				"da",
+				"dataPointNames"
+			],
+			[
+				"data",
+				"dataPointNames"
+			],
+			[
+				"for",
+				"for	for …"
+			],
+			[
+				"date",
+				"dateToRunWith"
+			],
+			[
+				"can",
+				"can_bottle_descSpaceless"
+			],
+			[
+				"ber",
+				"beer_nameSpaceless"
+			],
+			[
+				"day",
+				"dayBeforeTarget"
+			],
+			[
+				"inve",
+				"inventory"
+			],
+			[
+				"tart",
+				"targetSalesDay"
+			],
+			[
+				"timeps",
+				"timespanForInventoryLookup"
+			],
+			[
 				"on",
 				"onkeypress	Attr"
 			],
@@ -108,10 +156,6 @@
 				"presentDay"
 			],
 			[
-				"inve",
-				"inventory_parsing"
-			],
-			[
 				"beerS",
 				"beerSizesStored"
 			],
@@ -192,10 +236,6 @@
 				"breweryName"
 			],
 			[
-				"da",
-				"datesAndInventoryLevels"
-			],
-			[
 				"single_pa",
 				"single_package_volume"
 			],
@@ -232,10 +272,6 @@
 				"arrayCountMaker"
 			],
 			[
-				"for",
-				"foreach	foreach …"
-			],
-			[
 				"arra",
 				"arrayCountMaker"
 			],
@@ -266,10 +302,6 @@
 			[
 				"vie",
 				"viewToShow"
-			],
-			[
-				"font",
-				"font-style"
 			],
 			[
 				"new",
@@ -482,56 +514,24 @@
 			[
 				"page",
 				"pageHeightFull"
-			],
-			[
-				"moda",
-				"modalWidth"
-			],
-			[
-				"mo",
-				"modalWidthInt"
-			],
-			[
-				"single",
-				"singleCardCurrentWidth"
-			],
-			[
-				"cur",
-				"currentLeftPositionBox"
-			],
-			[
-				"work",
-				"work-block1"
-			],
-			[
-				"card",
-				"card-r1"
-			],
-			[
-				"kli",
-				"klickPartnerships_SlideCopy"
-			],
-			[
-				"con",
-				"console"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/_shared/_header.php",
+			"file": "app/_shared/_globalFunctions.php",
 			"settings":
 			{
-				"buffer_size": 8395,
+				"buffer_size": 9628,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/global/dashboard/_wid-salesPerBeerByStore.php",
+			"file": "app/report/sales-history/_lookupStart.php",
 			"settings":
 			{
-				"buffer_size": 5140,
+				"buffer_size": 8249,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,23 +539,44 @@
 			"file": "app/global/dashboard/_decideDashboard.php",
 			"settings":
 			{
-				"buffer_size": 2072,
+				"buffer_size": 2133,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/global/dashboard/_reportDashboard.php",
+			"file": "app/global/dashboard/_wid-salesPerBeerNoStoreGraph.php",
 			"settings":
 			{
-				"buffer_size": 2072,
+				"buffer_size": 3686,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/global/dashboard/_wid-salesPerBeerNoStoreTable.php",
+			"settings":
+			{
+				"buffer_size": 3231,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/css/btapp-custom-styles.css",
+			"settings":
+			{
+				"buffer_size": 910,
 				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 287.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -588,15 +609,25 @@
 		"/Users/phileverson/Repos/btapp/app",
 		"/Users/phileverson/Repos/btapp/app/global",
 		"/Users/phileverson/Repos/btapp/app/global/dashboard",
-		"/Users/phileverson/Repos/btapp/app/global/manage-beers",
-		"/Users/phileverson/Repos/btapp/app/report/pos-entry",
+		"/Users/phileverson/Repos/btapp/app/report",
 		"/Users/phileverson/Repos/btapp/app/report/sales-history",
-		"/Users/phileverson/Repos/btapp/app/report/sales-inventory",
-		"/Users/phileverson/Repos/btapp/assets",
 		"/Users/phileverson/Repos/btapp/assets/css"
 	],
 	"file_history":
 	[
+		"/Users/phileverson/Repos/btapp/app/_shared/_header.php",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/_wid-salesPerBeerNoStoreTable.php",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/_wid-storeMap.php",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/_wid-salesPerBeerNoStoreFilterGraph.php",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/_wid-salesByBeerTable.php",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/_wid-salesPerBeerByStore.php",
+		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_viewAllInventory.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_auth.php",
+		"/Users/phileverson/Repos/btapp/app/_shared/_databaseConnection.php",
+		"/Users/phileverson/Repos/btapp/app/report/sales-history/_viewAllHistory.php",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/index.php",
+		"/Users/phileverson/Repos/btapp/app/report/sales-history/index.php",
+		"/Users/phileverson/Repos/btapp/app/global/dashboard/_reportDashboard.php",
 		"/Users/phileverson/Repos/btapp/assets/js/AdminLTE/app.js",
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_addBeer.php",
 		"/Users/phileverson/Repos/btapp/assets/less/header.less",
@@ -608,14 +639,12 @@
 		"/Users/phileverson/Repos/btapp/index.php",
 		"/Users/phileverson/Repos/btapp/README.md",
 		"/Users/phileverson/Repos/btapp/assets/js/plugins/misc/respond.min.js",
-		"/Users/phileverson/Repos/btapp/app/global/dashboard/_reportDashboard.php",
 		"/Users/phileverson/Repos/btapp/parser/index.php",
 		"/Users/phileverson/Repos/btapp/assets/js/plugins/input-mask/jquery.inputmask.js",
 		"/Users/phileverson/Repos/btapp/assets/js/plugins/slimScroll/jquery.slimscroll.min.js",
 		"/Users/phileverson/Repos/btapp/assets/js/plugins/slimScroll/slimScroll.jquery.json",
 		"/Users/phileverson/Repos/btapp/pages/UI/jquery-ui.html",
 		"/Users/phileverson/Repos/btapp/assets/js/plugins/input-mask/jquery.inputmask.phone.extensions.js",
-		"/Users/phileverson/Repos/btapp/app/_shared/_databaseConnection.php",
 		"/Users/phileverson/Repos/btapp/assets/ganon.php",
 		"/Users/phileverson/Repos/btapp/assets/css/datatables/dataTables.bootstrap.css",
 		"/Users/phileverson/Repos/btapp/assets/js/plugins/daterangepicker/daterangepicker.js",
@@ -626,17 +655,13 @@
 		"/Users/phileverson/Repos/btapp/assets/js/AdminLTE/demo.js",
 		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner/gmaps_api.js",
 		"/Users/phileverson/Repos/btapp/composer.json",
-		"/Users/phileverson/Repos/btapp/app/_shared/_header.php",
 		"/Users/phileverson/Repos/btapp/app/report/pos-entry/index.php",
 		"/Users/phileverson/Repos/btapp/app/report/sales-history/_lookupStart.php",
-		"/Users/phileverson/Repos/btapp/app/_shared/_auth.php",
-		"/Users/phileverson/Repos/btapp/app/report/sales-history/index.php",
 		"/Users/phileverson/Repos/btapp/app/report/pos-entry/_addPOSEntry.php",
 		"/Users/phileverson/Repos/btapp/auth/error_messages/_loggedOutSuccess.php",
 		"/Users/phileverson/Repos/btapp/app/_shared/_leftNav.php",
 		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_searchInventory.php",
 		"/Users/phileverson/Repos/btapp/app/report/pos-entry/_calculations.php",
-		"/Users/phileverson/Repos/btapp/app/report/sales-history/_viewAllHistory.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_singleBeer.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_editBeer.php",
 		"/Users/phileverson/Repos/btapp/app/_shared/_globalFunctions.php",
@@ -651,9 +676,7 @@
 		"/Users/phileverson/Repos/btapp/pages/mailbox.html",
 		"/Users/phileverson/Repos/btapp/assets/less/navs.less",
 		"/Users/phileverson/Repos/btapp/app/global/dashboard/_decideDashboard.php",
-		"/Users/phileverson/Repos/btapp/app/global/dashboard/_wid-salesPerBeerByStore.php",
 		"/Users/phileverson/Repos/btapp/app/_shared/_footer.php",
-		"/Users/phileverson/Repos/btapp/app/report/sales-inventory/_viewAllInventory.php",
 		"/Users/phileverson/Repos/btapp/app/global/manage-beers/_viewAllBeer.php",
 		"/Users/phileverson/Repos/btapp/auth/error_messages/_inactiveBrewery.php",
 		"/Users/phileverson/Repos/btapp/assets/less/boxes.less",
@@ -662,7 +685,6 @@
 		"/Users/phileverson/Repos/btapp/assets/less/alerts.less",
 		"/Users/phileverson/Repos/btapp/php_details.php",
 		"/Users/phileverson/Downloads/TableTools example - Setting the SWF path_files/shCore.css",
-		"/Users/phileverson/Repos/btapp/app/global/dashboard/_wid-storeMap.php",
 		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner/custom_phil.js",
 		"/Users/phileverson/Repos/btapp/assets/css/btapp-custom-styles.css",
 		"/Users/phileverson/Repos/btapp/app/decide/shipment-planner/index.php",
@@ -686,7 +708,6 @@
 		"/Users/phileverson/Repos/btapp/assets/css/btapp-custom-styles",
 		"/Users/phileverson/Repos/btapp/auth/_login.php",
 		"/Users/phileverson/Repos/btapp/auth/_register.php",
-		"/Users/phileverson/Repos/btapp/app/global/dashboard/index.php",
 		"/Users/phileverson/Repos/btapp/app/global/brewery-details/index.php",
 		"/Users/phileverson/Repos/btapp/app/global/dashboard/_home.php",
 		"/Users/phileverson/Repos/btapp/auth/error_messages/_needLogin.php",
@@ -721,10 +742,7 @@
 		"/Users/phileverson/Repos/via-porter-ios/www/styles/app.css",
 		"/Users/phileverson/Repos/via-porter/process/inbound_via_train_update.json",
 		"/Users/phileverson/Downloads/zxing-1992bd069eae74d0426af7bfec3901c3c54ff08d 2/zxingorg/pom.xml",
-		"/Users/phileverson/Repos/via-porter/process/pass-1423968094f806cc97.pkpass",
-		"/Users/phileverson/Repos/via-porter-ios/platforms/ios/www/index.html",
-		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/templates/tabs.html",
-		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/js/app.js"
+		"/Users/phileverson/Repos/via-porter/process/pass-1423968094f806cc97.pkpass"
 	],
 	"find":
 	{
@@ -821,24 +839,54 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/_shared/_header.php",
+					"file": "app/_shared/_globalFunctions.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8395,
+						"buffer_size": 9628,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								564,
-								564
+								8714,
+								8714
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2837.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/report/sales-history/_lookupStart.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8249,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2241,
+								2241
 							]
 						],
 						"settings":
@@ -851,24 +899,30 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
 				{
-					"buffer": 1,
-					"file": "app/global/dashboard/_wid-salesPerBeerByStore.php",
+					"buffer": 2,
+					"file": "app/global/dashboard/_decideDashboard.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5140,
+						"buffer_size": 2133,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4403,
-								4403
+								1288,
+								1288
 							]
 						],
 						"settings":
@@ -878,34 +932,63 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 962.0,
+						"translation.y": 402.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/global/dashboard/_decideDashboard.php",
+					"buffer": 3,
+					"file": "app/global/dashboard/_wid-salesPerBeerNoStoreGraph.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2072,
+						"buffer_size": 3686,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								2072
+								2313,
+								2313
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 872.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/global/dashboard/_wid-salesPerBeerNoStoreTable.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3231,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1136,
+								1136
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -915,40 +998,34 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/global/dashboard/_reportDashboard.php",
+					"buffer": 5,
+					"file": "assets/css/btapp-custom-styles.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2072,
+						"buffer_size": 910,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2072,
-								2072
+								636,
+								636
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 377.0,
+						"translation.y": 100.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -980,7 +1057,7 @@
 		"cols":
 		[
 			0.0,
-			0.914153042218,
+			0.189831306748,
 			1.0
 		],
 		"rows":
@@ -994,6 +1071,7 @@
 	{
 		"height": 0.0
 	},
+	"pinned_build_system": "",
 	"project": "phil-sublime-project-file.sublime-project",
 	"replace":
 	{
@@ -1003,23 +1081,48 @@
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
-				"head",
-				"app/_shared/_header.php"
+				"cust",
+				"assets/css/btapp-custom-styles.css"
 			],
 			[
-				"report",
-				"app/global/dashboard/_reportDashboard.php"
+				"head",
+				"app/_shared/_header.php"
 			],
 			[
 				"hea",
 				"app/_shared/_header.php"
 			],
 			[
+				"vi",
+				"app/report/sales-inventory/_viewAllInventory.php"
+			],
+			[
+				"au",
+				"app/_shared/_auth.php"
+			],
+			[
 				"da",
 				"app/_shared/_databaseConnection.php"
+			],
+			[
+				"a",
+				"app/_shared/_auth.php"
+			],
+			[
+				"auth",
+				"app/_shared/_auth.php"
+			],
+			[
+				"glo",
+				"app/_shared/_globalFunctions.php"
+			],
+			[
+				"report",
+				"app/global/dashboard/_reportDashboard.php"
 			],
 			[
 				"gan",
@@ -1259,6 +1362,7 @@
 	"select_project":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -1267,12 +1371,13 @@
 	"select_symbol":
 	{
 		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
 		"width": 422.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
@@ -1280,7 +1385,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 308.0,
+	"side_bar_width": 261.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
