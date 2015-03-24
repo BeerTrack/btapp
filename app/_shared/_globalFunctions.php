@@ -3,6 +3,14 @@
 //setting the timezone
 date_default_timezone_set("America/Toronto");
 
+function createNotification($brewery_id, $subject, $body, $status)
+{
+$notificationQuery = "INSERT INTO notifications (brewery_id, subject, body, status)
+    VALUES ('$brewery_id', '$subject', '$body', '$status')";
+beerTrackDBQuery($notificationQuery); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
+}
+
+
 //see https://github.com/BeerTrack/btapp#getdateandstocklevels
 function getDateAndStockLevels($startDate, $endDate, $beerstore_beer_ID, $beerstore_store_ID, $single_package_type, $single_package_quantity, $single_package_volume)
 {
