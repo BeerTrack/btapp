@@ -18,6 +18,10 @@ switch ($viewName) {
         $viewDisplayName = 'Notifications';
         $viewPageName = '_notifications.php';
         break;
+    case "about";
+        $viewDisplayName = 'About The Team.';
+        $viewPageName = '_about.php';
+        break;
     default:
         if($showingCourse == 'MSCI444')
         {

@@ -58,7 +58,7 @@ VALUES ('$locationName', '$locationAddress', '$loggedInBreweryID', '$beerstoreSt
 beerTrackDBQuery($insert_store);
 
 createNotification($loggedInBreweryID, "New Store Added", "$locationName has been added to your inventory of stores", "1");
-
+editNotfication("141");
 }
 
 function editStoreProcess()

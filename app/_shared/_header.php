@@ -86,7 +86,7 @@
                                 <i class="fa fa-warning"></i>
 
 <?php
-$queryNotifications = "SELECT COUNT(*) FROM notifications WHERE status = 1"; 
+$queryNotifications = "SELECT COUNT(*) FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID'"; 
 $count = beerTrackDBQuery($queryNotifications);
 $count1 = mysqli_fetch_array($count);
 ?>
@@ -99,17 +99,16 @@ $count1 = mysqli_fetch_array($count);
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
 <?php
-$queryNotifications = "SELECT * FROM notifications WHERE status = 1"; 
+$queryNotifications = "SELECT * FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID' ORDER BY createdTimestamp"; 
 $listOfNotifications = beerTrackDBQuery($queryNotifications);
 
 $counter = 0;
 while($listOfNotifications1 = mysqli_fetch_array($listOfNotifications)){
-    echo $listOfNotifications1['subject'];
-    if ($listOfNotifications1['subject'] === "New Store Added")
+//    if ($listOfNotifications1['subject'] === "New Store Added")
 ?>
                                         <li>
                                             <a href="/app/global/dashboard/?viewName=notifications">
-                                                <i class="fa fa-users warning"></i>New Store Added
+                                                <i class="fa fa-users warning"></i> <?php echo $listOfNotifications1['subject']; ?>
                                             </a>
                                         </li>
                                         <li>
@@ -128,7 +127,7 @@ while($listOfNotifications1 = mysqli_fetch_array($listOfNotifications)){
 
                                     </ul>
                                 </li>
-                                <li class="footer"><a href="http://localhost:8888/app/global/dashboard/?viewName=notifications">View all</a></li>
+                                <li class="footer"><a href="/app/global/dashboard/?viewName=notifications">View all</a></li>
                             </ul>
                         </li>
                         
@@ -142,8 +141,8 @@ while($listOfNotifications1 = mysqli_fetch_array($listOfNotifications)){
                   <li><a href="/?requestedAction=logout">Sign Out</a></li>
                   
                   <li class="divider"></li>
-                  <li><a href="#">Provide Feedback</a></li>
-                  <li><a href="#">About Beertrack</a></li>
+                  <li><a href="/app/global/dashboard/?viewName=about">Provide Feedback</a></li>
+                  <li><a href="/app/global/dashboard/?viewName=about">About Beertrack</a></li>
 
                 </ul>
                         </li>
