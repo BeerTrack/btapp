@@ -85,7 +85,7 @@ function makeMapWithMarkers(locations)
 {
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 8,
-      disableDefaultUI: true,
+      // disableDefaultUI: true,
       center: new google.maps.LatLng(43.4667, -80.5167),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
@@ -97,15 +97,25 @@ function makeMapWithMarkers(locations)
     for (i = 0; i < locations.length; i++) {  
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-        map: map
+        map: map,
+        title: 'Uluru (Ayers Rock)'
       });
 
-      // google.maps.event.addListener(marker, 'click', (function(marker, i) {
-      //   return function() {
-      //     infowindow.setContent(locations[i][0]);
-      //     infowindow.open(map, marker);
-      //   }
-      // })(marker, i));
+
+  var contentString = '<div id="content">'+
+      '<p id="" class="" style="color: black; font-weight: bold">Store Details</p>'+
+      '<p><a href="/app/report/sales-inventory/">View Inventory</a></p>'+
+      '<p><a href="/app/global/manage-stores/">Manage Store</a></p>'+
+      '</div>';
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  });
+
+ google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+
     }
 }
 

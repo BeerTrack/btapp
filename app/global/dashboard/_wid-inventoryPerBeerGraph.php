@@ -50,7 +50,7 @@ if(strlen($storeForFilteringGraph) < 1)
 $dataPoints = array();
 $dataPointNames = array();
 $todaysDate = date("Y-m-d");
-$daysToDo = 4;
+$daysToDo = 7;
 
 $catcherToStopToManyNames = 0;
 

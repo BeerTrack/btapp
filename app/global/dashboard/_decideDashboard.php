@@ -69,13 +69,21 @@
 include '_wid-salesPerBeerNoStoreTable.php';
 ?>
 
-<?php 
-include '_wid-salesPerBeerNoStoreGraph.php';
-?>
-
 
 <?php 
 include '_wid-storeMap.php';
+?>
+
+<?php 
+include '_wid-inventoryPerBeerGraph.php';
+?>
+    
+<?php 
+include '_wid-inventoryByBeerPieChart.php';
+?>
+
+<?php 
+include '_wid-addPosEntry.php';
 ?>
     
 </div>
