@@ -17,7 +17,10 @@
 				<tbody>
 					<?php
 
-					$listings = queryDatabaseForInventoryNoStoreFilter('2015-03-23');
+					$todayTarget = date("Y-m-d");
+					$dayBeforeTarget = date('Y-m-d', strtotime($todayTarget . ' - 1 days'));
+
+					$listings = queryDatabaseForInventoryNoStoreFilter($dayBeforeTarget);
 					while($row = mysqli_fetch_array($listings)) {
 						echo "<tr>";
 						echo "<td>" . $row['beer_name'] . "</td>";
@@ -39,9 +42,6 @@
 <script type="text/javascript">
 	$(function() {
 		$("#beerNoStoreFilter").dataTable( {
-			"aoColumnDefs": [
-			{ 'bSortable': false, 'aTargets': [ -1 ] }
-			]
 		});
 	});
 </script>
