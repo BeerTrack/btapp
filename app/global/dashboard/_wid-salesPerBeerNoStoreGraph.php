@@ -1,9 +1,37 @@
 <section class="col-lg-6 connectedSortable">
   <div class="box box-primary">
       <div class="box-header">
-        <h3 class="box-title">Beerstore Inventory Levels Over Time (all Stores)</h3>
+        <h3 class="box-title">Beerstore Inventory Levels Over Time</h3>
       </div>
       <div class="box-body">
+      <!-- <label>Store:</label> -->
+      
+<form method="get">
+      <div class="input-group input-group-sm">
+      <select style="border-radius: 0px !important; -webkit-appearance: inherit;" id="widStoreFilterGraph" name="widStoreFilterGraph" class="form-control">
+          <option value="">Click to select a store...</option>
+          <option value="all">All Stores</option>
+          <?php
+          //getting names of the stores associated with this brewery
+          $displayTransactionQuery = beerTrackDBQuery("SELECT * FROM stores WHERE brewery_id = '$loggedInBreweryID' ORDER BY location_name");
+
+          while($row = mysqli_fetch_array($displayTransactionQuery)) 
+          {
+              echo "<option value=\"" . $row['beerstore_store_id']  . "\">" . $row['location_name'] . "</option>";
+          }
+          ?>
+      </select>
+
+                    <span class="input-group-btn">
+                      <button class="btn btn-info btn-flat" type="submit">Filter</button>
+                    </span>
+                  </div>
+
+                  </form>
+
+
+
+
             <div class="chart tab-pane active" id="allBeerstoresInventoryOverTime"></div>
         </div>
     </div>
@@ -11,6 +39,13 @@
 
 
 <?php
+
+
+$storeForFilteringGraph = $_GET['widStoreFilterGraph'];
+if(strlen($storeForFilteringGraph) < 1)
+{
+  $storeForFilteringGraph = 'all';
+}
 
 $dataPoints = array();
 $dataPointNames = array();
@@ -22,7 +57,7 @@ $catcherToStopToManyNames = 0;
 for ($daysBack=0; $daysBack < $daysToDo; $daysBack++) { 
   $dateToRunWith = date('Y-m-d', strtotime($todayTarget . ' - ' . $daysBack . ' days'));
 
-  $listings = queryDatabaseForInventoryNoStoreFilter($dateToRunWith);
+  $listings = queryDatabaseForInventoryStoreFilter($dateToRunWith, $storeForFilteringGraph);
   $dataRowMaking = "{ day: '" . $dateToRunWith . "'";
   while($row = mysqli_fetch_array($listings)) {
     // $beer_nameSpaceless = preg_replace('/( *)/', '', $row['beer_name']);

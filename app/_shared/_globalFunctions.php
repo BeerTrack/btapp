@@ -216,19 +216,28 @@ function calcSalesThatDayNoStoreFilter($beerstore_beer_ID, $presentDay, $beersto
 
 function queryDatabaseForInventoryStoreFilter($singleDateChecking, $storeToFilter)
 {
-    echo $storeToFilter;
+    // echo $storeToFilter;
     $functionLoggedInBreweryID = returnLoggedInBreweryID();
     $targetSalesDay = new DateTime($singleDateChecking);
     $targetSalesDay = date_format($targetSalesDay, 'Y-m-d');
     $dayAfterTarget = date('Y-m-d', strtotime($targetSalesDay . ' + 1 days'));
 
     $inventorySQLQuery = "SELECT ip.run_timestamp, bb.beer_name, bb.beerstore_beer_id, ip.single_package_type, ip.single_package_volume, ip.single_package_quantity, ip.can_bottle_desc, sum(ip.stock_at_timestamp) 
-    FROM inventory_parsing ip, beer_brands bb
-    WHERE 
+    FROM inventory_parsing ip, beer_brands bb 
+    WHERE ";
+
+    if($storeToFilter == 'all')
+    {
+    }
+    else
+    {
+        $inventorySQLQuery .= " ip.beerstore_store_id = '$storeToFilter' AND ";
+    }
+
+    $inventorySQLQuery .= "
     bb.beerstore_beer_id = ip.beerstore_beer_id AND 
     ip.run_timestamp >= '$targetSalesDay' AND 
     ip.run_timestamp <= '$dayAfterTarget' AND
-    ip.beerstore_store_id = '$storeToFilter' AND 
     ip.brewery_id = '$functionLoggedInBreweryID'
     GROUP BY
     ip.beerstore_beer_id, ip.can_bottle_desc";

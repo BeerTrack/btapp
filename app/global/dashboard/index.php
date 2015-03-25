@@ -38,6 +38,16 @@ switch ($viewName) {
 }
 
 
+//specific actions for some pages
+//trigger this by appending ?requestedAction={{CASE_NAME_HERE}} to the URL
+switch ($requestedAction) {
+    case "dismissNotifcation": //called when edit page is posted back
+        $notificationID = $_GET['notificationID']; // get whatever sitesh needs here
+        //run siteshes special function here with the notifcationID we got above
+        break;
+
+}
+
 //END: Homemade controller
 
 //**************************************************************
