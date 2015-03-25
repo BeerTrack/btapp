@@ -10,6 +10,10 @@ $notificationQuery = "INSERT INTO notifications (brewery_id, subject, body, stat
 beerTrackDBQuery($notificationQuery); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 }
 
+function editNotfication($notificationId){
+$notification1Query = ("UPDATE notifications SET status = '0' WHERE id = $notificationId");
+beerTrackDBQuery($notification1Query);
+}
 
 //see https://github.com/BeerTrack/btapp#getdateandstocklevels
 function getDateAndStockLevels($startDate, $endDate, $beerstore_beer_ID, $beerstore_store_ID, $single_package_type, $single_package_quantity, $single_package_volume)
