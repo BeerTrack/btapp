@@ -48,6 +48,7 @@ switch ($requestedAction) {
     case "dismissNotifcation": //called when edit page is posted back
         $notificationID = $_GET['notificationID']; // get whatever sitesh needs here
         //run siteshes special function here with the notifcationID we got above
+        editNotfication($notificationID);
         break;
 
 }
