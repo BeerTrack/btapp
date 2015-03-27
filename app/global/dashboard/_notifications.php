@@ -26,7 +26,7 @@
 						echo "<td>" . $row['createdTimestamp'] . "</td>";
 						echo "<td>" . $row['subject'] . "</td>";
 						echo "<td>" . $row['body'] . "</td>";
-						echo "<td class=\"options-align-right\"> <a href=\"?viewName=notifications\"> <button class=\"btn btn-xs btn-primary\"> Dismiss</button> </a></td>";
+						echo "<td class=\"options-align-right\"> <a href=\"?viewName=notifications&requestedAction=dismissNotifcation&notificationID=" . $row['id'] . "\"> <button class=\"btn btn-xs btn-primary\"> Dismiss</button> </a></td>";
 						echo "</tr>";
 					}
 					?>
