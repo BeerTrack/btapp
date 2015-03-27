@@ -1,6 +1,6 @@
 <section class="col-lg-6 connectedSortable">
 	<!-- Custom tabs (Charts with tabs)-->
-	<div class="box box-primary">
+	<div class="box box-primary homepage-dashboard-box">
 			<div class="box-header">
 				<h3 class="box-title">Yesturday's Sales</h3>
 			</div>

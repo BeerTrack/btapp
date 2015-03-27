@@ -1,5 +1,5 @@
 <section class="col-lg-6 connectedSortable">
-    <div class="box box-solid bg-light-blue-gradient">
+    <div class="box box-solid bg-light-blue-gradient homepage-dashboard-box">
         <div class="box-header">
             <i class="fa fa-map-marker"></i>
             <h3 class="box-title">
@@ -23,31 +23,9 @@
           type="text/javascript"></script>
 
 
-  <div id="map" style="width: 100%; height: 400px;"></div>
+  <div id="map" style="width: 100%;" class="gmaps-homepage"></div>
 
   <script type="text/javascript">
-
-
-
-
-// var geocoder = new google.maps.Geocoder();
-// var address = "10375 Yonge St, Richmond Hill, ON L4C 3C2";
-
-// geocoder.geocode( { 'address': address}, function(results, status) {
-
-// if (status == google.maps.GeocoderStatus.OK) {
-// var latitude = results[0].geometry.location.lat();
-// var longitude = results[0].geometry.location.lng();
-//     alert(latitude);
-//     } 
-//     else
-//     {
-//         alert('didnt work');
-//     }
-// }); 
-
-
-
 
 var arrayOfLatLongs = [];
 
