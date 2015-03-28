@@ -23,42 +23,30 @@ switch ($viewName) {
         $viewPageName = '_forcastsHome.php';
         break;
 }
-
-// specific actions for some pages
-switch ($requestedAction) {
-    case "forecast": //called when edit page is posted back
-        // christiansThing();
-        //Grabbing submitted text from form date range selection
-        $textDateRange = mysqli_real_escape_string(returnConnection(), $_POST['reservation']);
-        //*******dont work yet*********
-        //Posting variables and escaping for security
-        $beerID = (mysqli_real_escape_string(returnConnection(), $_POST['beerID']));
-        $storeID = floatval(mysqli_real_escape_string(returnConnection(), $_POST['store']));
-        $container = mysqli_real_escape_string(returnConnection(), $_POST['container']);
-        $quantity = floatval(mysqli_real_escape_string(returnConnection(), $_POST['quantity']));
-        $volume = floatval(mysqli_real_escape_string(returnConnection(), $_POST['volume']));
-        echo 'top beer ID:' . $beerID;
-        echo 'top store:' . $storeID;
-        echo 'top container:' . $container;
-        echo '</br> top timespan: ' . $textDateRange;
-        // //Takes in a SQL query and returns the result
-        // beerTrackDBQuery($insert_store);
-        break;
-
-    case "getData": //called when edit page is posted back
-        // $data = getSalesData('2015-03-02', '2015-03-08', '3211', '2322', 'Bottle', '24', '341');
-        // $data = getDateAndStockLevels('2015-03-02', '2015-03-08', '3211', '2322', 'Bottle', '12', '341');
-        $data = getDateAndStockLevels('2015-03-02', '2015-03-03', '3211', '2322', 'Bottle', '12', '341');
-
-        echo 'Stock On March 2nd: ' . $data[0][1];
-        break;
-}
 // END: Homemade controller
 
-
+ 
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
+
+// specific actions for some pages
+switch ($requestedAction) {
+    case "forecast": 
+        //Grabbing submitted text from form date range selection (in the format displayed to the user)
+        $timespan_forecast_data_source_dates = mysqli_real_escape_string(returnConnection(), $_POST['timespan_forecast_data_source_dates']);
+        $timespan_forecast_for = mysqli_real_escape_string(returnConnection(), $_POST['timespan_forecast_for']);
+
+        //getting parts of the timestamps, to match what we need for the single forecast funciton.
+        $start_timespan_forecast_data_source = substr($timespan_forecast_data_source_dates, 0, 10);
+        $start_timespan_forecast_for = substr($timespan_forecast_for, 0, 10);
+        $end_timespan_forecast_for = substr($timespan_forecast_for, 13, 10);
+
+        //Posting beer ID from form...
+        $selected_beerstore_beer_id = (mysqli_real_escape_string(returnConnection(), $_POST['selected_beerstore_beer_id']));
+       
+       break;
+}
 
 //END: Homemade models
 

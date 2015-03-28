@@ -22,7 +22,7 @@
 					<tbody>
 					<?php
 
-					$listings = queryDatabaseForLatestInventory($inventory_beerstore_id, $inventory_location, $timespanForInventoryLookup, $inventory_package_type, $inventory_package_single_volume, $inventory_package_quanity);
+					$listings = queryDatabaseForSalesInventory($inventory_beerstore_id, $inventory_location, $inventoryLookupDay, $inventory_package_type, $inventory_package_single_volume, $inventory_package_quanity);
 					
 					while($row = mysqli_fetch_array($listings)) {
 						echo "<tr>";
