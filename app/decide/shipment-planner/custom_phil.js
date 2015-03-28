@@ -1,5 +1,4 @@
 //copied from GMAPS:
-
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
@@ -84,17 +83,44 @@ function includeStoreCheck (className) {
 }
 
 
-
-function moveToNext () {
-  
-}
-
-
-
 $( document ).ready(function() {
-// console.log('test');
+
+  //processing the shipment plan
+  $("#processShipmentPlan").click(function(){
+    $(".beerQFeild").each(function( index ) {
+      if($( this ).val().length > 0)
+      {
+        var beerQName = $( this ).attr('name').split('_');
+        console.log(beerQName)
+
+        //6 x Can 473 ml
+        var making_inventory_package_option = beerQName[4] + ' x ' + beerQName[3] + ' ' + beerQName[5] + ' ml';
+
+        var URLMake = "/app/decide/shipment-planner/process_inventory_update.php?breweryIDPassed=" + $("#loggedInBreweryID").text() + "&beerIDPassed=" + beerQName[1] + "&inventory_package_option=" + making_inventory_package_option + "&quantity_ordered=" + $( this ).val() + "&location=" + beerQName[2] 
+
+        console.log(URLMake);
+
+        $.get(URLMake, function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+        });
 
 
+
+        // $.post("process_inventory_update.php",
+        // {
+        //     breweryIDPassed: $("#loggedInBreweryID").text(),
+        //     beerIDPassed: beerQName[1],
+        //     inventory_package_option: making_inventory_package_option,
+        //     quantity_ordered: $( this ).val(),
+        //     location: beerQName[2]
+        // },
+        // function(data, status){
+        //     alert("Data: " + data + "\nStatus: " + status);
+        // });
+
+      }
+    });
+  });
 
 //resetting the google map based on which stores we're going to...  
 	$("#collapseDeliveryToggle").click(function(){
