@@ -13,7 +13,23 @@
 		</div>
 		<input type="text" class="form-control pull-right" id="reservation" name="reservation">
 	</div>
+	<h3 class="box-title">What store do you want to forecast for?</h3>
 
+    <div class="form-group col-xs-12">
+        <label>Location</label>
+        <select id="" id="store" name="store" class="form-control">
+            <option value="all">All Stores</option>
+            <?php
+            //getting names of the stores associated with this brewery
+            $displayTransactionQuery = beerTrackDBQuery("SELECT * FROM stores WHERE brewery_id = '$loggedInBreweryID' ORDER BY location_name");
+
+            while($row = mysqli_fetch_array($displayTransactionQuery)) 
+            {
+                echo "<option value=\"" . $row['beerstore_store_id']  . "\">" . $row['location_name'] . "</option>";
+            }
+            ?>
+        </select>
+    </div>
 
 	<h3 class="box-title">What beer package do you want to forecast for?</h3>
 	<div class="form-group">

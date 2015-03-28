@@ -142,6 +142,9 @@ function singleDayForecastGen($textDateRangePassed, $beerID, $storeID, $containe
     //Fetches stock levels array from start to end date for a specific beer and store and stores it
     $stockLevels = getDateAndStockLevels(date_format($startDate,"Y-m-d"), date_format($endDate,"Y-m-d"), $beerID, $storeID, $container, $quantity, $volume);
 
+    if(count($stockLevels) < 2)
+        return "No data";
+
     //Changes date values in $stockLevels to 1, 2, 3, ... so that the large date numbers can be squared and stored in vars for forecast processing
     $count = 1;
     foreach ($stockLevels as &$row) {
