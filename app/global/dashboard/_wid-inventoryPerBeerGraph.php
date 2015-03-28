@@ -65,7 +65,7 @@ for ($daysBack=0; $daysBack < $daysToDo; $daysBack++) {
     $can_bottle_descSpaceless = "'" . $row['can_bottle_desc'] . "'";
     // $dataRowMaking .= ', ' . $beer_nameSpaceless . '-' . $can_bottle_descSpaceless . ': ' . $row[7];
     $dataRowMaking .= ', ' . $can_bottle_descSpaceless . ': ' . $row[7];
-    if($catcherToStopToManyNames > 1)
+    if($catcherToStopToManyNames < 1)
     {
       array_push($dataPointNames, $can_bottle_descSpaceless);
     }

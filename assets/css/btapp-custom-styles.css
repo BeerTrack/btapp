@@ -67,6 +67,9 @@ a.dropdown-notification-toggle {
 	height: 600px;
 }
 
+.notpicked {
+	display: none;
+}
 
 .gmaps-homepage {
 	height: calc(100% - 65px);
