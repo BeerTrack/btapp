@@ -33,7 +33,7 @@ $combosFromBeerStoreBeerID = beerTrackDBQuery("
 						<tr>
 							<th>Location Name</th>
 							<th>Package Type</th>
-							<th>Unit Volume</th>
+							<th>Unit Volume (ml)</th>
 							<th>Quanity per Package</th>
 							<th>Forcasted Sales (# of packages)</th>
 							<th>Forcasted Sales (in Liters)</th>

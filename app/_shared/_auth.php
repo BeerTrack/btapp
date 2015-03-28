@@ -11,6 +11,7 @@ if($_SESSION["loginStatus"]  === 'loggedIn')
     $loggedInBreweryID = intval($_SESSION["loggedInBreweryID"]);
     $showingCourse = $_SESSION["showingCourse"];
     echo '<div id="loggedInEmailUser" style="display: none;">' . $loggedInEmail . '</div>';
+    echo '<div id="loggedInBreweryID" style="display: none;">' . $loggedInBreweryID . '</div>';
 }
 else
 {

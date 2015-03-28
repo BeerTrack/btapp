@@ -2,13 +2,6 @@
 <!-- <script src="gmaps_api.js"></script> -->
 <script src="custom_phil.js"></script>
 
-<?php 
-// echo singleDayForecastGen("03/22/2015 - 04/04/2015", $row['beerstore_beer_id'], $row['beerstore_store_id'], $row['single_package_type'], $row['single_package_quantity'], $row['single_package_volume'])
-echo ' test';
-echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', '4165', '3066', 'Bottle', '6', '341');
-// echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', 4165, 3066, 'Bottle', 6, 341);
-
-?>
 <div class="row">
 	<div class="col-xs-12">
 		<div class="panel box box-primary">
@@ -36,28 +29,53 @@ echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', '4165', '3066',
 							<?php
 							function rowCreatorPerStore($loggedInBreweryID, $passedBeerStoreID, $storeNamePrint)
 							{
+								// $possibleBeersQuery = beerTrackDBQuery(
+								// 	"SELECT DISTINCT s.location_name, bb.beer_name, ipd.single_package_type, ipd.single_package_volume, ipd.single_package_quantity, ipd.stock_at_timestamp, ipd.beerstore_store_id, ipd.beerstore_beer_id
+								// 	FROM stores s, beer_brands bb, inventory_parsing_trying_something ipd
+								// 	WHERE 
+								// 	s.brewery_id = '$loggedInBreweryID' AND
+								// 	s.beerstore_store_id = '$passedBeerStoreID' AND
+								// 	ipd.brewery_id = s.brewery_id AND
+								// 	ipd.beerstore_beer_id = bb.beerstore_beer_id AND
+								// 	ipd.beerstore_store_id = s.beerstore_store_id
+								// 	GROUP BY ipd.can_bottle_desc
+								// 	ORDER BY ipd.stock_at_timestamp DESC ");
+								
 								$possibleBeersQuery = beerTrackDBQuery(
-									"SELECT s.location_name, bb.beer_name, ipd.single_package_type, ipd.single_package_volume, ipd.single_package_quantity, ipd.stock_at_timestamp, ipd.beerstore_store_id, ipd.beerstore_beer_id
-									FROM stores s, beer_brands bb, inventory_parsing ipd
+									"SELECT DISTINCT s.location_name, bb.beer_name, ipd.single_package_type, ipd.single_package_volume, ipd.single_package_quantity, ipd.stock_at_timestamp, ipd.beerstore_store_id, ipd.beerstore_beer_id
+									FROM stores s, beer_brands bb, inventory_parsing_trying_something ipd
 									WHERE 
 									s.brewery_id = '$loggedInBreweryID' AND
 									s.beerstore_store_id = '$passedBeerStoreID' AND
 									ipd.brewery_id = s.brewery_id AND
 									ipd.beerstore_beer_id = bb.beerstore_beer_id AND
-									ipd.beerstore_store_id = s.beerstore_store_id
-									ORDER BY s.location_name");
+									ipd.beerstore_store_id = s.beerstore_store_id AND
+									ipd.stock_at_timestamp = 
+									(SELECT ipSub.stock_at_timestamp FROM inventory_parsing_trying_something ipSub
+									WHERE
+									ipSub.single_package_type = ipd.single_package_type AND
+									ipSub.single_package_volume = ipd.single_package_volume AND
+									ipSub.single_package_quantity = ipd.single_package_quantity AND
+									ipSub.brewery_id = ipd.brewery_id AND
+									ipSub.beerstore_beer_id = ipd.beerstore_beer_id AND
+									ipSub.beerstore_store_id = ipd.beerstore_store_id
+									ORDER BY run_timestamp DESC
+									LIMIT 1
+									)
+									GROUP BY ipd.can_bottle_desc");
 
 								echo '<tr style="background-color: #ECECEC"><td colspan="6"><strong>' . $storeNamePrint . '</strong>';
 								echo '
 								<div class="form-group" style="margin-bottom: 0px; float: right">
-									<select id="decider_' . $passedBeerStoreID  . '" onChange="includeStoreCheck(\'' . $passedBeerStoreID . '\')" name="inventory_location" class="includeStoreCheck form-control storeHideStart">
+									<select id="decider_'  . $passedBeerStoreID  . '" onChange="includeStoreCheck(\'' . $passedBeerStoreID . '\')" name="inventory_location" class="includeStoreCheck form-control storeHideStart">
 										<option value="include">Include in Shipment Plan</option>
 										<option value="exclude" selected>Exclude from Shipment Plan</option>
 									</select>
 								</div>
-							</tr>';
+								</tr>';
 
 							while($row = mysqli_fetch_array($possibleBeersQuery)) {
+								$inputQName = 'beerQ_' . $row['beerstore_beer_id'] . '_' . $passedBeerStoreID . '_' . $row['single_package_type'] . '_' . $row['single_package_quantity'] . '_' . $row['single_package_volume'];
 								echo "<tr style=\"display: none\" class=\"items_" . $passedBeerStoreID . "\">";
 								echo "<td>" . $row['beer_name'] . "</td>";
 								echo "<td>" . $row['single_package_type'] . "</td>";
@@ -65,7 +83,7 @@ echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', '4165', '3066',
 								echo "<td>" . $row['single_package_quantity'] . "</td>";
 								// echo "<td>" . $row['stock_at_timestamp'] . " here's the forcast: " . singleDayForecastGen("03/22/2015 - 04/04/2015", $row['beerstore_beer_id'], $row['beerstore_store_id'], $row['single_package_type'], $row['single_package_quantity'], $row['single_package_volume']) . "</td>";
 								echo "<td>" . $row['stock_at_timestamp'] . "</td>";
-								echo "<td><input style=\"float:right; width:100%\" type=\"text\"></td>";
+								echo "<td><input name=\"" . $inputQName . "\" style=\"float:right; width:100%\" class=\"beerQFeild\" type=\"text\"></td>";
 								echo "</tr>";
 							}
 						}
@@ -101,7 +119,7 @@ echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', '4165', '3066',
 			</div>
 			<div id="collapseTwo" style="width: 100%" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
 				<div class="box-body col-xs-12" >
-					<div id="map-canvas" class="col-xs-8" style=""></div>
+					<div id="map-canvas" class="col-xs-8" style="height: 600px"></div>
 
 					<div id="control_panel" class="col-xs-4" style="float:right;">
 						<div>
@@ -137,7 +155,7 @@ echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', '4165', '3066',
 			<div class="box-header with-border">
 				<h4 class="box-title">
 					<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed" aria-expanded="false">
-						Finalize & Distribute Plan
+						Finalize Plan
 					</a>
 				</h4>
 			</div>
@@ -147,10 +165,24 @@ echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', '4165', '3066',
 				</div>
 				<div class="box-footer" style="display: block;">
 					<div class="btn-group">
-						<a id="collapseDeliveryToggle" data-toggle="collapse" data-parent="#accordion" href=""  type="button" class="btn btn-primary collapsed" aria-expanded="false">
-							Process Shipment
+						<a id="processShipmentPlan" data-toggle="collapse" data-parent="#accordion" href=""  type="button" class="btn btn-primary collapsed" aria-expanded="false">
+							Process Shipment Plan
 						</a>
         			</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel box box-primary">
+			<div class="box-header with-border">
+				<h4 class="box-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="collapsed" aria-expanded="false">
+						Distribute Plan
+					</a>
+				</h4>
+			</div>
+			<div id="collapseFour" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+				<div class="box-body">
+					You must process your shipment plan before it can be distributed.
 				</div>
 			</div>
 		</div>
