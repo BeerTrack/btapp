@@ -1,4 +1,14 @@
+
 <div class="row">
+	<div class="col-xs-12">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3 class="box-title"><center>Order Processed</center></h3>
+			</div>
+			</div>
+			</div>
+			</div>
+<!-- <div class="row">
 	<div class="col-xs-12">
 		<div class="box box-primary">
 			<div class="box-header">
@@ -33,10 +43,9 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
-<div class="row">
-            <!-- accepted payments column -->
+<!-- <div class="row">
 	<div class="col-xs-6">
 	  <p class="lead">Payment Methods:</p>
 	  <img src="../../dist/img/credit/visa.png" alt="Visa">
@@ -46,7 +55,7 @@
 	  <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
 	    Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
 	  </p>
-	</div><!-- /.col -->
+	</div>
 	<div class="col-xs-6">
 	  <p class="lead">Amount Due 2/22/2014</p>
 	  <div class="table-responsive">
@@ -69,9 +78,9 @@
 	      </tr>
 	    </tbody></table>
 	  </div>
-	</div><!-- /.col -->
+	</div>
 </div>
-
+ -->
 
 
 

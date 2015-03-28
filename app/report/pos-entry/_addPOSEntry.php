@@ -32,12 +32,16 @@
 
                     while($row = mysqli_fetch_array($displayTransactionQuery)) 
                     {
-                        echo "<option value=\"" . $row['beer_name']  . "\">" . $row['beer_name'] . "</option>";
+                        echo "<option value=\"" . $row['beerstore_beer_id']  . "\">" . $row['beer_name'] . "</option>";
                     }
                     ?>
                 </select>
             </div>
 
+
+            <div class="form-group col-xs-2 col-no-padding-left">
+                <label>Package</label>
+                <select id="" name="inventory_package_option" class="form-control">
              <?php
             //getting all the package sizes of any beers associated with this brewery
             $todaysDate = date('Y-m-d');
@@ -51,15 +55,10 @@
 
             while($row = mysqli_fetch_array($packageOptionsFromDB)) 
             {
-                $packageOptions .= "<option value=\"" . $row['can_bottle_desc']  . "\">" . $row['can_bottle_desc'] . "</option>";
+                echo "<option value=\"" . $row['can_bottle_desc']  . "\">" . $row['can_bottle_desc'] . "</option>";
             }
 
             ?>
-
-            <div class="form-group col-xs-2 col-no-padding-left">
-                <label>Package</label>
-                <select id="" name="inventory_package_option" class="form-control">
-                    <?php echo $packageOptions; ?>
                 </select>
             </div>
 

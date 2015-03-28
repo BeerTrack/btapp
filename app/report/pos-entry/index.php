@@ -32,13 +32,29 @@ switch ($requestedAction) {
 //**************************************************************
 function addPOSEntry()
 {
+    $functionLoggedInBreweryID = returnLoggedInBreweryID();
     $beer_name = mysqli_real_escape_string(returnConnection(), $_POST['beer_name']);
     $inventory_package_option = mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_option']);
     $quantity_purchased = mysqli_real_escape_string(returnConnection(), $_POST['quantity_purchased']);
     $unit_price = mysqli_real_escape_string(returnConnection(), $_POST['unit_price']);
-    echo $beer_name;
-    echo $package_type;
-    echo $package_quantity;
+    $location =  mysqli_real_escape_string(returnConnection(), $_POST['inventory_location']);
+    $run_timestamp = date('Y-m-d H:i:s', (time()));
+
+    //Get latest entry in Inventory parsing table 
+    $queryWord = "SELECT * FROM inventory_parsing WHERE beerstore_beer_id = '$beer_name' and beerstore_store_id = '$location' and can_bottle_desc = '$inventory_package_option' ORDER BY run_timestamp DESC Limit 1";
+    $queryInventoryParsing = beerTrackDBQuery($queryWord);
+    while($row = mysqli_fetch_array($queryInventoryParsing)) 
+    {
+        $newStock = $row['stock_at_timestamp'] - $quantity_purchased;
+        $packageType = $row['single_package_type'];
+        $packageQuantity = $row['single_package_quantity'];
+        $packageVolume = $row['single_package_volume'];
+
+        //Update entry in Inventory parsing
+        $updateInventoryParsing = "INSERT INTO inventory_parsing (run_timestamp, brewery_id, beerstore_store_id, beerstore_beer_id, single_package_type, single_package_quantity, single_package_volume, stock_at_timestamp, can_bottle_desc) 
+        VALUES ('$run_timestamp', '$functionLoggedInBreweryID', '$location', '$beer_name', '$packageType', '$packageQuantity', '$packageVolume', '$newStock', '$inventory_package_option')";
+        beerTrackDBQuery($updateInventoryParsing);
+    }
 }
 //END: Homemade models
 
