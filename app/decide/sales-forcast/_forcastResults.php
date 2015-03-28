@@ -1,28 +1,74 @@
 <?php
 
-echo '<h2>hi</h2>';
-//echo ' The forecasted number of sales is: ' . singleDayForecastGen($textDateRange, $beerID, $storeID, $container, $quantity, $volume);
+$dateRangeFed = $start_timespan_forecast_data_source . " - " . $start_timespan_forecast_for;
 
-//getting names of the beers associated with this brewery
-$stores = beerTrackDBQuery("SELECT DISTINCT beerstore_store_id, single_package_type, single_package_quantity, single_package_volume
-FROM inventory_parsing
-WHERE beerstore_beer_id = 3066");
-
-$total = 0;
-while($row = mysqli_fetch_array($stores)) 
-{
-	$temp = 341 * 12 * singleDayForecastGen($textDateRange, 3066, $row['beerstore_store_id'], 'Bottle', 12, 341);
-	echo 'this stores volume: ' . $temp . '</br>';
-
-	$total = $total + $temp;
-	echo 'running total is:' . $total . '</br> ';
-}
-echo $total;
-
-// echo ' next 3 days forcasted values: </br>';
-
-// echo 'forcast for the 16th: ' . christiansThing('03/02/2015 - 03/16/2015') . '</br>';
-// echo 'forcast for the 17th: ' . christiansThing('03/02/2015 - 03/17/2015') . '</br>';
-// echo 'forcast for the 18th: ' . christiansThing('03/02/2015 - 03/18/2015') . '</br>';
-
+//getting all the unique packaging for each of the beerstores this beer is sold at
+$combosFromBeerStoreBeerID = beerTrackDBQuery("
+		SELECT DISTINCT beerstore_store_id, beerstore_beer_id, single_package_type, single_package_quantity, single_package_volume
+		FROM inventory_parsing ipMain
+		WHERE beerstore_beer_id = '$selected_beerstore_beer_id' AND 
+		EXISTS
+			(
+				SELECT * FROM inventory_parsing ipSub 
+				WHERE 
+				ipSub.beerstore_beer_id = ipMain.beerstore_beer_id AND
+				ipSub.beerstore_store_id = ipMain.beerstore_store_id AND
+				ipSub.single_package_type = ipMain.single_package_type AND
+				ipSub.single_package_quantity = ipMain.single_package_quantity AND
+				ipSub.single_package_volume = ipMain.single_package_volume AND 
+				ipSub.stock_at_timestamp > 0
+			)
+	");
 ?>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3 class="box-title">Forecasted Beer Sales</h3>
+			</div>
+			<div class="box-body">
+				<table id="allStoresTable" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Location Name</th>
+							<th>Package Type</th>
+							<th>Unit Volume</th>
+							<th>Quanity per Package</th>
+							<th>Forcasted Sales (# of packages)</th>
+							<th>Forcasted Sales (in Liters)</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					<?php
+					$totalVolumeThisBeer = 0;
+					while($unique_BeerIDPackageQuantityVolume = mysqli_fetch_array($combosFromBeerStoreBeerID)) 
+					{
+						$packagesForThisCombo = round(singleDayForecastGen($dateRangeFed, $unique_BeerIDPackageQuantityVolume['beerstore_beer_id'], $unique_BeerIDPackageQuantityVolume['beerstore_store_id'], $unique_BeerIDPackageQuantityVolume['single_package_type'], $unique_BeerIDPackageQuantityVolume['single_package_quantity'], $unique_BeerIDPackageQuantityVolume['single_package_volume']), 2);
+						$volumeForThisCombo = round($unique_BeerIDPackageQuantityVolume['single_package_quantity'] * $unique_BeerIDPackageQuantityVolume['single_package_volume'] * $packagesForThisCombo, 2);
+						$totalVolumeThisBeer = round($totalVolumeThisBeer + $volumeForThisCombo,2);
+
+						echo '</tr>';
+						echo '<td> Beerstore #' . $unique_BeerIDPackageQuantityVolume['beerstore_store_id'] . '</td>';
+						echo '<td>' . $unique_BeerIDPackageQuantityVolume['single_package_type'] . '</td>';
+						echo '<td>' . $unique_BeerIDPackageQuantityVolume['single_package_volume'] . '</td>';
+						echo '<td>' . $unique_BeerIDPackageQuantityVolume['single_package_quantity'] . '</td>';
+						echo '<td>' . $packagesForThisCombo . '</td>';
+						echo '<td>' . round(($volumeForThisCombo / 1000),2) . ' L</td>';
+						echo '</tr>';
+					}
+
+					?>
+
+					<tr>
+						<td colspan="5" align="right">Total Beer Required on <?php echo substr($dateRangeFed, 13); ?>: </td>
+						<td><?php echo round(($totalVolumeThisBeer/1000), 2); ?> L</td>
+					</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

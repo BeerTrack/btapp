@@ -28,11 +28,14 @@ switch ($requestedAction) {
         //Grabbing submitted text from form date range selection
         $inventory_beerstore_id = mysqli_real_escape_string(returnConnection(), $_POST['inventory_beerstore_id']);
         $inventory_location = mysqli_real_escape_string(returnConnection(), $_POST['inventory_location']);
-        $timespanForInventoryLookup = mysqli_real_escape_string(returnConnection(), $_POST['timespanForInventoryLookup']);
+        $inventoryLookupDay = mysqli_real_escape_string(returnConnection(), $_POST['inventoryLookupDay']);
         $inventory_package_type = mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_type']);
         $inventory_package_single_volume = mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_single_volume']);
         $inventory_package_quanity = mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_quanity']);
         
+        // echo $inventoryLookupDay;
+
+
         break;
 }
 

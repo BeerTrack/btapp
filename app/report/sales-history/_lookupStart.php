@@ -38,7 +38,7 @@
             </div>
 
             <div class="form-group col-xs-4 col-no-padding-right">
-                <label>Timespan</label>
+                <label>Date</label>
                 <div class="form-group">
                     <input type="date" class="form-control" id= "timespanForInventoryLookup" name="timespanForInventoryLookup">
                     <!-- <div class="input-group-addon">

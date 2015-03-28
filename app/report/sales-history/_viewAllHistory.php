@@ -33,8 +33,8 @@
 						echo "<td>" . $row['single_package_volume'] . " ml</td>";
 						echo "<td>" . $row['single_package_quantity'] . "</td>";
 						// echo "<td>" . $row['stock_at_timestamp'] . "</td>";
-						echo "<td>". calcSalesThatDay($row[3], $row[4], $row['run_timestamp'], $row['can_bottle_desc'], $row['stock_at_timestamp']) . "</td>";
-						
+						echo "<td>". calcSalesThatDay($row['beerstore_beer_id'], $row['beerstore_store_id'], substr($row['run_timestamp'],0, 10), $row['can_bottle_desc'], $row['stock_at_timestamp']) . "</td>";
+						// calcSalesThatDay($beerstore_beer_ID, $beerstore_store_ID, $presentDay, $beerstore_product_desc, $presentDayStock)
 						// echo "<td>" . calcSalesThatDay($row['beerstore_beer_ID'], $row['beerstore_store_ID'], $row['run_timestamp'], $row['can_bottle_desc'], $row['stock_at_timestamp']) . "</td>";
 						// echo "<td class=\"options-align-right\"> <a href=\"?viewName=edit&storeId=" . $row['store_id'] . "\"><button class=\"btn btn-xs btn-primary\">Edit Store</button></a></td>";
 						echo "</tr>";
