@@ -1,22 +1,6 @@
 <?php
 
-echo '</br> timespan_forecast_data_source_dates: ' . $timespan_forecast_data_source_dates;
-echo '</br> timespan_forecast_for: ' . $timespan_forecast_for;
-
-echo '</br> start_timespan_forecast_data_source: ' . $start_timespan_forecast_data_source;
-echo '</br> start_timespan_forecast_for: ' . $start_timespan_forecast_for;
-echo '</br> end_timespan_forecast_for: ' . $end_timespan_forecast_for;
-
-echo '</br>selected_beerstore_beer_id: ' . $selected_beerstore_beer_id;
-
 $dateRangeFed = $start_timespan_forecast_data_source . " - " . $start_timespan_forecast_for;
-
-echo '</br>dateRangeFed: ' . $dateRangeFed;
-
-echo '</br></br></br>';
-
-
-
 
 //getting all the unique packaging for each of the beerstores this beer is sold at
 $combosFromBeerStoreBeerID = beerTrackDBQuery("
@@ -35,22 +19,56 @@ $combosFromBeerStoreBeerID = beerTrackDBQuery("
 				ipSub.stock_at_timestamp > 0
 			)
 	");
-
-$totalVolumeThisBeer = 0;
-while($unique_BeerIDPackageQuantityVolume = mysqli_fetch_array($combosFromBeerStoreBeerID)) 
-{
-	$packagesForThisCombo = singleDayForecastGen($dateRangeFed, $unique_BeerIDPackageQuantityVolume['beerstore_beer_id'], $unique_BeerIDPackageQuantityVolume['beerstore_store_id'], $unique_BeerIDPackageQuantityVolume['single_package_type'], $unique_BeerIDPackageQuantityVolume['single_package_quantity'], $unique_BeerIDPackageQuantityVolume['single_package_volume']);
-	echo '</br> Store: ' . $unique_BeerIDPackageQuantityVolume['beerstore_store_id'];
-	echo '</br> Q: ' . $unique_BeerIDPackageQuantityVolume['single_package_quantity'];
-	echo '</br>packagesForThisCombo: ' . $packagesForThisCombo;
-
-	$volumeForThisCombo = $unique_BeerIDPackageQuantityVolume['single_package_quantity'] * $unique_BeerIDPackageQuantityVolume['single_package_volume'] * $packagesForThisCombo;
-	echo '</br>This combos volume: ' . $volumeForThisCombo . '</br>';
-
-	$totalVolumeThisBeer = $totalVolumeThisBeer + $volumeForThisCombo;
-	echo 'running totalVolumeThisBeer is:' . $totalVolumeThisBeer . '</br> ';
-}
-
-echo '</br></br>Very End Total:' . $totalVolumeThisBeer;
-
 ?>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3 class="box-title">Forecasted Beer Sales</h3>
+			</div>
+			<div class="box-body">
+				<table id="allStoresTable" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Location Name</th>
+							<th>Package Type</th>
+							<th>Unit Volume</th>
+							<th>Quanity per Package</th>
+							<th>Forcasted Sales (# of packages)</th>
+							<th>Forcasted Sales (in Liters)</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					<?php
+					$totalVolumeThisBeer = 0;
+					while($unique_BeerIDPackageQuantityVolume = mysqli_fetch_array($combosFromBeerStoreBeerID)) 
+					{
+						$packagesForThisCombo = round(singleDayForecastGen($dateRangeFed, $unique_BeerIDPackageQuantityVolume['beerstore_beer_id'], $unique_BeerIDPackageQuantityVolume['beerstore_store_id'], $unique_BeerIDPackageQuantityVolume['single_package_type'], $unique_BeerIDPackageQuantityVolume['single_package_quantity'], $unique_BeerIDPackageQuantityVolume['single_package_volume']), 2);
+						$volumeForThisCombo = round($unique_BeerIDPackageQuantityVolume['single_package_quantity'] * $unique_BeerIDPackageQuantityVolume['single_package_volume'] * $packagesForThisCombo, 2);
+						$totalVolumeThisBeer = round($totalVolumeThisBeer + $volumeForThisCombo,2);
+
+						echo '</tr>';
+						echo '<td> Beerstore #' . $unique_BeerIDPackageQuantityVolume['beerstore_store_id'] . '</td>';
+						echo '<td>' . $unique_BeerIDPackageQuantityVolume['single_package_type'] . '</td>';
+						echo '<td>' . $unique_BeerIDPackageQuantityVolume['single_package_volume'] . '</td>';
+						echo '<td>' . $unique_BeerIDPackageQuantityVolume['single_package_quantity'] . '</td>';
+						echo '<td>' . $packagesForThisCombo . '</td>';
+						echo '<td>' . round(($volumeForThisCombo / 1000),2) . ' L</td>';
+						echo '</tr>';
+					}
+
+					?>
+
+					<tr>
+						<td colspan="5" align="right">Total Beer Required on <?php echo substr($dateRangeFed, 13); ?>: </td>
+						<td><?php echo round(($totalVolumeThisBeer/1000), 2); ?> L</td>
+					</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
