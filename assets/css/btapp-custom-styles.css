@@ -62,3 +62,15 @@ a.dropdown-notification-toggle {
   content: "Details:";
   display: block;
 }
+
+.homepage-dashboard-box {
+	height: 600px;
+}
+
+.notpicked {
+	display: none;
+}
+
+.gmaps-homepage {
+	height: calc(100% - 65px);
+}

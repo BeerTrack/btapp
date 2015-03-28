@@ -32,7 +32,7 @@ switch ($requestedAction) {
         $textDateRange = mysqli_real_escape_string(returnConnection(), $_POST['reservation']);
         //*******dont work yet*********
         //Posting variables and escaping for security
-        $beerID = (mysqli_real_escape_string(returnConnection(), $_POST['beerType']));
+        $beerID = (mysqli_real_escape_string(returnConnection(), $_POST['beerID']));
         $storeID = floatval(mysqli_real_escape_string(returnConnection(), $_POST['store']));
         $container = mysqli_real_escape_string(returnConnection(), $_POST['container']);
         $quantity = floatval(mysqli_real_escape_string(returnConnection(), $_POST['quantity']));
@@ -40,6 +40,7 @@ switch ($requestedAction) {
         echo 'top beer ID:' . $beerID;
         echo 'top store:' . $storeID;
         echo 'top container:' . $container;
+        echo '</br> top timespan: ' . $textDateRange;
         // //Takes in a SQL query and returns the result
         // beerTrackDBQuery($insert_store);
         break;

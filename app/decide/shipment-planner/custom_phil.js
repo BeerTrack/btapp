@@ -84,7 +84,19 @@ function includeStoreCheck (className) {
 }
 
 
+
+function moveToNext () {
+  
+}
+
+
+
 $( document ).ready(function() {
+// console.log('test');
+
+
+
+//resetting the google map based on which stores we're going to...  
 	$("#collapseDeliveryToggle").click(function(){
 		$("#collapseTwo").css('display', 'inline-block');
 		initialize(); //resetting google map

@@ -1,5 +1,5 @@
 <section class="col-lg-3 connectedSortable">
-  <div class="box box-primary">
+  <div class="box box-primary homepage-dashboard-box">
       <div class="box-header">
         <h3 class="box-title">Today's Beerstore Inventory Levels (By Package)</h3>
       </div>

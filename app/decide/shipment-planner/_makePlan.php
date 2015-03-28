@@ -2,6 +2,13 @@
 <!-- <script src="gmaps_api.js"></script> -->
 <script src="custom_phil.js"></script>
 
+<?php 
+// echo singleDayForecastGen("03/22/2015 - 04/04/2015", $row['beerstore_beer_id'], $row['beerstore_store_id'], $row['single_package_type'], $row['single_package_quantity'], $row['single_package_volume'])
+echo ' test';
+echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', '4165', '3066', 'Bottle', '6', '341');
+// echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', 4165, 3066, 'Bottle', 6, 341);
+
+?>
 <div class="row">
 	<div class="col-xs-12">
 		<div class="panel box box-primary">
@@ -30,7 +37,7 @@
 							function rowCreatorPerStore($loggedInBreweryID, $passedBeerStoreID, $storeNamePrint)
 							{
 								$possibleBeersQuery = beerTrackDBQuery(
-									"SELECT s.location_name, bb.beer_name, ipd.single_package_type, ipd.single_package_volume, ipd.single_package_quantity, ipd.stock_at_timestamp
+									"SELECT s.location_name, bb.beer_name, ipd.single_package_type, ipd.single_package_volume, ipd.single_package_quantity, ipd.stock_at_timestamp, ipd.beerstore_store_id, ipd.beerstore_beer_id
 									FROM stores s, beer_brands bb, inventory_parsing ipd
 									WHERE 
 									s.brewery_id = '$loggedInBreweryID' AND
@@ -43,20 +50,20 @@
 								echo '<tr style="background-color: #ECECEC"><td colspan="6"><strong>' . $storeNamePrint . '</strong>';
 								echo '
 								<div class="form-group" style="margin-bottom: 0px; float: right">
-									<select id="decider_' . $passedBeerStoreID  . '" onChange="includeStoreCheck(\'' . $passedBeerStoreID . '\')" name="inventory_location" class="includeStoreCheck form-control">
+									<select id="decider_' . $passedBeerStoreID  . '" onChange="includeStoreCheck(\'' . $passedBeerStoreID . '\')" name="inventory_location" class="includeStoreCheck form-control storeHideStart">
 										<option value="include">Include in Shipment Plan</option>
-										<option value="exclude">Exclude from Shipment Plan</option>
+										<option value="exclude" selected>Exclude from Shipment Plan</option>
 									</select>
 								</div>
 							</tr>';
 
-
 							while($row = mysqli_fetch_array($possibleBeersQuery)) {
-								echo "<tr class=\"items_" . $passedBeerStoreID . "\">";
+								echo "<tr style=\"display: none\" class=\"items_" . $passedBeerStoreID . "\">";
 								echo "<td>" . $row['beer_name'] . "</td>";
 								echo "<td>" . $row['single_package_type'] . "</td>";
 								echo "<td>" . $row['single_package_volume'] . " ml</td>";
 								echo "<td>" . $row['single_package_quantity'] . "</td>";
+								// echo "<td>" . $row['stock_at_timestamp'] . " here's the forcast: " . singleDayForecastGen("03/22/2015 - 04/04/2015", $row['beerstore_beer_id'], $row['beerstore_store_id'], $row['single_package_type'], $row['single_package_quantity'], $row['single_package_volume']) . "</td>";
 								echo "<td>" . $row['stock_at_timestamp'] . "</td>";
 								echo "<td><input style=\"float:right; width:100%\" type=\"text\"></td>";
 								echo "</tr>";
@@ -68,12 +75,19 @@
 						$possibleStoresQuery = beerTrackDBQuery("SELECT * FROM stores WHERE brewery_id = '$loggedInBreweryID'"); 
 						while($singleStore = mysqli_fetch_array($possibleStoresQuery)) {
 							rowCreatorPerStore($loggedInBreweryID, $singleStore['beerstore_store_id'], $singleStore['location_name']);
-							$gMapsStoreListing .= '<option class="storeSelectOption" id="storeID_' . $singleStore['beerstore_store_id'] . '" value="' . $singleStore['location_address']  . '"> ' . $singleStore['location_name'] . '</option>';
-							$gMapsStoreListingList .= '<p style="margin-bottom:0px" id="storeIDList_' . $singleStore['beerstore_store_id'] . '"> ' . $singleStore['location_name'] . '</p>';
+							$gMapsStoreListing .= '<option class="storeSelectOption notpicked" id="storeID_' . $singleStore['beerstore_store_id'] . '" value="' . $singleStore['location_address']  . '"> ' . $singleStore['location_name'] . '</option>';
+							$gMapsStoreListingList .= '<p style="margin-bottom:0px" class="notpicked here" id="storeIDList_' . $singleStore['beerstore_store_id'] . '"> ' . $singleStore['location_name'] . '</p>';
 						}
 						?>
 						</tbody>
 					</table>
+				</div>
+				<div class="box-footer" style="display: block;">
+					<div class="btn-group">
+						<a id="collapseDeliveryToggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"  type="button" class="btn btn-primary collapsed" aria-expanded="false">
+							Next Step
+						</a>
+        			</div>
 				</div>
 			</div>
 		</div>
@@ -110,6 +124,13 @@
 						<div id="directions_panel" style="background-color:#FFEE77;"></div>
 					</div> 	
 				</div>
+				<div class="box-footer" style="display: block;">
+					<div class="btn-group">
+						<a id="collapseDeliveryToggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"  type="button" class="btn btn-primary collapsed" aria-expanded="false">
+							Next Step
+						</a>
+        			</div>
+				</div>
 			</div>
 		</div>
 		<div class="panel box box-primary">
@@ -123,6 +144,13 @@
 			<div id="collapseThree" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
 				<div class="box-body">
 					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				</div>
+				<div class="box-footer" style="display: block;">
+					<div class="btn-group">
+						<a id="collapseDeliveryToggle" data-toggle="collapse" data-parent="#accordion" href=""  type="button" class="btn btn-primary collapsed" aria-expanded="false">
+							Process Shipment
+						</a>
+        			</div>
 				</div>
 			</div>
 		</div>
