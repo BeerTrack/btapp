@@ -1,7 +1,7 @@
 <?php
 include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
-
+include '../../_shared/_globalFunctions.php';
 //**************************************************************
 //START: Homemade Controller (to determine which view to show)
 //**************************************************************
@@ -20,8 +20,8 @@ switch ($viewName) {
 
 //specific actions for some pages
 switch ($requestedAction) {
-    case "newOrder": //called when a new order is put through
-        addPOSEntry();
+    case "sumbitUpdates": //called when a new order is put through
+        editBrewery();
         break;
 }
 //END: Homemade controller
@@ -30,8 +30,14 @@ switch ($requestedAction) {
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-function addPOSEntry()
+function editBrewery();
 {
+    $breweryName = mysqli_real_escape_string(returnConnection(), $_POST['breweryName']);
+    $breweryAddress = mysqli_real_escape_string(returnConnection(), $_POST['breweryAddress']);
+    
+    //Upadating beer info in the database
+    $update_brewery_statement = "UPDATE breweries SET brewery_name = '$breweryName', brewery_address = '$breweryAddress' WHERE brewery_id = '$functionLoggedInBreweryID'";
+    beerTrackDBQuery($update_brewery_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 
 }
 //END: Homemade models
