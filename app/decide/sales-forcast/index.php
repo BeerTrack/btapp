@@ -40,6 +40,7 @@ switch ($requestedAction) {
         echo 'top beer ID:' . $beerID;
         echo 'top store:' . $storeID;
         echo 'top container:' . $container;
+        echo '</br> top timespan: ' . $textDateRange;
         // //Takes in a SQL query and returns the result
         // beerTrackDBQuery($insert_store);
         break;

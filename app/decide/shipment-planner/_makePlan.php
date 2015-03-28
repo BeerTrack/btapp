@@ -5,7 +5,8 @@
 <?php 
 // echo singleDayForecastGen("03/22/2015 - 04/04/2015", $row['beerstore_beer_id'], $row['beerstore_store_id'], $row['single_package_type'], $row['single_package_quantity'], $row['single_package_volume'])
 echo ' test';
-echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', '7911', '2314', 'Bottle', '6', '355');
+echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', '4165', '3066', 'Bottle', '6', '341');
+// echo 'forcast' . singleDayForecastGen('03/25/2015 - 03/30/2015', 4165, 3066, 'Bottle', 6, 341);
 
 ?>
 <div class="row">
