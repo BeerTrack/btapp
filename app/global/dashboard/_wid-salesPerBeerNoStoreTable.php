@@ -2,7 +2,7 @@
 	<!-- Custom tabs (Charts with tabs)-->
 	<div class="box box-primary homepage-dashboard-box">
 			<div class="box-header">
-				<h3 class="box-title">Yesturday's Sales</h3>
+				<h3 class="box-title">Yesterday's Sales</h3>
 			</div>
 			<div class="box-body">
 
