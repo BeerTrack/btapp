@@ -19,7 +19,7 @@ switch ($viewName) {
         $viewPageName = '_notifications.php';
         break;
     case "about";
-        $viewDisplayName = 'About The Team.';
+        $viewDisplayName = 'The Creators of BeerTrack';
         $viewPageName = '_about.php';
         break;
     default:

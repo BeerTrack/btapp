@@ -29,18 +29,6 @@
 							<?php
 							function rowCreatorPerStore($loggedInBreweryID, $passedBeerStoreID, $storeNamePrint)
 							{
-								// $possibleBeersQuery = beerTrackDBQuery(
-								// 	"SELECT DISTINCT s.location_name, bb.beer_name, ipd.single_package_type, ipd.single_package_volume, ipd.single_package_quantity, ipd.stock_at_timestamp, ipd.beerstore_store_id, ipd.beerstore_beer_id
-								// 	FROM stores s, beer_brands bb, inventory_parsing_trying_something ipd
-								// 	WHERE 
-								// 	s.brewery_id = '$loggedInBreweryID' AND
-								// 	s.beerstore_store_id = '$passedBeerStoreID' AND
-								// 	ipd.brewery_id = s.brewery_id AND
-								// 	ipd.beerstore_beer_id = bb.beerstore_beer_id AND
-								// 	ipd.beerstore_store_id = s.beerstore_store_id
-								// 	GROUP BY ipd.can_bottle_desc
-								// 	ORDER BY ipd.stock_at_timestamp DESC ");
-								
 								$possibleBeersQuery = beerTrackDBQuery(
 									"SELECT DISTINCT s.location_name, bb.beer_name, ipd.single_package_type, ipd.single_package_volume, ipd.single_package_quantity, ipd.stock_at_timestamp, ipd.beerstore_store_id, ipd.beerstore_beer_id
 									FROM stores s, beer_brands bb, inventory_parsing_trying_something ipd
@@ -122,24 +110,46 @@
 					<div id="map-canvas" class="col-xs-8" style="height: 600px"></div>
 
 					<div id="control_panel" class="col-xs-4" style="float:right;">
-						<div>
+						<div style="display:none">
 							<b>Start:</b>
-							<p id="start">200 University Ave. West, Waterloo, ON</p>
+							<p id="start"><?php echo $loggedInBreweryAddress; ?></p>
 							<b>Stores on Route:</b> <br>
-								<?php 
-									echo $gMapsStoreListingList;
-								?>
+								<?php echo $gMapsStoreListingList; ?>
 							<p></p>
 							<select class="gmapsStoreListing" multiple id="waypoints" style="display:none">
-								<?php
-									echo $gMapsStoreListing;
-								?>
+								<?php echo $gMapsStoreListing; ?>
 							</select>
 							<b>End:</b>
-							<p id="end">200 University Ave. West, Waterloo, ON</p>
-							<!-- <input type="submit" onclick="calcRoute();"> -->
+							<p id="end"><?php echo $loggedInBreweryAddress; ?></p>
 						</div>
 						<div id="directions_panel" style="background-color:#FFEE77;"></div>
+
+						<ul class="timeline">
+
+						    <li class="time-label" class="timelineItemGMaps">
+						        <span class="bg-blue">
+						            Start: <?php echo date('Y-m-d', (time())); ?>
+						        </span>
+						    </li>
+
+						    <li id="firstStoreDelivery" class="timelineItemGMaps">
+						        <i class="fa fa-truck bg-aqua"></i>
+						        <div class="timeline-item">
+						            <h3 class="timeline-header">Support Team</h3>
+						            <div class="timeline-body">
+						                Content goes here
+						            </div>
+						        </div>
+						    </li>
+
+						    <li class="time-label">
+						        <span class="bg-blue">
+						            End: <?php echo date('Y-m-d', (time())); ?>
+						        </span>
+						    </li>
+
+						</ul>
+
 					</div> 	
 				</div>
 				<div class="box-footer" style="display: block;">
@@ -151,7 +161,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="panel box box-primary">
+		<div class="panel box box-primary" id="finalize">
 			<div class="box-header with-border">
 				<h4 class="box-title">
 					<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed" aria-expanded="false">
@@ -161,18 +171,18 @@
 			</div>
 			<div id="collapseThree" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
 				<div class="box-body">
-					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					Are you sure you're ready to process the shipment plan? Once processed your inventories will be updated accordingly - <b>this action cannot be undone</b>. 
 				</div>
 				<div class="box-footer" style="display: block;">
 					<div class="btn-group">
-						<a id="processShipmentPlan" data-toggle="collapse" data-parent="#accordion" href=""  type="button" class="btn btn-primary collapsed" aria-expanded="false">
+						<a id="processShipmentPlan" data-toggle="collapse" data-parent="#accordion" href="#collapseFour"  type="button" class="btn btn-primary collapsed" aria-expanded="false">
 							Process Shipment Plan
 						</a>
         			</div>
 				</div>
 			</div>
 		</div>
-		<div class="panel box box-primary">
+		<div class="panel box box-primary" id="distribute">
 			<div class="box-header with-border">
 				<h4 class="box-title">
 					<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="collapsed" aria-expanded="false">
@@ -182,7 +192,11 @@
 			</div>
 			<div id="collapseFour" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
 				<div class="box-body">
-					You must process your shipment plan before it can be distributed.
+					<div class="btn-group">
+						<a id="printShipmentPlan" data-toggle="collapse" data-parent="#accordion" href="" onclick="printShippingPlan();"  type="button" class="btn btn-primary collapsed" aria-expanded="false">
+							Print Shipment Plan
+						</a>
+        			</div>
 				</div>
 			</div>
 		</div>

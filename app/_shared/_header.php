@@ -81,16 +81,28 @@
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
                         <!-- Notifications: style can be found in dropdown.less -->
+                        <li>
+                            <a href="#" onclick="printCurrentPage()" class="dropdown-toggle dropdown-notification-toggle" style="line-height: 20px" data-toggle="">
+                                <i class="fa fa-print"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:support@beertrack.herokuapp.com" class="dropdown-toggle dropdown-notification-toggle" style="line-height: 20px" data-toggle="">
+                                <i class="fa fa-ambulance"></i>
+                            </a>
+                        </li>
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle dropdown-notification-toggle" style="line-height: 20px" data-toggle="dropdown">
-                                <i class="fa fa-warning"></i>
+                                <i class="fa fa-bell"></i>
 
 <?php
 $queryNotifications = "SELECT COUNT(*) FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID'"; 
 $count = beerTrackDBQuery($queryNotifications);
 $count1 = mysqli_fetch_array($count);
 ?>
-                                <span class="label label-warning"><?php echo $count1[0]; ?></span>
+
+<?php if($count1[0] != 0) { echo '<span class="label label-warning">' . $count1[0] . '</span> ';} ?>
+                                
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="header">You have <?php echo $count1[0]; ?> notifications</li>
@@ -104,7 +116,6 @@ $listOfNotifications = beerTrackDBQuery($queryNotifications);
 
 $counter = 0;
 while($listOfNotifications1 = mysqli_fetch_array($listOfNotifications)){
-//    if ($listOfNotifications1['subject'] === "New Store Added")
 ?>
                                         <li>
                                             <a href="/app/global/dashboard/?viewName=notifications">
@@ -113,14 +124,7 @@ while($listOfNotifications1 = mysqli_fetch_array($listOfNotifications)){
                                         </li>
                                         <li>
 <?php   
-// if ($listOfNotifications1['subject'] === "New Beer Added") 
-?>   
-<!--                                         <li>
-                                            <a href="#">
-                                                <i class="ion ion-ios7-cart success"></i>New Beer Added
-                                            </a>
-                                        </li>
-                                        <li>    -->                   
+?>         
 <?php
 }
 ?>
@@ -141,7 +145,7 @@ while($listOfNotifications1 = mysqli_fetch_array($listOfNotifications)){
                   <li><a href="/?requestedAction=logout">Sign Out</a></li>
                   
                   <li class="divider"></li>
-                  <li><a href="/app/global/dashboard/?viewName=about">Provide Feedback</a></li>
+                  <!-- <li><a href="/app/global/dashboard/?viewName=about">Provide Feedback</a></li> -->
                   <li><a href="/app/global/dashboard/?viewName=about">About Beertrack</a></li>
 
                 </ul>
