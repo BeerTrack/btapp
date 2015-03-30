@@ -62,8 +62,6 @@ function getLatLong(beerStoreAddress)
 
 $(".storesOnMap").each(function( index ) {
     var latLongForThisStore = getLatLong($(this).text());
-    // console.log($(this).text());
-    // console.log(latLongForThisStore[0]);
 });
 
 

@@ -1,6 +1,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAfsoOmZeHXm5M4O_fMZWb9yL0VJBP6ZCU"></script>
 <!-- <script src="gmaps_api.js"></script> -->
-<script src="custom_phil.js"></script>
+<script src="custom_makePlan.js"></script>
 
 <div class="row">
 	<div class="col-xs-12">

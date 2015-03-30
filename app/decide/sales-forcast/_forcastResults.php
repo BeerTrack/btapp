@@ -42,28 +42,30 @@ $combosFromBeerStoreBeerID = beerTrackDBQuery("
 					<tbody>
 
 					<?php
-					$totalVolumeThisBeer = 0;
+					$totalVolumeThisBeer = 0; //starting variable to keep track of total volume
+
+					//looping through the array of data containing the beer sales information. Returned from mysqli_fetch_array, which contained the data returned from the query above (line 5)
 					while($unique_BeerIDPackageQuantityVolume = mysqli_fetch_array($combosFromBeerStoreBeerID)) 
 					{
 						$packagesForThisCombo = round(singleDayForecastGen($dateRangeFed, $unique_BeerIDPackageQuantityVolume['beerstore_beer_id'], $unique_BeerIDPackageQuantityVolume['beerstore_store_id'], $unique_BeerIDPackageQuantityVolume['single_package_type'], $unique_BeerIDPackageQuantityVolume['single_package_quantity'], $unique_BeerIDPackageQuantityVolume['single_package_volume']), 2);
 						$volumeForThisCombo = round($unique_BeerIDPackageQuantityVolume['single_package_quantity'] * $unique_BeerIDPackageQuantityVolume['single_package_volume'] * $packagesForThisCombo, 2);
 						$totalVolumeThisBeer = round($totalVolumeThisBeer + $volumeForThisCombo,2);
 
+						//printing each table row as needed
 						echo '</tr>';
 						echo '<td> Beerstore #' . $unique_BeerIDPackageQuantityVolume['beerstore_store_id'] . '</td>';
 						echo '<td>' . $unique_BeerIDPackageQuantityVolume['single_package_type'] . '</td>';
 						echo '<td>' . $unique_BeerIDPackageQuantityVolume['single_package_volume'] . '</td>';
 						echo '<td>' . $unique_BeerIDPackageQuantityVolume['single_package_quantity'] . '</td>';
 						echo '<td>' . $packagesForThisCombo . '</td>';
-						echo '<td>' . round(($volumeForThisCombo / 1000),2) . ' L</td>';
+						echo '<td>' . round(($volumeForThisCombo / 1000),2) . ' L</td>'; //converting the volume to liters
 						echo '</tr>';
 					}
-
 					?>
 
 					<tr>
 						<td colspan="5" align="right">Total Beer Required on <?php echo substr($dateRangeFed, 13); ?>: </td>
-						<td><?php echo round(($totalVolumeThisBeer/1000), 2); ?> L</td>
+						<td><?php echo round(($totalVolumeThisBeer/1000), 2); //converting the volume to liters ?> L</td>
 					</tr>
 
 					</tbody>

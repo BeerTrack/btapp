@@ -15,6 +15,7 @@
 
                     while($row = mysqli_fetch_array($displayTransactionQuery)) 
                     {
+                        //printing each of the names as a option in the dropdown menu
                         echo "<option value=\"" . $row['beerstore_beer_id']  . "\">" . $row['beer_name'] . "</option>";
                     }
                     ?>
@@ -39,14 +40,14 @@
                 <button type="submit" class="btn btn-primary btn-block">Run Forecast</button>
             </div>
         </form>
-    </div><!-- /.box-body -->
-</div><!-- /.box -->
+    </div>
+</div>
 
 <script type="text/javascript">
     //Date range picker for putting the datepicker in the field to select the dates you want to use the data from
     $('#timespan_forecast_data_source_dates').daterangepicker(
         {
-            minDate: '03/22/2015', //hard coding for sake of our data in the database (this way Christian's forecasting function won't error if there's no data for it to use, it should never get "no data...".) 
+            minDate: '03/22/2015', //hard coding for sake of our data in the database
             maxDate: moment(),
             startDate: '03/22/2015',
             endDate: moment()
@@ -67,12 +68,8 @@
 </script>
 
 <script type="text/javascript">
-    //Date range picker
-    // $('#timespanForInventoryLookup').daterangepicker(); TURNING THIS OFF BECUASE WE DON'T NEED A TIMESPAN HERE, JUST A SINGLE DATE.
 
-    //auto selecting values, if the page has been posted previously...
-    var requestedAction = getQueryVariable("requestedAction");
-    // http://stackoverflow.com/a/827378
+    // getQueryVariable --> http://stackoverflow.com/a/827378
     function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split("&");
@@ -85,6 +82,10 @@
         return '';
     }
 
+    //auto completing the values, if the page has been posted previously...
+    var requestedAction = getQueryVariable("requestedAction");
+
+    //if the forecast model was run, we can put the posted variables into their cells again (improves user experienece)
     if(requestedAction ==="forecast")
     {
         var timespan_forecast_data_source_dates = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['timespan_forecast_data_source_dates']); ?>';
@@ -95,6 +96,5 @@
         $('#timespan_forecast_data_source_dates').val(timespan_forecast_data_source_dates);
         $('#timespan_forecast_for').val(timespan_forecast_for);
     }
-
 
 </script>

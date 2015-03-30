@@ -4,7 +4,6 @@
 		<div class="box box-primary">
 			<div class="box-header">
 				<h3 class="box-title">All Notifications</h3>
-				<!-- <a href="?viewName=add"><button class="box-header-btn btn btn-primary">Add Store</button></a> -->
 			</div>
 			<div class="box-body">       
 				<table id="allStoresTable" class="table table-bordered table-striped">
@@ -15,10 +14,10 @@
 							<th>Body</th>
 							<th>Options</th>
 						</tr>
-					</thead>
+					</thead>s
 					<tbody>
 					<?php
-
+					// queries the database and returns this breweries unread notifications
 					$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID' ORDER BY createdTimestamp");
 
 					while($row = mysqli_fetch_array($displayTransactionQuery)) {

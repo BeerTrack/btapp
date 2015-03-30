@@ -7,7 +7,6 @@ $dbpassword = 'e3a5c7f6';
 $dbname = 'heroku_687b349d31e72c1'; 
 
 global $mysqliBeerTrackPrime;
-// $mysqliBeerTrackPrime = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
 $mysqliBeerTrackPrime = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
 
 
@@ -15,7 +14,8 @@ $mysqliBeerTrackPrime = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
 function beerTrackDBQuery($query) {
 	global $mysqliBeerTrackPrime;
 	$result = mysqli_query($mysqliBeerTrackPrime, $query);
-	if ($mysqliBeerTrackPrime->connect_errno) {
+	if ($mysqliBeerTrackPrime->connect_errno) 
+	{
 		echo 'error with connection. see databaseConnection.php';
 	}
 	else
@@ -24,10 +24,8 @@ function beerTrackDBQuery($query) {
 	return $result;
 }
 
-//A function that return the database connection.
+//A function that returns the database connection - needed in order to remove special characters from form entries
 function returnConnection() {
-	// $tempConnect = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
-	// return $tempConnect;
 	global $mysqliBeerTrackPrime;
 	return $mysqliBeerTrackPrime;
 }

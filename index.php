@@ -1,20 +1,19 @@
 <?php
 ob_start(); //need this for header redirect to work...
 
-// include 'app/_shared/_auth.php';
 include 'app/_shared/_databaseConnection.php';
 
 //**************************************************************
 //START: Homemade Controller (to determine which view to show)
 //**************************************************************
+//Variables needed by our controller and models
 $viewName = $_GET['viewName'];
 $requestedAction = $_GET['requestedAction'];
 $viewDisplayName = '';
 $viewPageName = '';
 $loginStatus = '';
 
-
-//NOTE: THE ACTIONS AND THE VIEWS ARE FLIPPED FOR THIS ONE, SO THAT THE ERROR MESSAGES CAN BE RENDERED AT THE RIGHT TIME...
+//NOTE: actions and views flipped for this one, so that the error messages can be rendered at the right time...
 
 // specific actions for some pages
 switch ($requestedAction) {
@@ -40,7 +39,6 @@ switch ($viewName) {
 }
 
 // END: Homemade controller
-
 
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
@@ -74,39 +72,26 @@ function newRegistration($fullName, $breweryName, $email, $password)
 }
 
 //authenticates a user
-
 function authenticateUser($userEmail, $userPassword, $userCourse)
 {
-    // echo '| top of authenticateUser';
-
     //clearing the "login status" variable...
     session_unset(); 
     session_destroy();
 
-    // echo '| after session updates authenticateUser';
-
     $userEmail = mysqli_real_escape_string(returnConnection(), $userEmail);
     $userPassword = mysqli_real_escape_string(returnConnection(), $userPassword);
-
-    // echo ' fyi: ' . $userEmail . $userPassword ;
-
-    // echo '| after mysql escape strings';
 
     //getting the users details
     $lookupUser = "SELECT * FROM breweries 
     WHERE email = '$userEmail'";
 
-    // echo '| after mysql select statement written';
-
     $userMysqlReturned = mysqli_fetch_array(beerTrackDBQuery($lookupUser));
 
-    // echo '| after mysql call';
     //changing the plain text password to salted and hashed version...
     $passwordHash = hash("sha256", $userPassword . $userMysqlReturned['password_salt']);
 
     if($passwordHash === $userMysqlReturned['password_hash'])
     {
-        // echo '| in first level of if statement of auth user';
         if($userMysqlReturned['brewery_active_status'] === '1')
         {
             session_start();
@@ -128,9 +113,6 @@ function authenticateUser($userEmail, $userPassword, $userCourse)
     {
         $_SESSION["loginStatus"]  = 'failed';
     }
-
-    // echo '| exiting authenticateUser function...';
-
 }
 
 function logoutUser()
@@ -139,8 +121,6 @@ function logoutUser()
     session_start();
     $_SESSION["loginStatus"]  = 'loggedOut';
 }
-
-
 
 //END: Homemade models
 
@@ -168,6 +148,7 @@ function logoutUser()
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
 
         <script>
+        // GA only for the homepage
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -178,6 +159,7 @@ function logoutUser()
         </script>
 
         <style>
+        /*specific CSS stylying needed for the homepage*/
             .full-screen-background-image {
                 background-image: url("Background.jpg");
                 background-size:cover;
@@ -204,11 +186,7 @@ function logoutUser()
 
     <body class="bg-black">
 
-        <?php
-            include $viewPageName;
-        ?>
-
-
+        <?php include $viewPageName; ?>
 
     </body>
 </html>

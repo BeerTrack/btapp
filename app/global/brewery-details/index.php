@@ -20,7 +20,7 @@ switch ($viewName) {
 
 //specific actions for some pages
 switch ($requestedAction) {
-    case "sumbitUpdates": //called when a new order is put through
+    case "sumbitUpdates": 
         editBrewery();
         break;
 }
@@ -50,9 +50,7 @@ include '../../_shared/_header.php';
 include '../../_shared/_leftNav.php';
 ?>
 
-<!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
             <?php echo $viewDisplayName; ?>
@@ -63,8 +61,8 @@ include '../../_shared/_leftNav.php';
     <section class="content">
         
     <?php include $viewPageName; ?>
-    </section><!-- /.content -->
-</aside><!-- /.right-side -->
+    </section>
+</aside>
 
 <?php
 include '../../_shared/_footer.php';

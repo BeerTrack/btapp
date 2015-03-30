@@ -1,3 +1,4 @@
+<!-- If statements to determine the size of this widget (which depends on the instance) -->
 <?php if($showingCourse == 'MSCI444'){ ?>
 <section class="col-lg-6 connectedSortable">
 <?php } ?>
@@ -99,7 +100,7 @@
 
 
 <script type="text/javascript">
-
+//calculating the total (quanity multiplied by sale price)
 function calcTotal()
 {
     var unit_price = parseInt($("#unit_price").val());

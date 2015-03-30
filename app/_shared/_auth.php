@@ -4,7 +4,6 @@ session_start();
 
 if($_SESSION["loginStatus"]  === 'loggedIn')
 {
-	// echo ' you\'re allowed to be here...';
     $loggedInEmail = $_SESSION["loggedInEmail"];
     $loggedInPersonName = $_SESSION["loggedInPersonName"];
     $loggedInBreweryName = $_SESSION["loggedInBreweryName"];
@@ -16,7 +15,6 @@ if($_SESSION["loginStatus"]  === 'loggedIn')
 }
 else
 {
-
 	if(strpos($_SERVER['HTTP_HOST'], 'app') > -1)
 	{
 		$_SESSION["loginStatus"]  === 'noLogin';
@@ -29,10 +27,8 @@ else
 	}
 }
 
-//Function used return the Brewery ID of the user thats logged in. 
-
+//Function used return the Brewery ID of the user thats logged in (needed in the situations where our other functions can't acces the variable directly)
 function returnLoggedInBreweryID() {
-	// echo intval($_SESSION["loggedInBreweryID"]);
 	return intval($_SESSION["loggedInBreweryID"]);
 }
 ?>

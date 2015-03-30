@@ -1,5 +1,6 @@
 <?php
 
+// function to determine the type of packaging that is sold most frequently
 function topPackage()
 {
     $functionLoggedInBreweryID = returnLoggedInBreweryID();
@@ -26,7 +27,7 @@ function topPackage()
 }
 
 
-
+// fetch and calcualte the total amount of beer that's availible for sale through an external retailer
 function totalLiters()
 {
     $storeForFilteringGraph = 'all';
@@ -54,10 +55,8 @@ function totalLiters()
 ?>
 
 
-<!-- Small boxes (Stat box) -->
 <div class="row">
     <div class="col-xs-4">
-        <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
                 <h3 id="sumSoldYes">
@@ -74,10 +73,9 @@ function totalLiters()
                 More info <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
-    </div><!-- ./col -->
+    </div>
 
     <div class="col-xs-4">
-        <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
                 <h3>
@@ -94,10 +92,9 @@ function totalLiters()
                 More info <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
-    </div><!-- ./col -->
+    </div>
 
     <div class="col-xs-4">
-        <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
                 <h3>
@@ -114,18 +111,18 @@ function totalLiters()
                 More info <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
-    </div><!-- ./col -->
-</div><!-- /.row -->
+    </div>
+</div>
 
 
 <script type="text/javascript">
 
 $( document ).ready(function() {
 
+    //calcualting the total amount of beer that was sold yeturday
     var totalSalesYesturday = 0;
     $(".calcSalesThatDayNoStoreFilter").each(function( index ) {
             var thisVal = parseInt($( this ).text());
-            // console.log(thisVal);
             totalSalesYesturday = totalSalesYesturday + thisVal;
             $("#sumSoldYes").text(totalSalesYesturday + ' packages');
         });
