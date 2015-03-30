@@ -1,5 +1,5 @@
 <?php 
-include '_wid-boxesTop.php';
+include '_wid-boxesTop-444.php';
 ?>
 
 
@@ -9,7 +9,7 @@ include '_wid-boxesTop.php';
 <div class="row">
 
 <?php 
-include '_wid-salesPerBeerNoStoreTable.php';
+// include '_wid-salesPerBeerNoStoreTable.php';
 ?>
 
 
@@ -22,7 +22,7 @@ include '_wid-inventoryPerBeerGraph.php';
 ?>
     
 <?php 
-include '_wid-inventoryByBeerPieChart.php';
+// include '_wid-inventoryByBeerPieChart.php';
 ?>
 
 <?php 

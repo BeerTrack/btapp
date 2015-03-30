@@ -16,23 +16,19 @@ $brewery_Array = mysqli_fetch_array($displayBreweryInfoQuery);
             
             <div class="form-group">
                 <labelfor="breweryName">Name</label>
-                <input type="text" class="form-control" id="breweryName" name="breweryName" value ="1"/>
+                <input type="text" class="form-control" id="breweryName" name="breweryName" value ="<?php echo $brewery_Array['brewery_name']; ?>"/>
             </div>
 
              <div class="form-group">
                 <labelfor="breweryAddress">Address</label>
-                <input type="text" class="form-control" id="breweryAddress" name="breweryAddress" value ="2"/>
+                <input type="text" class="form-control" id="breweryAddress" name="breweryAddress" value ="<?php echo $brewery_Array['brewery_address']; ?>"/>
             </div>
        
             <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Update</button>
             </div>
 
         </form>
 
     </div><!-- /.box-body -->
 </div><!-- /.box -->
-
-<!-- - Form with fields for adding a beer (See elements here: http://almsaeedstudio.com/AdminLTE/pages/forms/general.html)</br>
-- POST this data back to the index page </br>
-- finish "addBeer" function (in index.php), it should submit the data back to the database.  -->

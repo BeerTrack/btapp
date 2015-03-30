@@ -1,4 +1,11 @@
+<?php if($showingCourse == 'MSCI444'){ ?>
+<section class="col-lg-6 connectedSortable">
+<?php } ?>
+<?php if($showingCourse == 'MSCI436'){ ?>
 <section class="col-lg-3 connectedSortable">
+<?php } ?>
+
+
   <div class="box box-primary homepage-dashboard-box">
       <div class="box-header">
         <h3 class="box-title">New Walk in Order</h3>

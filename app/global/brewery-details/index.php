@@ -30,8 +30,9 @@ switch ($requestedAction) {
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
-function editBrewery();
+function editBrewery()
 {
+    $functionLoggedInBreweryID = returnLoggedInBreweryID();
     $breweryName = mysqli_real_escape_string(returnConnection(), $_POST['breweryName']);
     $breweryAddress = mysqli_real_escape_string(returnConnection(), $_POST['breweryAddress']);
     
