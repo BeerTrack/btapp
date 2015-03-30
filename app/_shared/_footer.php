@@ -1,3 +1,4 @@
+<!-- Footer for the website -->
         </div><!-- ./wrapper -->
     </body>
 

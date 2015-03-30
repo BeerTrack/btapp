@@ -1,3 +1,4 @@
+<!-- PHP code used to authenticate the user of the system. -->
 <?php
 session_start();
 
@@ -28,12 +29,10 @@ else
 	}
 }
 
+//Function used return the Brewery ID of the user thats logged in. 
+
 function returnLoggedInBreweryID() {
 	// echo intval($_SESSION["loggedInBreweryID"]);
 	return intval($_SESSION["loggedInBreweryID"]);
 }
-
-
-
 ?>
-

@@ -1,4 +1,4 @@
-
+<!-- Header of the pages of the website -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,8 +26,8 @@
         <script src="../../../assets/js/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
         <!-- morris JS was here, moved to footer by Phil...-->
         <!-- Morris.js charts -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="../../../assets/js/plugins/morris/morris.min.js" type="text/javascript"></script> 
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="../../../assets/js/plugins/morris/morris.min.js" type="text/javascript"></script> 
 
 
         <!-- Sparkline -->
@@ -59,6 +59,9 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+
+
+
     </head>
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
@@ -85,11 +88,12 @@
                             <a href="#" class="dropdown-toggle dropdown-notification-toggle" style="line-height: 20px" data-toggle="dropdown">
                                 <i class="fa fa-warning"></i>
 
-<?php
-$queryNotifications = "SELECT COUNT(*) FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID'"; 
-$count = beerTrackDBQuery($queryNotifications);
-$count1 = mysqli_fetch_array($count);
-?>
+    <!-- Call the notification fuction and display the # of notifications there are.  -->
+    <?php
+    $queryNotifications = "SELECT COUNT(*) FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID'"; 
+    $count = beerTrackDBQuery($queryNotifications);
+    $count1 = mysqli_fetch_array($count);
+    ?>
                                 <span class="label label-warning"><?php echo $count1[0]; ?></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -98,46 +102,38 @@ $count1 = mysqli_fetch_array($count);
 
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
-<?php
-$queryNotifications = "SELECT * FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID' ORDER BY createdTimestamp"; 
-$listOfNotifications = beerTrackDBQuery($queryNotifications);
 
-$counter = 0;
-while($listOfNotifications1 = mysqli_fetch_array($listOfNotifications)){
-//    if ($listOfNotifications1['subject'] === "New Store Added")
-?>
-                                        <li>
-                                            <a href="/app/global/dashboard/?viewName=notifications">
-                                                <i class="fa fa-users warning"></i> <?php echo $listOfNotifications1['subject']; ?>
-                                            </a>
-                                        </li>
-                                        <li>
-<?php   
-// if ($listOfNotifications1['subject'] === "New Beer Added") 
-?>   
-<!--                                         <li>
-                                            <a href="#">
-                                                <i class="ion ion-ios7-cart success"></i>New Beer Added
-                                            </a>
-                                        </li>
-                                        <li>    -->                   
-<?php
-}
-?>
+    <!-- Display each of the notifications.  -->
+    <?php
+    $queryNotifications = "SELECT * FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID' ORDER BY createdTimestamp"; 
+    $listOfNotifications = beerTrackDBQuery($queryNotifications);
 
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="/app/global/dashboard/?viewName=notifications">View all</a></li>
-                            </ul>
-                        </li>
+    $counter = 0;
+    while($listOfNotifications1 = mysqli_fetch_array($listOfNotifications)){
+    ?>
+        <li>
+            <a href="/app/global/dashboard/?viewName=notifications">
+                <i class="fa fa-users warning"></i> <?php echo $listOfNotifications1['subject']; ?>
+            </a>
+        </li>
+        <li>          
+    <?php
+    }
+    ?>
+
+        </ul>
+            </li>
+            <li class="footer"><a href="/app/global/dashboard/?viewName=notifications">View all</a></li>
+        </ul>
+        </li>
                         
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="glyphicon glyphicon-user"></i>
-                                <span><?php echo $loggedInPersonName; ?> <i class="caret"></i></span>
-                            </a>
-<ul class="dropdown-menu" role="menu">
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <span><?php echo $loggedInPersonName; ?> <i class="caret"></i></span>
+                </a>
+            <ul class="dropdown-menu" role="menu">
                   <li><a href="/?requestedAction=logout">Sign Out</a></li>
                   
                   <li class="divider"></li>

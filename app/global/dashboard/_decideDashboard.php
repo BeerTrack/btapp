@@ -5,10 +5,10 @@
         <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>
-                    {{SUM SOLD YESTURDAY}}
+                    {{SUM SOLD YESTERDAY}}
                 </h3>
                 <p>
-                    Beer Sold Yesturday
+                    Beer Sold Yesterday
                 </p>
             </div>
             <div class="icon">
@@ -28,7 +28,7 @@
                     {{STORE_NAME}}
                 </h3>
                 <p>
-                    Yesturday's Top Performing Store
+                    Yesterday's Top Performing Store
                 </p>
             </div>
             <div class="icon">

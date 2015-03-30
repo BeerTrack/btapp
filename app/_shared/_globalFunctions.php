@@ -1,8 +1,10 @@
+<!-- Functions that are used through out the website, called from many other pages. -->
 <?php
 
 //setting the timezone for all pages
 date_default_timezone_set("America/Toronto");
 
+//Creates a notification and adds it to the notifications table in the database.
 function createNotification($brewery_id, $subject, $body, $status)
 {
     $notificationQuery = "INSERT INTO notifications (brewery_id, subject, body, status)
@@ -10,12 +12,14 @@ function createNotification($brewery_id, $subject, $body, $status)
     beerTrackDBQuery($notificationQuery); 
 }
 
+//Edits the notification and changes the status to 0, thus dismissing it from the notifications page.
 function editNotfication($notificationId)
 {
     $notification1Query = ("UPDATE notifications SET status = '0' WHERE id = $notificationId");
     beerTrackDBQuery($notification1Query);
 }
 
+//Calculates the Sales 
 function getDateAndStockLevels_CalculateSales($beerstore_beer_ID, $beerstore_store_ID, $single_package_type, $single_package_quantity, $single_package_volume, $presentDay, $presentDayStock)
 {
     $calcDaySalesQuery = "SELECT stock_at_timestamp FROM inventory_parsing WHERE
@@ -65,7 +69,7 @@ function getDateAndStockLevels($startDate, $endDate, $beerstore_beer_ID, $beerst
     return $datesAndInventoryLevels;
 }
 
-
+//Calculates the sales of the day, number of beers sold
 function calcSalesThatDay($beerstore_beer_ID, $beerstore_store_ID, $presentDay, $beerstore_product_desc, $presentDayStock)
 {
     $functionLoggedInBreweryID = returnLoggedInBreweryID();
@@ -78,8 +82,6 @@ function calcSalesThatDay($beerstore_beer_ID, $beerstore_store_ID, $presentDay, 
     GROUP BY run_timestamp
     ORDER BY run_timestamp
     LIMIT 1";
-
-    // echo '</br></br>' . $calcDaySalesQuery;
 
     $reponseWithArray = beerTrackDBQuery($calcDaySalesQuery);
     $salesPresentDayPlus1 = mysqli_fetch_array($reponseWithArray)[0];

@@ -11,7 +11,7 @@ global $mysqliBeerTrackPrime;
 $mysqliBeerTrackPrime = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
 
 
-
+//A function that takes into it a SQL query and executes that query.
 function beerTrackDBQuery($query) {
 	global $mysqliBeerTrackPrime;
 	$result = mysqli_query($mysqliBeerTrackPrime, $query);
@@ -20,19 +20,15 @@ function beerTrackDBQuery($query) {
 	}
 	else
 	{
-		// echo 'good...';
 	}
 	return $result;
 }
 
+//A function that return the database connection.
 function returnConnection() {
 	// $tempConnect = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
 	// return $tempConnect;
-	// echo ' here too ';
 	global $mysqliBeerTrackPrime;
 	return $mysqliBeerTrackPrime;
 }
-
-
-// echo 'bottom of db connect';
 ?>

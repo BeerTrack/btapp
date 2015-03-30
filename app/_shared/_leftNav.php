@@ -1,5 +1,7 @@
+<!-- Creates the left navbar that lets the user navigate to other pages of the website -->
 <?php
 
+//Checks to see which page or section the user is currently on.
 function checkCurrentLocation($navTitle)
 {
     $completeURLBar = $_SERVER['REQUEST_URI'];
