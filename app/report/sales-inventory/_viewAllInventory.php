@@ -21,7 +21,7 @@
 					</thead>
 					<tbody>
 					<?php
-
+					//Populate the dropdown menus for each othe questions with informatiion from the query
 					$listings = queryDatabaseForSalesInventory($inventory_beerstore_id, $inventory_location, $inventoryLookupDay, $inventory_package_type, $inventory_package_single_volume, $inventory_package_quanity);
 					
 					while($row = mysqli_fetch_array($listings)) {
@@ -43,6 +43,7 @@
 	</div>
 </div>
 
+<!-- Implements DataTables plugin in main view all table -->
 <script type="text/javascript">
 	
 	$(document).ready( function () {
@@ -62,14 +63,3 @@
 
 	
 </script>
-
-<script type="text/javascript">
-	// $(function() {
-	// 	$("#allStoresTable").dataTable( {
-	// 		"aoColumnDefs": [
-	// 		{ 'bSortable': false, 'aTargets': [ -1 ] }
-	// 		]
-	// 	});
-	// });
-</script>
-

@@ -145,34 +145,4 @@
         $('select[name^="inventory_package_quanity"] option[value="' + inventory_package_quanity + '"]').attr("selected","selected");
 
     }
-
-
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
