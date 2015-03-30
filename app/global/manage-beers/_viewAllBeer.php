@@ -1,7 +1,3 @@
-<?php
-//HTML and any necessary PHP for generating the list of all beers in the table
-?>
-
 <!-- Sample Data Table -->
 <div class="row">
 	<div class="col-xs-12">

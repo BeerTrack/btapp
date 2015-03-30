@@ -9,35 +9,6 @@
                 <labelfor="beerName">Beer Name</label>
                 <input type="text" class="form-control" id="beerName" name="beerName" placeholder="Enter Name"/>
             </div>
-
-<!--             <div class="form-group">
-                <labelfor="beerPrice">Price</label>
-                <input type="number" class="form-control" id="beerPrice" name="beerPrice" placeholder="Enter Price"/>
-            </div>
-
-            <div class="form-group">
-                <labelfor="beerSize">Size</label>
-                <input type="number" class="form-control" id="beerSize" name="beerSize" placeholder="Enter Size in ml"/>
-            </div>
-
-            <div class="form-group">
-                <labelfor="beerType">Select Package Type</label>
-                <select class="form-control" id="beerType" name="beerType">
-                    <option>Bottle</option>
-                    <option>Can</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <labelfor="beerQuantity">Select Package Quantity</label>
-                <select class="form-control" id="beerQuantity" name="beerQuantity">
-                    <option>1</option>
-                    <option>6</option>
-                    <option>12</option>
-                    <option>24</option>
-                </select>
-            </div> -->
-
             <div class="form-group">
                 <labelfor="beerstoreBeerId">Beer Store Issued Beer ID</label>
                 <div class="input-group">
@@ -55,8 +26,6 @@
         </form>
     </div><!-- /.box-body -->
 </div><!-- /.box -->
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="beerStoreBeerIDLookupModal" tabindex="-1" role="dialog" aria-labelledby="beerstoreBeerIDModalTitle" aria-hidden="true">
@@ -122,6 +91,7 @@
     </div>
   </div>
 
+<!-- JS function to look up beerstore beer ID -->
   <script type="text/javascript">
     $("#beerstoreBeerIDLookup").click(function() {
         if($("#lookupBeerName").val().length > 1)
@@ -145,7 +115,7 @@
       }
   })
 
-
+// Function to load BeerID
     function autoLoadBeerID (beerIDPass) {
         $("#beerstoreBeerId").val(beerIDPass); 
     }

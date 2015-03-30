@@ -1,4 +1,5 @@
 <?php
+//Include the files needed for functions on page such as auth and database connection
 include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
 include '../../_shared/_globalFunctions.php';
@@ -64,11 +65,6 @@ function addBeerProcess($loggedInBreweryID)
     createNotification($loggedInBreweryID, "New Beer Added", "$beerName has been added to your inventory of beers", "1");
 }
 
-function editBeerAutoLoadValues() //function that provides the data to be used/referenced/auto loaded in the form on _editBeer.php
-{
-    # code...
-}
-
 function editBeerProcess() //function to update the beer table
 {
     //Posting variables and escaping for security
@@ -85,15 +81,12 @@ function editBeerProcess() //function to update the beer table
     beerTrackDBQuery($update_beer_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 }
 
-function viewAllBeer()
-{
-    # code...
-}
 //END: Homemade Models
 
 ?>
 
 <?php
+// Include the header and the nav bar
 include '../../_shared/_header.php';
 include '../../_shared/_leftNav.php';
 ?>
@@ -126,5 +119,6 @@ include '../../_shared/_leftNav.php';
 </aside><!-- /.right-side -->
 
 <?php
+//Include the footer
 include '../../_shared/_footer.php';
 ?>

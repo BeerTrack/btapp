@@ -1,7 +1,3 @@
-<?php
-//HTML and any necessary PHP for generating the list of all stores in the table
-?>
-
 <!-- Sample Data Table -->
 <div class="row">
 	<div class="col-xs-12">
@@ -21,6 +17,8 @@
 					</thead>
 					<tbody>
 					<?php
+					
+					//Populate the dropdown menus for each othe questions with informatiion from the query
 					$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM stores WHERE brewery_id = '$loggedInBreweryID' ORDER BY location_name");
 
 					while($row = mysqli_fetch_array($displayTransactionQuery)) {
@@ -39,6 +37,7 @@
 	</div>
 </div>
 
+<!-- Implements DataTables plugin in main view all table -->
 <script type="text/javascript">
 	$(function() {
 		$("#allStoresTable").dataTable( {

@@ -68,6 +68,7 @@
     </div>
   </div>
 
+<!-- Function that loook up beerstore beer ID -->
   <script type="text/javascript">
     $("#beerStoreIDLookupButton").click(function() {
         if($("#lookupCityName").val().length > 5)
@@ -89,7 +90,7 @@
       }
   })
 
-
+// Implement load beerstore ID
     function autoLoadStoreID (storeIDPass) {
         $("#beerstoreStoreId").val(storeIDPass); 
     }

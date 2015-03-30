@@ -1,11 +1,10 @@
 <?php
+//Get data using methods
 $beerId = htmlspecialchars($_GET["beerId"]);
-
 $displayBeerInfoQuery = beerTrackDBQuery("SELECT * FROM beer_brands b WHERE b.beer_id = '$beerId'");
 $beer_Array = mysqli_fetch_array($displayBeerInfoQuery);
 
 ?>
-
 
 <!-- general form elements disabled -->
 <div class="box box-primary">
@@ -18,35 +17,6 @@ $beer_Array = mysqli_fetch_array($displayBeerInfoQuery);
                 <labelfor="beerName">Name</label>
                 <input type="text" class="form-control" id="beerName" value ="<?php echo $beer_Array['beer_name'];?>" name="beerName">
             </div>
-
-<!--             <div class="form-group">
-                <labelfor="beerPrice">Price</label>
-                <input type="number" class="form-control" id="beerPrice" name="beerPrice" value ="<?php echo $beer_Array['beer_price'];?>">
-            </div>
-
-            <div class="form-group">
-                <labelfor="beerSize">Size</label>
-                <input type="number" class="form-control" id="beerSize" name="beerSize" value ="<?php echo $beer_Array['beer_size'];?>">
-            </div>
-
-            <div class="form-group">
-                <labelfor="beerType">Select Type</label>
-                <select class="form-control" id="beerType" name="beerType" value ="<?php echo $beer_Array['beer_type'];?>">
-                    <option>Bottle</option>
-                    <option>Can</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <labelfor="beerQuantity">Select Quantity</label>
-                <select class="form-control" id="beerQuantity" name="beerQuantity" value ="<?php echo $beer_Array['beer_quantity'];?>">
-                    <option>1</option>
-                    <option>6</option>
-                    <option>12</option>
-                    <option>24</option>
-                </select>
-            </div> -->
-
             <div class="form-group">
                 <labelfor="beerstoreBeerId"> Beer Store Beer ID</label>
                 <input type="number" class="form-control" id="beerstoreBeerId" name="beerstoreBeerId" value ="<?php echo $beer_Array['beerstore_beer_id'];?>">
@@ -63,4 +33,3 @@ $beer_Array = mysqli_fetch_array($displayBeerInfoQuery);
         </form>
     </div><!-- /.box-body -->
 </div><!-- /.box -->
-

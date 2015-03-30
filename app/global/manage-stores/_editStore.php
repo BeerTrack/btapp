@@ -1,11 +1,9 @@
 <?php
+//Get data using methods
 $storeId = htmlspecialchars($_GET["storeId"]);
-
 $displayBeerInfoQuery = beerTrackDBQuery("SELECT * FROM stores s WHERE s.store_id = '$storeId'");
 $store_Array = mysqli_fetch_array($displayBeerInfoQuery);
-
 ?>
-
 
 <!-- general form elements disabled -->
 <div class="box box-primary">

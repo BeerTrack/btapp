@@ -1,3 +1,4 @@
+<!-- Template used for many pages, easy way to create new pages and follows a similar forrmat -->
 <?php
 include '../_shared/_header.php';
 include '../_shared/_leftNav.php';

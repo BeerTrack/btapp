@@ -1,12 +1,10 @@
 <?php
+//Get data using methods
 $beerId = htmlspecialchars($_GET["beerId"]);
-
 $displayBeerInfoQuery = beerTrackDBQuery("SELECT * FROM beer_brands b WHERE b.beer_id = '$beerId'");
 $beer_Array = mysqli_fetch_array($displayBeerInfoQuery);
 
 ?>
-
-
 <!-- general form elements disabled -->
 <div class="box box-primary">
     <div class="box-header">

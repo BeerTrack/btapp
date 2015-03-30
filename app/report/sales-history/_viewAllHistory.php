@@ -20,7 +20,7 @@
 					<tbody>
 					<?php
 					
-					//Populate the dropdown menus for each othe questions with informatiion from the query
+					//Populate the dropdown menus for each othe questions with information from the query
 					$listings = queryDatabaseForLatestInventory($inventory_beerstore_id, $inventory_location, $timespanForInventoryLookup, $inventory_package_type, $inventory_package_single_volume, $inventory_package_quanity);
 					
 					while($row = mysqli_fetch_array($listings)) {

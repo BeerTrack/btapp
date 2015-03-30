@@ -1,4 +1,5 @@
 <?php
+//Include the files needed for functions on page such as auth and database connection
 include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
 include '../../_shared/_globalFunctions.php';
@@ -75,21 +76,11 @@ $storeId = floatval(mysqli_real_escape_string(returnConnection(), $_POST['storeI
     $update_store_statement = "UPDATE stores SET location_name = '$locationName', location_address = '$locationAddress', beerstore_store_id = '$beerstoreStoreId' WHERE store_Id = '$storeId'";
     beerTrackDBQuery($update_store_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 }
-
-function deleteStore()
-{
-    # code...
-}
-
-function viewStores()
-{
-    # code...
-}
 //END: Homemade models
-
 ?>
 
 <?php
+// Include the header and the nav bar
 include '../../_shared/_header.php';
 include '../../_shared/_leftNav.php';
 ?>
@@ -118,5 +109,6 @@ include '../../_shared/_leftNav.php';
 </aside><!-- /.right-side -->
 
 <?php
+//Include the footer
 include '../../_shared/_footer.php';
 ?>
