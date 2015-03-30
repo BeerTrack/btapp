@@ -124,7 +124,7 @@ $( document ).ready(function() {
         console.log(URLMake);
 
         $.get(URLMake, function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
+        //alert("Data: " + data + "\nStatus: " + status);
         });
 
       }
