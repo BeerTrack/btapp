@@ -19,7 +19,7 @@
 					<tbody>
 					<?php
 
-					$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID' ORDER BY createdTimestamp");
+					$displayTransactionQuery = beerTrackDBQuery("SELECT * FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID' ORDER BY createdTimestamp DESC");
 
 					while($row = mysqli_fetch_array($displayTransactionQuery)) {
 						echo "<tr>";
