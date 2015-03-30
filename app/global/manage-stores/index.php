@@ -3,6 +3,7 @@
 include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
 include '../../_shared/_globalFunctions.php';
+
 //**************************************************************
 //START: Homemade Controller (to determine which view to show)
 //**************************************************************
@@ -15,15 +16,12 @@ $viewPageName = '';
 $viewDisplayName = 'Manage Stores'; //hard coding this because of layout change
 switch ($viewName) {
     case "add":
-        // $viewDisplayName = 'Manage Stores - Add Store';
         $viewPageName = '_addStore.php';
         break;
     case "edit":
-        // $viewDisplayName = 'Manage Stores - Edit Store';
         $viewPageName = '_editStore.php';
         break;
     case "single":
-        // $viewDisplayName = 'Manage Stores - Single Store';
         $viewPageName = '_singleStore.php';
         break;
     default:
@@ -85,9 +83,7 @@ include '../../_shared/_header.php';
 include '../../_shared/_leftNav.php';
 ?>
 
-<!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
-    <!-- Content Header (Page header) -->
     <section class="content-header shared-nav">
         <h1>
             <?php echo $viewDisplayName; ?>
@@ -98,15 +94,12 @@ include '../../_shared/_leftNav.php';
         </div>
     </section>
 
-    <!-- Main content -->
     <section class="content">
         
         
-    <?php
-        include $viewPageName;
-    ?>
-    </section><!-- /.content -->
-</aside><!-- /.right-side -->
+    <?php include $viewPageName; ?>
+    </section>
+</aside>
 
 <?php
 //Include the footer

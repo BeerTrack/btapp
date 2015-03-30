@@ -1,8 +1,7 @@
-<!-- general form elements disabled -->
 <div class="box box-primary">
     <div class="box-header">
         <h3 class="box-title">Add A New Beer</h3>
-    </div><!-- /.box-header -->
+    </div>
     <div class="box-body">
         <form role="form" method="post" action="?requestedAction=add">
             <div class="form-group">
@@ -15,17 +14,13 @@
                     <input type="text" class="form-control" id="beerstoreBeerId" name="beerstoreBeerId" placeholder="Is this beer sold at one of Ontario's Beer Stores? If so, please enter it's official beer ID.">
                     <span style="cursor: pointer" data-toggle="modal" data-target="#beerStoreBeerIDLookupModal" class="input-group-addon">Lookup Beer ID&nbsp;&nbsp;<i class="fa fa-external-link-square"></i></span>
                 </div>
-                
              </div>
-
-
             <div class="box-footer" style="padding-left:0px">
                 <button type="submit" class="btn btn-primary">Save Beer</button>
             </div>
-
         </form>
-    </div><!-- /.box-body -->
-</div><!-- /.box -->
+    </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="beerStoreBeerIDLookupModal" tabindex="-1" role="dialog" aria-labelledby="beerstoreBeerIDModalTitle" aria-hidden="true">
@@ -69,10 +64,8 @@
 
     <button class="btn btn-primary btn-block" id="beerstoreBeerIDLookup" type="button">Lookup</button>
 
-
         </br>
         <labelfor="" id="beerIDLookupResultsLabel" style="display:none">Results:</label>
-        <!-- <p id="cityLookupResults"></p> -->
         <table id="beerIDLookupResults" class="table table-bordered" style="display:none; font-size: 12px;">
         <thead>
         <tr>

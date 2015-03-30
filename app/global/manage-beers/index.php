@@ -3,27 +3,24 @@
 include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
 include '../../_shared/_globalFunctions.php';
+
 //**************************************************************
 //START: Homemade Controller (to determine which view to show)
 //**************************************************************
 $viewName = $_GET['viewName'];
 $requestedAction = $_GET['requestedAction'];
-$viewDisplayName = '';
 $viewPageName = '';
 
 //which view to show
 $viewDisplayName = 'Manage Beers'; //hard coding now that the boxes change with it...
 switch ($viewName) {
     case "add":
-        // $viewDisplayName = 'Manage Beers - Add Beer';
         $viewPageName = '_addBeer.php';
         break;
     case "edit":
-        // $viewDisplayName = 'Manage Beers - Edit Beer';
         $viewPageName = '_editBeer.php';
         break;
     case "single":
-        // $viewDisplayName = 'Manage Beers - Beer Detail';
         $viewPageName = '_singleBeer.php';
         break;
     default:
@@ -42,7 +39,6 @@ switch ($requestedAction) {
 
 }
 //END: Homemade Controller
-
 
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
@@ -80,7 +76,6 @@ function editBeerProcess() //function to update the beer table
     $update_beer_statement = "UPDATE beer_brands SET beer_name = '$beerName', beer_price = '$beerPrice', beer_size = '$beerSize', beer_type = '$beerType', beer_quantity = '$beerQuantity', beerstore_beer_id = '$beerstoreBeerId' WHERE beer_id = '$beerId'";
     beerTrackDBQuery($update_beer_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 }
-
 //END: Homemade Models
 
 ?>
@@ -91,9 +86,7 @@ include '../../_shared/_header.php';
 include '../../_shared/_leftNav.php';
 ?>
 
-<!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
-    <!-- Content Header (Page header) -->
     <section class="content-header shared-nav">
         <h1>
             <?php echo $viewDisplayName; ?>
@@ -104,19 +97,10 @@ include '../../_shared/_leftNav.php';
         </div>
     </section>
 
-    <!-- Main content -->
     <section class="content">
-<!--         <div class="btn-group">
-            <a href="?viewName=add" type="button" class="btn btn-default">Add Beer</a>
-            <a href="?requestedAction=edit" type="button" class="btn btn-default">Middle</a>
-            <a href="?requestedAction=" type="button" class="btn btn-default">Right</a>
-        </div> -->
-        
-    <?php
-        include $viewPageName;
-    ?>
-    </section><!-- /.content -->
-</aside><!-- /.right-side -->
+    <?php include $viewPageName; ?>
+    </section>
+</aside>
 
 <?php
 //Include the footer
