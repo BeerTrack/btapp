@@ -1,3 +1,4 @@
+<!-- Template/Sample code from: http://stackoverflow.com/questions/3059044/google-maps-js-api-v3-simple-multiple-marker-example/3059129#3059129 -->
 <?php if($showingCourse == 'MSCI444'){ ?>
 <section class="col-lg-12 connectedSortable">
 <?php } ?>
