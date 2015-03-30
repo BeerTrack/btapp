@@ -71,6 +71,10 @@ a.dropdown-notification-toggle {
 	display: none;
 }
 
+.hidePrint {
+	display: none;
+}
+
 .gmaps-homepage {
 	height: calc(100% - 65px);
 }

@@ -25,7 +25,7 @@
 						echo "<tr>";
 						echo "<td>" . $row['beer_name'] . "</td>";
 						echo "<td>" . $row['can_bottle_desc'] . "</td>";
-						echo "<td>" . calcSalesThatDayNoStoreFilter($row['beerstore_beer_id'], $row['run_timestamp'], $row['can_bottle_desc'], $row[7]) . "</td>";
+						echo "<td class=\"calcSalesThatDayNoStoreFilter\">" . calcSalesThatDayNoStoreFilter($row['beerstore_beer_id'], $row['run_timestamp'], $row['can_bottle_desc'], $row[7]) . "</td>";
 						echo "</tr>";
 					}
 

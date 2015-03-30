@@ -1,4 +1,11 @@
+<?php if($showingCourse == 'MSCI444'){ ?>
+<section class="col-lg-12 connectedSortable">
+<?php } ?>
+<?php if($showingCourse == 'MSCI436'){ ?>
 <section class="col-lg-6 connectedSortable">
+<?php } ?>
+
+
     <div class="box box-solid bg-light-blue-gradient homepage-dashboard-box">
         <div class="box-header">
             <i class="fa fa-map-marker"></i>

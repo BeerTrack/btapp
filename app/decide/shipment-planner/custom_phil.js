@@ -41,16 +41,30 @@ function calcRoute() {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
-      var summaryPanel = document.getElementById('directions_panel');
-      summaryPanel.innerHTML = '';
+      // var summaryPanel = document.getElementById('firstStoreDelivery');
+      // summaryPanel.innerHTML = '';
       // For each route, display summary information.
-      for (var i = 0; i < route.legs.length; i++) {
+      for (var i = (route.legs.length - 1); i >= 0; i--) {
         var routeSegment = i + 1;
-        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
-        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+        var tempTimelimeItem = '';
+        tempTimelimeItem += '<li id="" class="timelineItemGMaps">';
+        tempTimelimeItem += '<i class="fa fa-truck bg-aqua"></i><div class="timeline-item">';
+        tempTimelimeItem +=  '<span class="time"><i class="fa fa-location-arrow"></i> ' + route.legs[i].distance.text + '</span>';
+        tempTimelimeItem += '<h3 class="timeline-header"> Segment #' + routeSegment + '</h3>';
+        tempTimelimeItem += '<div class="timeline-body">'+ route.legs[i].start_address + '</br> to </br>';
+        tempTimelimeItem += route.legs[i].end_address + '<br></div></div></li>';
+        if(i != (route.legs.length - 1))
+        {
+          tempTimelimeItem += '<li id="" class="timelineItemGMaps">';
+          tempTimelimeItem += '<i class="fa fa-user bg-aqua"></i><div class="timeline-item">';
+          tempTimelimeItem += '<h3 class="timeline-header"> Delivery #' + routeSegment + '</h3>';
+          tempTimelimeItem += '<div class="timeline-body">'+ route.legs[i].end_address + '</div></div></li>';
+        }
+
+        $( tempTimelimeItem ).insertAfter("#firstStoreDelivery");
       }
+
+      $("#firstStoreDelivery").remove();
     }
   });
 }
@@ -82,6 +96,16 @@ function includeStoreCheck (className) {
 	}
 }
 
+function printShippingPlan () {
+  $("#distribute").addClass('hidePrint');
+  $("#finalize").addClass('hidePrint');
+
+  window.print();
+
+  $("#distribute").removeClass('hidePrint');
+  $("#finalize").removeClass('hidePrint');
+}
+
 
 $( document ).ready(function() {
 
@@ -93,7 +117,6 @@ $( document ).ready(function() {
         var beerQName = $( this ).attr('name').split('_');
         console.log(beerQName)
 
-        //6 x Can 473 ml
         var making_inventory_package_option = beerQName[4] + ' x ' + beerQName[3] + ' ' + beerQName[5] + ' ml';
 
         var URLMake = "/app/decide/shipment-planner/process_inventory_update.php?breweryIDPassed=" + $("#loggedInBreweryID").text() + "&beerIDPassed=" + beerQName[1] + "&inventory_package_option=" + making_inventory_package_option + "&quantity_ordered=" + $( this ).val() + "&location=" + beerQName[2] 
@@ -103,20 +126,6 @@ $( document ).ready(function() {
         $.get(URLMake, function(data, status){
         alert("Data: " + data + "\nStatus: " + status);
         });
-
-
-
-        // $.post("process_inventory_update.php",
-        // {
-        //     breweryIDPassed: $("#loggedInBreweryID").text(),
-        //     beerIDPassed: beerQName[1],
-        //     inventory_package_option: making_inventory_package_option,
-        //     quantity_ordered: $( this ).val(),
-        //     location: beerQName[2]
-        // },
-        // function(data, status){
-        //     alert("Data: " + data + "\nStatus: " + status);
-        // });
 
       }
     });

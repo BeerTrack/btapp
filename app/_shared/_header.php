@@ -84,17 +84,27 @@
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
                         <!-- Notifications: style can be found in dropdown.less -->
+                        <li>
+                            <a href="#" onclick="printCurrentPage()" class="dropdown-toggle dropdown-notification-toggle" style="line-height: 20px" data-toggle="">
+                                <i class="fa fa-print"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:support@beertrack.herokuapp.com" class="dropdown-toggle dropdown-notification-toggle" style="line-height: 20px" data-toggle="">
+                                <i class="fa fa-ambulance"></i>
+                            </a>
+                        </li>
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle dropdown-notification-toggle" style="line-height: 20px" data-toggle="dropdown">
-                                <i class="fa fa-warning"></i>
+                                <i class="fa fa-bell"></i>
 
-    <!-- Call the notification fuction and display the # of notifications there are.  -->
-    <?php
-    $queryNotifications = "SELECT COUNT(*) FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID'"; 
-    $count = beerTrackDBQuery($queryNotifications);
-    $count1 = mysqli_fetch_array($count);
-    ?>
-                                <span class="label label-warning"><?php echo $count1[0]; ?></span>
+<?php
+$queryNotifications = "SELECT COUNT(*) FROM notifications WHERE status = 1 AND brewery_id = '$loggedInBreweryID'"; 
+$count = beerTrackDBQuery($queryNotifications);
+$count1 = mysqli_fetch_array($count);
+?>
+<!-- get the notifications from the DB and display the # of notifications there are.  -->
+<?php if($count1[0] != 0) { echo '<span class="label label-warning">' . $count1[0] . '</span> ';} ?>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="header">You have <?php echo $count1[0]; ?> notifications</li>
@@ -125,7 +135,13 @@
             </li>
             <li class="footer"><a href="/app/global/dashboard/?viewName=notifications">View all</a></li>
         </ul>
-        </li>
+        </li>      
+
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="/app/global/dashboard/?viewName=notifications">View all</a></li>
+                            </ul>
+                        </li>
                         
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
@@ -137,7 +153,7 @@
                   <li><a href="/?requestedAction=logout">Sign Out</a></li>
                   
                   <li class="divider"></li>
-                  <li><a href="/app/global/dashboard/?viewName=about">Provide Feedback</a></li>
+                  <!-- <li><a href="/app/global/dashboard/?viewName=about">Provide Feedback</a></li> -->
                   <li><a href="/app/global/dashboard/?viewName=about">About Beertrack</a></li>
 
                 </ul>

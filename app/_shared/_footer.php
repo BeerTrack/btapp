@@ -13,6 +13,12 @@
 
   //firing event to track user
   ga('send', 'event', 'user', 'authenticated user accessed page', $('#loggedInEmailUser').text());
+
+
+  function printCurrentPage () {
+    window.print();
+  }
+
 </script>
 
 

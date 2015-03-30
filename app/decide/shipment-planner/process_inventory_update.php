@@ -42,4 +42,10 @@ echo ' in loop #1';
     echo ' success?';
 }
 
+$body = 'The inventory of beer #' . $beerIDPassed . ' at store #' . $location . ' has been updated.';
+$subject = 'Beer #' . $beerIDPassed . ' Inventory Updated';
+
+createNotification($breweryIDPassed, $subject, $body, '1');
+
+
 ?>
