@@ -55,12 +55,6 @@ switch ($requestedAction) {
 
 //END: Homemade controller
 
-//**************************************************************
-//START: Homemade Models (for each of our controllers)
-//**************************************************************
-
-//END: Homemade models
-
 ?>
 
 <?php
@@ -77,9 +71,7 @@ include '../../_shared/_leftNav.php';
 
     <!-- Main content -->
     <section class="content">
-    <?php
-        include $viewPageName;
-    ?>
+    <?php include $viewPageName; ?>
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
 

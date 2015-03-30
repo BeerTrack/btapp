@@ -101,16 +101,4 @@ function totalLiters()
 
 <script type="text/javascript">
 
-$( document ).ready(function() {
-
-    var totalSalesYesturday = 0;
-    $(".calcSalesThatDayNoStoreFilter").each(function( index ) {
-            var thisVal = parseInt($( this ).text());
-            // console.log(thisVal);
-            totalSalesYesturday = totalSalesYesturday + thisVal;
-            $("#sumSoldYes").text(totalSalesYesturday + ' packages');
-        });
-
-
-});
 </script>
