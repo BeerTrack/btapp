@@ -1,9 +1,8 @@
-// START Google Maps API
+//copied from GMAPS:
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
 
-// sample code provided by google maps api to display markers on map
 function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
   var canada = new google.maps.LatLng(45.4000, -75.6667);
@@ -14,9 +13,10 @@ function initialize() {
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
+
+
 }
 
-// sample code provided by google maps api to display markers on map
 function calcRoute() {
   var start = document.getElementById('start').innerHTML;
   var end = document.getElementById('end').innerHTML;
@@ -41,8 +41,9 @@ function calcRoute() {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
-
-      //building the timeline of deliveries
+      // var summaryPanel = document.getElementById('firstStoreDelivery');
+      // summaryPanel.innerHTML = '';
+      // For each route, display summary information.
       for (var i = (route.legs.length - 1); i >= 0; i--) {
         var routeSegment = i + 1;
         var tempTimelimeItem = '';
@@ -63,18 +64,17 @@ function calcRoute() {
         $( tempTimelimeItem ).insertAfter("#firstStoreDelivery");
       }
 
-      //removing the locator marker we needed originally
       $("#firstStoreDelivery").remove();
     }
   });
 }
 
-//running the initlize function on load (although we re run it as the manifest is updated)
 google.maps.event.addDomListener(window, 'load', initialize);
-// END Google Maps API
 
 
-//removing and re adding the store and inventory data to the manifest as needed
+
+//Phil's stuff:
+
 function includeStoreCheck (className) {
 	var decision = $("#decider_" + className ).val();
 	if(decision === "include")
@@ -96,7 +96,6 @@ function includeStoreCheck (className) {
 	}
 }
 
-//hiding the areas we don't need on print, then printing them.
 function printShippingPlan () {
   $("#distribute").addClass('hidePrint');
   $("#finalize").addClass('hidePrint');
@@ -107,28 +106,36 @@ function printShippingPlan () {
   $("#finalize").removeClass('hidePrint');
 }
 
-//constantly listening for functions in the document ready below
+
 $( document ).ready(function() {
+
   //processing the shipment plan
   $("#processShipmentPlan").click(function(){
     $(".beerQFeild").each(function( index ) {
       if($( this ).val().length > 0)
       {
         var beerQName = $( this ).attr('name').split('_');
+        console.log(beerQName)
+
         var making_inventory_package_option = beerQName[4] + ' x ' + beerQName[3] + ' ' + beerQName[5] + ' ml';
+
         var URLMake = "/app/decide/shipment-planner/process_inventory_update.php?breweryIDPassed=" + $("#loggedInBreweryID").text() + "&beerIDPassed=" + beerQName[1] + "&inventory_package_option=" + making_inventory_package_option + "&quantity_ordered=" + $( this ).val() + "&location=" + beerQName[2] 
-        //making the call to update the inventory table
+
+        console.log(URLMake);
+
         $.get(URLMake, function(data, status){
-          // alert("Data: " + data + "\nStatus: " + status);
+        //alert("Data: " + data + "\nStatus: " + status);
         });
+
       }
     });
   });
 
 //resetting the google map based on which stores we're going to...  
-$("#collapseDeliveryToggle").click(function(){
-  $("#collapseTwo").css('display', 'inline-block');
+	$("#collapseDeliveryToggle").click(function(){
+		$("#collapseTwo").css('display', 'inline-block');
 		initialize(); //resetting google map
+
 		//clears them all
 		$("#waypoints option:selected").removeAttr("selected");
 
@@ -144,8 +151,7 @@ $("#collapseDeliveryToggle").click(function(){
 			}
 		});
 
-    //delates the calc route function in order to make sure the map is loaded properly (without visual errors)
 		setTimeout(function(){calcRoute(); console.log('ran calcRoute');},500);
 
 	})
-}) //end of document ready
+})
