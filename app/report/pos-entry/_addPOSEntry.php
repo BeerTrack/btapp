@@ -1,4 +1,4 @@
-<!-- general form elements disabled -->
+<!-- Adds a point of sale entry, through the use of a form -->
 <div class="box box-primary">
     <div class="box-header">
         <h3 class="box-title">New Sale</h3>
@@ -10,6 +10,8 @@
                 <select id="" name="inventory_location" class="form-control">
                     <option value="all">Select Location</option>
                     <option value="<?php echo $loggedInBreweryID; ?>">Brewery Headquarters (<?php echo $loggedInBreweryAddress; ?>)</option>
+                    
+                    <!-- fill the options section for the dropdown -->
                     <?php
                     //getting names of the stores associated with this brewery
                     $displayTransactionQuery = beerTrackDBQuery("SELECT * FROM stores WHERE brewery_id = '$loggedInBreweryID' ORDER BY location_name");
@@ -26,6 +28,7 @@
                 <label>Beer Name</label>
                 <select id="beer_name" name="beer_name" class="form-control">
                     <option>Select a Beer</option>
+                    <!-- fill the options section for the dropdown -->
                     <?php
                     //getting names of the beers associated with this brewery
                     $displayTransactionQuery = beerTrackDBQuery("SELECT * FROM beer_brands WHERE brewery_id = '$loggedInBreweryID'");
@@ -89,7 +92,7 @@
 
 
 <script type="text/javascript">
-
+//Calculates the total price of the order placed 
 function calcTotal()
 {
     var unit_price = parseInt($("#unit_price").val());
@@ -102,8 +105,3 @@ function calcTotal()
 }
 
 </script>
-
-
-<!-- - Form with fields for adding a beer (See elements here: http://almsaeedstudio.com/AdminLTE/pages/forms/general.html)</br>
-- POST this data back to the index page </br>
-- finish "addBeer" function (in index.php), it should submit the data back to the database.  -->

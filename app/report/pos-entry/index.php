@@ -1,4 +1,5 @@
 <?php
+//Include the files needed for functions on page
 include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
 
@@ -30,6 +31,8 @@ switch ($requestedAction) {
 //**************************************************************
 //START: Homemade Models (for each of our controllers)
 //**************************************************************
+
+// Get the variables from the form and add the point of sale transaction to the database
 function addPOSEntry()
 {
     $functionLoggedInBreweryID = returnLoggedInBreweryID();
@@ -61,6 +64,7 @@ function addPOSEntry()
 ?>
 
 <?php
+// Include the header and the nav bar
 include '../../_shared/_header.php';
 include '../../_shared/_leftNav.php';
 ?>
@@ -87,5 +91,6 @@ include '../../_shared/_leftNav.php';
 </aside><!-- /.right-side -->
 
 <?php
+//Inclue the footer
 include '../../_shared/_footer.php';
 ?>
