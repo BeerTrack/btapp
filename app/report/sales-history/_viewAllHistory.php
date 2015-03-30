@@ -14,13 +14,13 @@
 							<th>Package Type</th>
 							<th>Unit Volume</th>
 							<th>Quanity per Package</th>
-							<!-- <th>Packages Sold</th> -->
 							<th>Packages Sold</th>
 						</tr>
 					</thead>
 					<tbody>
 					<?php
-
+					
+					//Populate the dropdown menus for each othe questions with informatiion from the query
 					$listings = queryDatabaseForLatestInventory($inventory_beerstore_id, $inventory_location, $timespanForInventoryLookup, $inventory_package_type, $inventory_package_single_volume, $inventory_package_quanity);
 					
 					while($row = mysqli_fetch_array($listings)) {
@@ -32,13 +32,8 @@
 						echo "<td>" . $row['single_package_type'] . "</td>";
 						echo "<td>" . $row['single_package_volume'] . " ml</td>";
 						echo "<td>" . $row['single_package_quantity'] . "</td>";
-						// echo "<td>" . $row['stock_at_timestamp'] . "</td>";
 						echo "<td>". calcSalesThatDay($row['beerstore_beer_id'], $row['beerstore_store_id'], substr($row['run_timestamp'],0, 10), $row['can_bottle_desc'], $row['stock_at_timestamp']) . "</td>";
-						// calcSalesThatDay($beerstore_beer_ID, $beerstore_store_ID, $presentDay, $beerstore_product_desc, $presentDayStock)
-						// echo "<td>" . calcSalesThatDay($row['beerstore_beer_ID'], $row['beerstore_store_ID'], $row['run_timestamp'], $row['can_bottle_desc'], $row['stock_at_timestamp']) . "</td>";
-						// echo "<td class=\"options-align-right\"> <a href=\"?viewName=edit&storeId=" . $row['store_id'] . "\"><button class=\"btn btn-xs btn-primary\">Edit Store</button></a></td>";
 						echo "</tr>";
-
 					}
 
 					?>
@@ -50,6 +45,7 @@
 	</div>
 </div>
 
+<!-- Implements DataTables plugin in main view all table -->
 <script type="text/javascript">
 	$(function() {
 		$("#allStoresTable").dataTable( {

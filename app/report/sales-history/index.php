@@ -1,4 +1,5 @@
 <?php
+//Include the files needed for functions on page such as auth and database connection
 include '../../_shared/_auth.php';
 include '../../_shared/_databaseConnection.php';
 include '../../_shared/_globalFunctions.php';
@@ -53,6 +54,7 @@ function queryDatabaseForInventoryInfo() //to be used with viewQuery -> takes in
 ?>
 
 <?php
+// Include the header and the nav bar
 include '../../_shared/_header.php';
 include '../../_shared/_leftNav.php';
 ?>
@@ -76,5 +78,6 @@ include '../../_shared/_leftNav.php';
 </aside><!-- /.right-side -->
 
 <?php
+//Include the footer
 include '../../_shared/_footer.php';
 ?>
