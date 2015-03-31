@@ -43,6 +43,7 @@
     <div class="form-group">
                 <labelfor="lookupBeerNamesize">Select Package Quantity</label>
                 <select class="form-control" id="lookupBeerNamesize" name="lookupBeerNamesize">
+                    <option value="">Show all listings...</option>
                     <option value="1  ×  Can 500 ml">1  ×  Can 500 ml</option>
                     <option value="1  ×  Can 473 ml">1  ×  Can 473 ml</option>
                     <option value="6  ×  Can 500 ml">6  ×  Can 500 ml</option>
@@ -98,7 +99,7 @@
                 $("#beerIDLookupResults").css('display', 'block');
                 $("#beerIDLookupResultsLabel").css('display', 'block');
                 $.each(data, function (key, data) {
-                    if((data.name = $("#lookupBeerName").val()) && (data.brewer = $("#lookupBeerNameBrewer").val()) && (data.size = $("#lookupBeerNamesize").val()))
+                    if((data.name == $("#lookupBeerName").val()) && (data.brewer == $("#lookupBeerNameBrewer").val())) // && (data.size == $("#lookupBeerNamesize").val()))
                     {
                         $("#beerIDLookupResults").append("<tr><td>" + data.name + "</td><td>" + data.brewer + "</td><td>" + data.size + "</td><td>" + data.beer_id + "</td><td style=\"width:90px\"><button onclick=\"autoLoadBeerID(" + data.beer_id + ")\" class=\"btn btn-xs btn-primary\" data-dismiss=\"modal\" >Select Beer</button></td></tr>");
                     }
