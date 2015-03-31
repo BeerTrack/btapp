@@ -12,7 +12,7 @@
         <h3 class="box-title">New Walk in Order</h3>
       </div>
       <div class="box-body">
-		<form role="form" method="post" action="?requestedAction=newOrder">
+		<form role="form" method="post" action="/app/report/pos-entry/?requestedAction=newOrder">
             <div class="form-group col-xs-12 col-no-padding-left">
                 <label>Location</label>
                 <select id="" name="inventory_location" class="form-control">

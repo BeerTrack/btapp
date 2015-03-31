@@ -132,7 +132,7 @@
     {
         var inventory_beerstore_id = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_beerstore_id']); ?>';
         var inventory_location = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_location']); ?>';
-        var timespanForInventoryLookup = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['timespanForInventoryLookup']); ?>';
+        var timespanForInventoryLookup = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventoryLookupDay']); ?>';
         var inventory_package_type = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_type']); ?>';
         var inventory_package_single_volume = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_single_volume']); ?>';
         var inventory_package_quanity = '<?php echo mysqli_real_escape_string(returnConnection(), $_POST['inventory_package_quanity']); ?>';

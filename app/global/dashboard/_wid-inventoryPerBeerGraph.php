@@ -60,8 +60,8 @@ for ($daysBack=0; $daysBack < $daysToDo; $daysBack++) {
       array_push($dataPointNames, $can_bottle_descSpaceless);
     }
   }
-  $dataRowMaking .= "}";
   $catcherToStopToManyNames = $catcherToStopToManyNames + 1;
+  $dataRowMaking .= "}";
 
   $dataPoints[$daysBack] = $dataRowMaking;
 }
@@ -78,8 +78,8 @@ for ($i=($daysToDo - 1); $i >= 0 ; $i--) {
 $dataPointsMaking .= ']';
 
 $keyLabelsMaking = '[';
-for ($iKeysLabels=0; $iKeysLabels < count($dataPointNames); $iKeysLabels++) { 
-  $keyLabelsMaking .= "" . $dataPointNames[$iKeysLabels] . "";
+for ($iKeysLabels=0; $iKeysLabels < 5; $iKeysLabels++) { 
+  $keyLabelsMaking .= $dataPointNames[$iKeysLabels];
   if($iKeysLabels != count($dataPointNames) -1)
   {
     $keyLabelsMaking .= ", ";

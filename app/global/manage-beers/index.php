@@ -54,8 +54,8 @@ function addBeerProcess($loggedInBreweryID)
     $beerstoreBeerId = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerstoreBeerId']));
 
     //Inserting beer information into database
-    $insert_beer_statement = "INSERT INTO beer_brands (beer_name, beer_price, beer_size, beer_type, beer_quantity, beerstore_beer_id, brewery_id)
-    VALUES ('$beerName', '$beerPrice', '$beerSize', '$beerType', '$beerQuantity', '$beerstoreBeerId', '$loggedInBreweryID')";
+    $insert_beer_statement = "INSERT INTO beer_brands (beer_name, beerstore_beer_id, brewery_id)
+    VALUES ('$beerName', '$beerstoreBeerId', '$loggedInBreweryID')";
     beerTrackDBQuery($insert_beer_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 
     createNotification($loggedInBreweryID, "New Beer Added", "$beerName has been added to your inventory of beers", "1");
@@ -73,7 +73,7 @@ function editBeerProcess() //function to update the beer table
     $beerId = floatval(mysqli_real_escape_string(returnConnection(), $_POST['beerId']));
 
     //Upadating beer info in the database
-    $update_beer_statement = "UPDATE beer_brands SET beer_name = '$beerName', beer_price = '$beerPrice', beer_size = '$beerSize', beer_type = '$beerType', beer_quantity = '$beerQuantity', beerstore_beer_id = '$beerstoreBeerId' WHERE beer_id = '$beerId'";
+    $update_beer_statement = "UPDATE beer_brands SET beer_name = '$beerName', beerstore_beer_id = '$beerstoreBeerId' WHERE beer_id = '$beerId'";
     beerTrackDBQuery($update_beer_statement); //beerTrackDBQuery is a function that takes in an SQL statement and returns the result of it
 }
 //END: Homemade Models

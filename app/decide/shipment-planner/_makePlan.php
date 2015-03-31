@@ -31,7 +31,7 @@
 							{
 								$possibleBeersQuery = beerTrackDBQuery(
 									"SELECT DISTINCT s.location_name, bb.beer_name, ipd.single_package_type, ipd.single_package_volume, ipd.single_package_quantity, ipd.stock_at_timestamp, ipd.beerstore_store_id, ipd.beerstore_beer_id
-									FROM stores s, beer_brands bb, inventory_parsing_trying_something ipd
+									FROM stores s, beer_brands bb, inventory_parsing ipd
 									WHERE 
 									s.brewery_id = '$loggedInBreweryID' AND
 									s.beerstore_store_id = '$passedBeerStoreID' AND
@@ -39,7 +39,7 @@
 									ipd.beerstore_beer_id = bb.beerstore_beer_id AND
 									ipd.beerstore_store_id = s.beerstore_store_id AND
 									ipd.stock_at_timestamp = 
-									(SELECT ipSub.stock_at_timestamp FROM inventory_parsing_trying_something ipSub
+									(SELECT ipSub.stock_at_timestamp FROM inventory_parsing ipSub
 									WHERE
 									ipSub.single_package_type = ipd.single_package_type AND
 									ipSub.single_package_volume = ipd.single_package_volume AND

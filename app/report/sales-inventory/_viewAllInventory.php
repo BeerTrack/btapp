@@ -48,17 +48,6 @@
 	
 	$(document).ready( function () {
     var table = $('#allStoresTable').dataTable();
-    var tableTools = new $.fn.dataTable.TableTools( table, {
-        "buttons": [
-            "copy",
-            "csv",
-            "xls",
-            "pdf",
-            { "type": "print", "buttonText": "Print me!" }
-        ]
-    } );
-      
-    $( tableTools.fnContainer() ).insertAfter('div.box-title');
 } );
 
 	

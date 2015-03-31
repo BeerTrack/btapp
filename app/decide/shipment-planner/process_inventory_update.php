@@ -12,7 +12,7 @@ $run_timestamp = date('Y-m-d H:i:s', (time()));
 echo $location;
 
 //Get latest entry in Inventory parsing table 
-$queryWord = "SELECT * FROM inventory_parsing_trying_something WHERE beerstore_beer_id = '$beerIDPassed' and beerstore_store_id = '$location' and can_bottle_desc = '$inventory_package_option' ORDER BY run_timestamp DESC Limit 1";
+$queryWord = "SELECT * FROM inventory_parsing WHERE beerstore_beer_id = '$beerIDPassed' and beerstore_store_id = '$location' and can_bottle_desc = '$inventory_package_option' ORDER BY run_timestamp DESC Limit 1";
 
 $queryInventoryParsing = beerTrackDBQuery($queryWord);
 
@@ -24,7 +24,7 @@ while($row = mysqli_fetch_array($queryInventoryParsing))
     $packageVolume = $row['single_package_volume'];
 
     //Update entry in Inventory parsing
-    $updateInventoryParsing = "INSERT INTO inventory_parsing_trying_something (run_timestamp, brewery_id, beerstore_store_id, beerstore_beer_id, single_package_type, single_package_quantity, single_package_volume, stock_at_timestamp, can_bottle_desc) 
+    $updateInventoryParsing = "INSERT INTO inventory_parsing (run_timestamp, brewery_id, beerstore_store_id, beerstore_beer_id, single_package_type, single_package_quantity, single_package_volume, stock_at_timestamp, can_bottle_desc) 
     VALUES ('$run_timestamp', '$breweryIDPassed', '$location', '$beerIDPassed', '$packageType', '$packageQuantity', '$packageVolume', '$newStock', '$inventory_package_option')";
     beerTrackDBQuery($updateInventoryParsing);
     echo ' success?';

@@ -7,36 +7,36 @@
 <?php } ?>
 
 
-    <div class="box box-solid bg-light-blue-gradient homepage-dashboard-box">
-        <div class="box-header">
-            <i class="fa fa-map-marker"></i>
-            <h3 class="box-title">
-                Store Locations
-            </h3>
-        </div>
-        <div class="box-body">
-            <ul style="display:none">
-            <?php
-            $displayTransactionQuery = beerTrackDBQuery("SELECT * FROM stores WHERE brewery_id = '$loggedInBreweryID' ORDER BY location_name");
+<div class="box box-solid bg-light-blue-gradient homepage-dashboard-box">
+  <div class="box-header">
+    <i class="fa fa-map-marker"></i>
+    <h3 class="box-title">
+      Store Locations
+    </h3>
+  </div>
+  <div class="box-body">
+    <ul style="display:none">
+      <?php
+      $displayTransactionQuery = beerTrackDBQuery("SELECT * FROM stores WHERE brewery_id = '$loggedInBreweryID' ORDER BY location_name");
 
-            while($row = mysqli_fetch_array($displayTransactionQuery)) {
-                echo "<li class=\"storesOnMap\">" . $row['location_address'] . "</li>";
-            }
-            ?>
-            </ul>
+      while($row = mysqli_fetch_array($displayTransactionQuery)) {
+        echo "<li class=\"storesOnMap\">" . $row['location_address'] . "</li>";
+      }
+      ?>
+    </ul>
+
+    <div id="map" style="width: 100%;" class="gmaps-homepage"></div>
+
+  </div>
+</div>
+</section>
 
 
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
-  <script src="http://maps.google.com/maps/api/js?sensor=false" 
-          type="text/javascript"></script>
-
-
-  <div id="map" style="width: 100%;" class="gmaps-homepage"></div>
-
-  <script type="text/javascript">
+<script type="text/javascript">
 
 var arrayOfLatLongs = [];
-
 
 function getLatLong(beerStoreAddress)
 {
@@ -64,50 +64,44 @@ $(".storesOnMap").each(function( index ) {
     var latLongForThisStore = getLatLong($(this).text());
 });
 
-
-function makeMapWithMarkers(locations)
-{
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8,
-      // disableDefaultUI: true,
-      center: new google.maps.LatLng(43.4667, -80.5167),
+      zoom: 11,
+      disableDefaultUI: true,
+      center: new google.maps.LatLng(43.7, -79.4),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
-    var infowindow = new google.maps.InfoWindow();
 
+function makeMapWithMarkers(locations)
+{
+    var infowindow = new google.maps.InfoWindow();
     var marker, i;
 
     for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-        map: map,
-        title: 'Uluru (Ayers Rock)'
-      });
+      createMarker(new google.maps.LatLng(locations[i][0], locations[i][1]), map);
+    }
+  }
 
 
-  var contentString = '<div id="content">'+
+function createMarker(pos, mapPass) {
+    var contentString = '<div id="content">'+
       '<p id="" class="" style="color: black; font-weight: bold">Store Details</p>'+
       '<p><a href="/app/report/sales-inventory/">View Inventory</a></p>'+
       '<p><a href="/app/global/manage-stores/">Manage Store</a></p>'+
       '</div>';
 
-  var infowindow = new google.maps.InfoWindow({
+    var infowindow = new google.maps.InfoWindow({
       content: contentString
-  });
+    });
 
- google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
-  });
+    var marker = new google.maps.Marker({       
+        position: pos, 
+        map: mapPass
+    });
 
-    }
+    google.maps.event.addListener(marker, 'click', function() { 
+       infowindow.open(map,marker);
+    }); 
+    return marker;  
 }
-
-  </script>
-
-
-
-
-        </div>
-    </div>
-</section>
+</script>

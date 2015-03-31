@@ -73,7 +73,7 @@ function getDateAndStockLevels($startDate, $endDate, $beerstore_beer_ID, $beerst
 function calcSalesThatDay($beerstore_beer_ID, $beerstore_store_ID, $presentDay, $beerstore_product_desc, $presentDayStock)
 {
     $functionLoggedInBreweryID = returnLoggedInBreweryID();
-    $calcDaySalesQuery = "SELECT stock_at_timestamp FROM inventory_parsing_trying_something WHERE
+    $calcDaySalesQuery = "SELECT stock_at_timestamp FROM inventory_parsing WHERE
     run_timestamp > '$presentDay' AND
     can_bottle_desc = '$beerstore_product_desc' AND
     beerstore_beer_ID = '$beerstore_beer_ID' AND
@@ -104,7 +104,7 @@ function queryDatabaseForSalesInventory($inventory_beerstore_id, $inventory_loca
     $endDate = date_format($endDate,"Y-m-d");
 
     $inventorySQLQuery = "SELECT DISTINCT ip.run_timestamp, ip.can_bottle_desc, ip.stock_at_timestamp, ip.single_package_type, ip.single_package_quantity, ip.single_package_volume, bb.beer_name, ss.location_name, ip.beerstore_store_id, ip.beerstore_beer_id ";
-    $inventorySQLQuery .= "FROM inventory_parsing_trying_something ip, beer_brands bb, stores ss 
+    $inventorySQLQuery .= "FROM inventory_parsing ip, beer_brands bb, stores ss 
     WHERE 
     ip.beerstore_store_id = ss.beerstore_store_id AND 
     ip.beerstore_beer_id = bb.beerstore_beer_id AND 
@@ -159,7 +159,7 @@ function queryDatabaseForLatestInventory($inventory_beerstore_id, $inventory_loc
     $dayAfterTarget = date('Y-m-d', strtotime($targetSalesDay . ' + 1 days'));
 
     $inventorySQLQuery = "SELECT DISTINCT ip.run_timestamp, ip.can_bottle_desc, ip.stock_at_timestamp, ip.single_package_type, ip.single_package_quantity, ip.single_package_volume, bb.beer_name, ss.location_name, ip.beerstore_store_id, ip.beerstore_beer_id ";
-    $inventorySQLQuery .= "FROM inventory_parsing_trying_something ip, beer_brands bb, stores ss 
+    $inventorySQLQuery .= "FROM inventory_parsing ip, beer_brands bb, stores ss 
     WHERE 
     ip.beerstore_store_id = ss.beerstore_store_id AND 
     ip.beerstore_beer_id = bb.beerstore_beer_id AND 
