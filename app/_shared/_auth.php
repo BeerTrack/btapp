@@ -12,6 +12,10 @@ if($_SESSION["loginStatus"]  === 'loggedIn')
     $showingCourse = $_SESSION["showingCourse"];
     echo '<div id="loggedInEmailUser" style="display: none;">' . $loggedInEmail . '</div>';
     echo '<div id="loggedInBreweryID" style="display: none;">' . $loggedInBreweryID . '</div>';
+    if(strlen(($_SESSION["showingCourse"]))<1)
+    {
+    	$showingCourse = 'MSCI436';
+    }
 }
 else
 {
